@@ -7,6 +7,8 @@ tags:
   - vulnhub
   - easy
   - writeup
+categories:
+  - vulnhub
 ---
 
 
