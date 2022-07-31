@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T01:06:03+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p>https://www.vulnhub.com/entry/hogwarts-dobby,597/</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una IP con el puerto 80 abierto</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Abrir navegador e ir a la IP, en este caso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.82
+</code></pre></div></div>
+
+<p>Se abrirá una web por defecto de apache</p>
+
+<p>Hacemos click derecho e inspeccionar elemento</p>
+
+<p>Abajo del todo veremos una pista que nos dice que miremos en /alohomora así que ponemos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/alohomora
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Nos dirá que la clave de Draco es su casa (slytherin)</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Ahora hacemos un gobuster para ver qué más directorios existen</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster  <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.23 <span class="nt">-P</span> 80 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p>Nos saldrán más directorios, entre ellos uno llamado log</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Accedemos a el así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/log
+</code></pre></div></div>
+
+<p>Nos dará una contraseña y nos dirá que miremos en /DiagonAlley</p>
+
+<p>La contraseña está cifrada en base64, la desciframos y saldrá algo así</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/6.png" alt="image-center" class="align-center" /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>::ilikesocks
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Vamos a DiagonAlley así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/DiagonAlley
+</code></pre></div></div>
+
+<p>Veremos una web con dos artículos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/8.png" alt="image-center" class="align-center" /></p>
+
+<p>El primer artículo tendrá un código cifrado, lo podemos descifrar en decode.fr/cipher-identifier</p>
+
+<p>Ahora hacemos de nuevo un gobuster pero bajo ese directorio</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster  <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.23/DiagonAlley
+</code></pre></div></div>
+
+<p>Nos mostrará que hay varios directorios y archivos de wordpress, entre ellos uno llamado wp-admin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Accedemos a él así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/DiagonAlley/wp-admin
+</code></pre></div></div>
+
+<p>Nos saldrá una página de inicio de sesión</p>
+
+<p>Colocamos de nombre Draco y de contraseña slytherin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar php-reverse-shell.php de /usr/share/webshells/php a Documentos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar el propietario del archivo con chown para poder editarlo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Editarlo con nano para que lo IP sea la de nuestro equipo y el puerto que queramos poner como escucha</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar todo el código e ir a la web de wordpress con el usuario de Draco</p>
+
+<p>Ir a Apariencia -&gt; editor de temas</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Seleccionar de la lista el de error 404</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Pegar el código y aplicar cambios</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando nc para escuchar desde ese puerto</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 4444
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Ingresar un enlace inválido en wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Se abrirá el acceso a la Shell del equipo que tiene wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Ejecutar el comando</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-exec</span> /bin/bash <span class="nt">-p</span> <span class="se">\;</span> <span class="nt">-quit</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Nos dará acceso al bash en lugar de sh y con el usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiamos al usuario dobby con la contraseña que encontramos antes (ilikesocks)</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Vamos al directorio /home/dobby y usamos el comando base32 al archivo flag1.txt para poder leer archivos dado que cat no funciona</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Usamos la web dcode.fr/identification-chiffrement para saber que cifrado está utilizando y nos saldrá que es base32</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Lo pasamos por un descifrador de base32</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Y saldrá otra flag nueva, repetimos el proceso de detectar que cifrado usa</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Y nos dirá ques cifrado md5, lo desciframos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Nos saldrá un mensaje que dice goodjob</p>
+
+<p>Esto, no sirve para nada realmente</p>
+
+<p>Ahora miramos el directorio del usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Y leemos el archivo llamado proof.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/29.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[Writeup de Dobby hogwarts.]]></summary></entry><entry><title type="html">MrRobot</title><link href="http://localhost:4000/vulnhub/mrrobot/" rel="alternate" type="text/html" title="MrRobot" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/mrrobot</id><content type="html" xml:base="http://localhost:4000/vulnhub/mrrobot/"><![CDATA[<p>https://www.vulnhub.com/entry/mr-robot-1,151/</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una IP con el puerto 80 abierto</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Abrir navegador e ir a la IP, en este caso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.132
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar un gobuster para ver los directorios ocultos en la web</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrán varios directorios, entre ellos uno llamado /robots</p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">192.168.122.132/robots</code></p>
+
+<p>Saldrán varias cosas</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar a <code class="language-plaintext highlighter-rouge">/fsociety.dic</code> y se descargará un diccionario</p>
+
+<p>Entrar a <code class="language-plaintext highlighter-rouge">/key-1-of-3.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">192.168.122.132/wp-login.php</code></p>
+
+<h2 id="usar-hydra">Usar hydra</h2>
+
+<h3 id="encontrar-un-usuario-con-hydra">Encontrar un usuario con hydra</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra –t 64 –L fsociety.dic <span class="nt">-p</span> 1234 192.168.122.132 http-form-post <span class="s2">"/wp-login:log=^USER^&amp;pwd=^PASS^:invalid"</span>
+</code></pre></div></div>
+
+<h3 id="encontrar-contraseña">Encontrar contraseña</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra –t 64 –l usuario_a_usar <span class="nt">-P</span> fsociety.dic 192.168.122.132 http-form-post <span class="s2">"/wp-login:log=^USER^&amp;pwd=^PASS^:invalid"</span>
+</code></pre></div></div>
+<h3 id="encontrar-usuario-y-contraseña-juntos">Encontrar usuario y contraseña juntos</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra –t 64 –L fsociety.dic <span class="nt">-P</span> fsociety.dic 192.168.122.132 http-form-post <span class="s2">"/wp-login:log=^USER^&amp;pwd=^PASS^:invalid"</span>
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Encontrará el usuario Elliot, en sus diferentes variantes con mayúsculas y minúsculas.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan –url 192.168.122.132 <span class="nt">-P</span> fsociety.dic <span class="nt">--usernames</span> Elliot
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Encontrará una contraseña al final del proceso</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar en el login con el usuario Elliot y la contraseña ER28-0652</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.132/wp-login.php
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de temas</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar <code class="language-plaintext highlighter-rouge">php-reverse-shell.php</code> de <code class="language-plaintext highlighter-rouge">/usr/share/webshells/php</code> a <code class="language-plaintext highlighter-rouge">~/Documentos</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar el propietario del archivo con chown para poder editarlo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Editarlo con nano para que lo IP sea la de nuestro equipo y el puerto que queramos poner como escucha</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando <code class="language-plaintext highlighter-rouge">nc</code> para escuchar desde ese puerto</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 4444
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Ingresar un enlace inválido en wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Se nos abrira una shell</p>
+
+<p>Entrar al directorio de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">wp-config.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Mirar los usuarios del equipo entrando al directorio <code class="language-plaintext highlighter-rouge">/home</code> y usando el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> –l
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al directorio de robot y ver el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">password.raw-md5</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Descifrar el hash desde la web de dcode.fr/md5-hash</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Usamos el siguiente comando en python</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar de usuario a robot</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su robot
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al home y ver el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">key-2-of-3.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar a nmap en modo interactivo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar a shell</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá con el usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">/root</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer los archivos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/31.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="keys">Keys</h2>
+
+<h3 id="key1">Key1</h3>
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/1.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/32.png" alt="image-center" class="align-center" /></p>
+
+<h3 id="key2">Key2</h3>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/33.png" alt="image-center" class="align-center" /></p>
+
+<h3 id="key3">Key3</h3>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[Writeup de MrRobot.]]></summary></entry></feed>
