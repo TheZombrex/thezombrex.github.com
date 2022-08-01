@@ -5,12 +5,6 @@ var store = [{
         "url": "/vulnhub/mrrobot/",
         "teaser": ""
       },{
-        "title": "Breakout",
-        "excerpt":"https://www.vulnhub.com/series/empire,507/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá la máquina breakout Entrar al servidor web con la dirección 192.168.1.146, saldrá la web por defecto de Apache Dar click derecho e inspeccionar elemento y saldrá un mensaje encriptado Usar el identificador de cifrado de la web decode.fr, dirá que es...","categories": ["vulnhub"],
-        "tags": ["vulnhub","easy","writeup"],
-        "url": "/vulnhub/breakout-writeup/",
-        "teaser": ""
-      },{
         "title": "Dobby hogwarts",
         "excerpt":"https://www.vulnhub.com/entry/hogwarts-dobby,597/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá una IP con el puerto 80 abierto Abrir navegador e ir a la IP, en este caso 192.168.1.82 Se abrirá una web por defecto de apache Hacemos click derecho e inspeccionar elemento Abajo del todo veremos una pista que nos dice...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
@@ -30,7 +24,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                 ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                         ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"
