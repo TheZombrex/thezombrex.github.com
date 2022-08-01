@@ -59,6 +59,12 @@ var store = [{
         "url": "/vulnhub/dobby-hogwarts/",
         "teaser": ""
       },{
+        "title": "KBVuln 1",
+        "excerpt":"https://www.vulnhub.com/entry/kb-vuln-1,540/ sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puestos abiertos Entrar al servidor web desde el navegador, aparecerá una web normal Analizar directorios ocultos con gobuster gobuster dir –u 192.168.122.4 -w /usr/share/dirb/wordlists/common.txt No aparece nada fuera de lo normal. Tratar de entrar en el servidor...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/kbvuln1/",
+        "teaser": ""
+      },{
     "title": "Page Not Found",
     "excerpt":"Sorry, but the page you were trying to view does not exist.  ","url": "http://localhost:4000/404.html"
   },{
@@ -72,7 +78,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                                                                         ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                                                                                 ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"
@@ -136,6 +142,9 @@ var store = [{
   },{
     "title": null,
     "excerpt":"","url": "http://localhost:4000/page2/"
+  },{
+    "title": null,
+    "excerpt":"","url": "http://localhost:4000/page3/"
   },{
     "title": null,
     "excerpt":"{% if page.xsl %} {% endif %} {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %} {{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }} {% if doc.last_modified_at or doc.date...","url": "http://localhost:4000/sitemap.xml"
