@@ -11,8 +11,7 @@ categories:
   - vulnhub
 ---
 
-
-https://www.vulnhub.com/entry/hogwarts-dobby,597/
+[https://www.vulnhub.com/entry/hogwarts-dobby,597/](https://www.vulnhub.com/entry/hogwarts-dobby,597/)
 
 ```bash
 sudo nmap -vvv -sS -sV -O 192.168.1.0/24

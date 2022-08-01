@@ -11,7 +11,6 @@ categories:
   - hackthebox
 ---
 
-
 # Preguntas
 
 **What nmap scanning switch employs the use of default scripts during a scan?**

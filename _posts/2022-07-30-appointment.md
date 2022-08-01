@@ -11,7 +11,6 @@ categories:
   - hackthebox
 ---
 
-
 # Preguntas
 
 **What does the acronym SQL stand for?**

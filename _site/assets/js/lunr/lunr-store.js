@@ -66,7 +66,7 @@ var store = [{
         "teaser": ""
       },{
         "title": "KBVuln 2",
-        "excerpt":"https://www.youtube.com/watch?v=WhLngRlmMrA https://github.com/wetw0rk/malicious-wordpress-plugin sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress sudo gobuster dir...","categories": ["vulnhub"],
+        "excerpt":"https://www.vulnhub.com/entry/kb-vuln-2,562/ https://github.com/wetw0rk/malicious-wordpress-plugin sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress sudo gobuster dir...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/kbvuln2/",
         "teaser": ""
