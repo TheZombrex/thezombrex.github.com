@@ -9,31 +9,33 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Posts by Category - TheZombrex</title>
-<meta name="description" content="TheZombrex blog">
+<!-- begin _includes/seo.html --><title>Appointment - TheZombrex</title>
+<meta name="description" content="[StartingPoint][HackTheBox] Writeup de appointment.">
 
 
   <meta name="author" content="TheZombrex">
   
+  <meta property="article:author" content="TheZombrex">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="TheZombrex">
-<meta property="og:title" content="Posts by Category">
-<meta property="og:url" content="http://localhost:4000/categories/">
+<meta property="og:title" content="Appointment">
+<meta property="og:url" content="http://localhost:4000/hackthebox/appointment/">
 
 
-  <meta property="og:description" content="TheZombrex blog">
+  <meta property="og:description" content="[StartingPoint][HackTheBox] Writeup de appointment.">
 
 
 
 
 
   <meta name="twitter:site" content="@TheZombrex">
-  <meta name="twitter:title" content="Posts by Category">
-  <meta name="twitter:description" content="TheZombrex blog">
-  <meta name="twitter:url" content="http://localhost:4000/categories/">
+  <meta name="twitter:title" content="Appointment">
+  <meta name="twitter:description" content="[StartingPoint][HackTheBox] Writeup de appointment.">
+  <meta name="twitter:url" content="http://localhost:4000/hackthebox/appointment/">
 
   
     <meta name="twitter:card" content="summary">
@@ -44,6 +46,8 @@
 
 
 
+  <meta property="article:published_time" content="2022-07-30T00:00:00+02:00">
+
 
 
 
@@ -53,7 +57,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/categories/">
+<link rel="canonical" href="http://localhost:4000/hackthebox/appointment/">
 
 
 
@@ -104,7 +108,7 @@
 
   </head>
 
-  <body class="layout--categories">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Saltar a navegación principal</a></li>
@@ -145,6 +149,8 @@
 
     <div class="initial-content">
       
+
+
 
 
 
@@ -279,82 +285,246 @@
 
 
 
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title">Posts by Category</h1>
-    
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Appointment">
+    <meta itemprop="description" content="[StartingPoint][HackTheBox] Writeup de appointment.">
+    <meta itemprop="datePublished" content="2022-07-30T00:00:00+02:00">
     
 
-
-
-
-
-<ul class="taxonomy__index">
-  
-    
+    <div class="page__inner-wrap">
       
-        <li>
-          <a href="#hackthebox">
-            <strong>hackthebox</strong> <span class="taxonomy__count">6</span>
-          </a>
-        </li>
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-        <li>
-          <a href="#vulnhub">
-            <strong>vulnhub</strong> <span class="taxonomy__count">4</span>
-          </a>
-        </li>
-      
-    
-  
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-  
-</ul>
-
-
-
-  
-    
-      <section id="hackthebox" class="taxonomy__section">
-        <h2 class="archive__subtitle">hackthebox</h2>
-        <div class="entries-list">
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/hackthebox/appointment/" class="u-url" itemprop="url">Appointment
+</a>
+          </h1>
           
-            
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minuto(s) de lectura
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the acronym SQL stand for?</strong></p>
+
+<p>Structured Query Language</p>
+
+<p><strong>What is one of the most common type of SQL vulnerabilities?</strong></p>
+
+<p>SQL injection</p>
+
+<p><strong>What does PII stand for?</strong></p>
+
+<p>Personally Identifiable Information</p>
+
+<p><strong>What does the OWASP Top 10 list name the classification for this vulnerability?</strong></p>
+
+<p>A03:2021-Injection</p>
+
+<p><strong>What service and version are running on port 80 of the target?</strong></p>
+
+<p>Apache httpd 2.4.38 ((Debian))</p>
+
+<p><strong>What is the standard port used for the HTTPS protocol?</strong></p>
+
+<p>443</p>
+
+<p><strong>What is one luck-based method of exploiting login pages?</strong></p>
+
+<p>brute-forcing</p>
+
+<p><strong>What is a folder called in web-application terminology?</strong></p>
+
+<p>directory</p>
+
+<p><strong>What response code is given for “Not Found” errors?</strong></p>
+
+<p>404</p>
+
+<p><strong>What switch do we use with Gobuster to specify we’re looking to discover directories, and not subdomains?</strong></p>
+
+<p>dir</p>
+
+<p><strong>What symbol do we use to comment out parts of the code?</strong></p>
+
+<p>#</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Entrar al sitio web desde el navegador poniendo la ip, aparecerá un login</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de entrar mediante inyección de SQL del siguiente modo</p>
+
+<p>Usuario= admin</p>
+
+<p>Contraseña= wrongpassword’ OR ‘1’=’1</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Dará acceso mostrando un mensaje con el flag</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/3.png" alt="image-center" class="align-center" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Etiquetas: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#hackthebox" class="page__taxonomy-item p-category" rel="tag">hackthebox</a><span class="sep">, </span>
+    
+      <a href="/tags/#startingpoint" class="page__taxonomy-item p-category" rel="tag">StartingPoint</a><span class="sep">, </span>
+    
+      <a href="/tags/#writeup" class="page__taxonomy-item p-category" rel="tag">writeup</a>
+    
+    </span>
+  </p>
 
 
 
-<div class="list__item">
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorías: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#hackthebox" class="page__taxonomy-item p-category" rel="tag">hackthebox</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Actualizado:</strong> <time class="dt-published" datetime="2022-07-30T00:00:00+02:00">July 30, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Compartir en</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=TheZombrex&text=Appointment%20http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fappointment%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fappointment%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fhackthebox%2Fappointment%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartir en LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Anterior</a>
+    
+    
+      <a href="/vulnhub/breakout/" class="pagination--pager" title="Breakout
+">Siguiente</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">Puede que también te interese</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/vulnhub/dobby-hogwarts/" rel="permalink">Dobby hogwarts
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          12 minuto(s) de lectura
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Easy][Vulnhub] Writeup de Dobby hogwarts.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
@@ -388,137 +558,65 @@
   </article>
 </div>
 
+        
           
-            
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/vulnhub/mrrobot/" rel="permalink">MrRobot
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minuto(s) de lectura
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">[Easy][Vulnhub] Writeup de MrRobot.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="" alt="">
+      </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
         <a href="/hackthebox/meow/" rel="permalink">Meow
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[StartingPoint][HackTheBox] Writeup de Meow.
-</p>
-  </article>
-</div>
-
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/hackthebox/fawn/" rel="permalink">Fawn
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[StartingPoint][HackTheBox] Writeup de fawn.
-</p>
-  </article>
-</div>
-
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/hackthebox/dancing/" rel="permalink">Dancing
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[StartingPoint][HackTheBox] Writeup de Dancing.
-</p>
-  </article>
-</div>
-
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/hackthebox/crocodile/" rel="permalink">Crocodile
 </a>
       
     </h2>
@@ -543,261 +641,18 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">[StartingPoint][HackTheBox] Writeup de crocodile.
+    <p class="archive__item-excerpt" itemprop="description">[StartingPoint][HackTheBox] Writeup de Meow.
 </p>
   </article>
 </div>
 
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/hackthebox/appointment/" rel="permalink">Appointment
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[StartingPoint][HackTheBox] Writeup de appointment.
-</p>
-  </article>
+      </div>
+    </div>
+  
+  
 </div>
 
-          
-        </div>
-        <a href="#page-title" class="back-to-top">Volver arriba &uarr;</a>
-      </section>
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-
-  
-    
-  
-    
-      <section id="vulnhub" class="taxonomy__section">
-        <h2 class="archive__subtitle">vulnhub</h2>
-        <div class="entries-list">
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/vulnhub/dobby-hogwarts/" rel="permalink">Dobby hogwarts
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          8 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Easy][Vulnhub] Writeup de Dobby hogwarts.
-</p>
-  </article>
-</div>
-
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/vulnhub/mrrobot/" rel="permalink">MrRobot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          6 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Easy][Vulnhub] Writeup de MrRobot.
-</p>
-  </article>
-</div>
-
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/vulnhub/lupinone/" rel="permalink">LupinOne
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          7 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Medium][Vulnhub] Writeup de LupinOne.
-</p>
-  </article>
-</div>
-
-          
-            
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/vulnhub/breakout/" rel="permalink">Breakout
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          6 minuto(s) de lectura
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">[Easy][Vulnhub] Writeup de Breakout.
-</p>
-  </article>
-</div>
-
-          
-        </div>
-        <a href="#page-title" class="back-to-top">Volver arriba &uarr;</a>
-      </section>
-    
-  
-
-  
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-
-  
-    
-  
-    
-  
-
-
-  </div>
-</div>
     </div>
 
     
@@ -855,6 +710,25 @@
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/hackthebox/appointment/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/hackthebox/appointment"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://thezombrex.github.io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 

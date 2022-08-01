@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T02:45:31+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p>https://www.vulnhub.com/entry/hogwarts-dobby,597/</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T03:38:13+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p>https://www.vulnhub.com/entry/hogwarts-dobby,597/</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
 </code></pre></div></div>
@@ -166,7 +166,69 @@
 
 <p>Y leemos el archivo llamado proof.txt</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/29.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Dobby hogwarts.]]></summary></entry><entry><title type="html">Breakout</title><link href="http://localhost:4000/vulnhub/breakout/" rel="alternate" type="text/html" title="Breakout" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/breakout</id><content type="html" xml:base="http://localhost:4000/vulnhub/breakout/"><![CDATA[<p>https://www.vulnhub.com/series/empire,507/</p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/29.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Dobby hogwarts.]]></summary></entry><entry><title type="html">Appointment</title><link href="http://localhost:4000/hackthebox/appointment/" rel="alternate" type="text/html" title="Appointment" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/appointment</id><content type="html" xml:base="http://localhost:4000/hackthebox/appointment/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the acronym SQL stand for?</strong></p>
+
+<p>Structured Query Language</p>
+
+<p><strong>What is one of the most common type of SQL vulnerabilities?</strong></p>
+
+<p>SQL injection</p>
+
+<p><strong>What does PII stand for?</strong></p>
+
+<p>Personally Identifiable Information</p>
+
+<p><strong>What does the OWASP Top 10 list name the classification for this vulnerability?</strong></p>
+
+<p>A03:2021-Injection</p>
+
+<p><strong>What service and version are running on port 80 of the target?</strong></p>
+
+<p>Apache httpd 2.4.38 ((Debian))</p>
+
+<p><strong>What is the standard port used for the HTTPS protocol?</strong></p>
+
+<p>443</p>
+
+<p><strong>What is one luck-based method of exploiting login pages?</strong></p>
+
+<p>brute-forcing</p>
+
+<p><strong>What is a folder called in web-application terminology?</strong></p>
+
+<p>directory</p>
+
+<p><strong>What response code is given for “Not Found” errors?</strong></p>
+
+<p>404</p>
+
+<p><strong>What switch do we use with Gobuster to specify we’re looking to discover directories, and not subdomains?</strong></p>
+
+<p>dir</p>
+
+<p><strong>What symbol do we use to comment out parts of the code?</strong></p>
+
+<p>#</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Entrar al sitio web desde el navegador poniendo la ip, aparecerá un login</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de entrar mediante inyección de SQL del siguiente modo</p>
+
+<p>Usuario= admin</p>
+
+<p>Contraseña= wrongpassword’ OR ‘1’=’1</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Dará acceso mostrando un mensaje con el flag</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/3.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de appointment.]]></summary></entry><entry><title type="html">Breakout</title><link href="http://localhost:4000/vulnhub/breakout/" rel="alternate" type="text/html" title="Breakout" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/breakout</id><content type="html" xml:base="http://localhost:4000/vulnhub/breakout/"><![CDATA[<p>https://www.vulnhub.com/series/empire,507/</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
 </code></pre></div></div>
@@ -312,7 +374,266 @@ Root= Ts&amp;4&amp;YurgtRX(=~h</p>
 
 <p>Root: 3mp!r3{You_Manage_To_BreakOut_From_My_System_Congratulation}</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Breakout.]]></summary></entry><entry><title type="html">LupinOne</title><link href="http://localhost:4000/vulnhub/lupinone/" rel="alternate" type="text/html" title="LupinOne" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/lupinone</id><content type="html" xml:base="http://localhost:4000/vulnhub/lupinone/"><![CDATA[<p>https://www.vulnhub.com/entry/empire-lupinone,750/</p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Breakout.]]></summary></entry><entry><title type="html">Crocodile</title><link href="http://localhost:4000/hackthebox/crocodile/" rel="alternate" type="text/html" title="Crocodile" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/crocodile</id><content type="html" xml:base="http://localhost:4000/hackthebox/crocodile/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What nmap scanning switch employs the use of default scripts during a scan?</strong></p>
+
+<p>-sC</p>
+
+<p><strong>What service version is found to be running on port 21?</strong></p>
+
+<p>Vsftpd 3.0.3</p>
+
+<p><strong>What FTP code is returned to us for the “Anonymous FTP login allowed” message?</strong></p>
+
+<p>230</p>
+
+<p><strong>What command can we use to download the files we find on the FTP server?</strong></p>
+
+<p>get</p>
+
+<p><strong>What is one of the higher-privilege sounding usernames in the list we retrieved?</strong></p>
+
+<p>admin</p>
+
+<p><strong>What version of Apache HTTP Server is running on the target host?</strong></p>
+
+<p>2.4.41</p>
+
+<p><strong>What is the name of a handy web site analysis plug-in we can install in our browser?</strong></p>
+
+<p>Wappalyzer</p>
+
+<p><strong>What switch we can use with gobuster to specify we are looking for specific filetypes?</strong></p>
+
+<p>-x</p>
+
+<p><strong>What file have we found that can provide us a foothold on the target?</strong></p>
+
+<p>login.php</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Entrar al sitio web desde el navegador poniendo la ip</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Analizar todos los directorios de la web utilizando el diccionario de palabras comunes de dirb y usando el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster <span class="nb">dir</span> –u 10.129.142.57 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt <span class="nt">-x</span> .php  
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una web de login</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al login de la web</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ftp al sitio de forma anónima usando el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 10.129.142.57  
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Listar el contenido con el comando <code class="language-plaintext highlighter-rouge">ls</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar ambos archivos usando el comando</p>
+
+<p><code class="language-plaintext highlighter-rouge">get allowed.userlist</code>  y  <code class="language-plaintext highlighter-rouge">get allowed.userlist.passwd</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer ambos archivos desde el directorio personal</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Utilizar el usuario admin y la contraseña <code class="language-plaintext highlighter-rouge">rKXM59ESxesUFHAd</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá la flag</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/10.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de crocodile.]]></summary></entry><entry><title type="html">Dancing</title><link href="http://localhost:4000/hackthebox/dancing/" rel="alternate" type="text/html" title="Dancing" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/dancing</id><content type="html" xml:base="http://localhost:4000/hackthebox/dancing/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the 3-letter acronym SMB for?</strong></p>
+
+<p>server message block</p>
+
+<p><strong>What port does SMB use to operate at?</strong></p>
+
+<p>445</p>
+
+<p><strong>What network communication model does SMB use, architecturally speaking?</strong></p>
+
+<p>client_server model</p>
+
+<p><strong>What is the service name for port 445 that came up in our nmap scan?</strong></p>
+
+<p>microsoft-ds</p>
+
+<p><strong>What is the tool we use to connect SMB shares from our Linux distribution?</strong></p>
+
+<p>smbclient</p>
+
+<p><strong>What is the ‘flag’ or ‘switch’ we can use with the SMB tool to ‘list’ the contents of the share?</strong></p>
+
+<p>-l</p>
+
+<p><strong>What is the name of the share we are able to access in the end?</strong></p>
+
+<p>WorkShares</p>
+
+<p><strong>What is the command we can use within the SMB shell to download the files?</strong></p>
+
+<p>get</p>
+
+<h1 id="método-de-conexión">Método de conexión</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smbclient –L IP</th>
+      <th>Nos dirá que grupos de trabajo existen en la máquina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Smbclient \\IP\GRUPO</td>
+      <td>Nos conectará al grupo de trabajo</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Comandos básicos</p>
+
+    <ul>
+      <li>
+        <p>Ls</p>
+      </li>
+      <li>
+        <p>Cd</p>
+      </li>
+      <li>
+        <p>Get</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>La máquina se resuelve de la siguiente manera:
+Escaneo nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient –L IP
+</code></pre></div></div>
+<p>Nos mostrara los grupos de trabajo que existen en la máquina</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/1.png" alt="image-center" class="align-center" /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient <span class="se">\\\\</span>IP<span class="se">\\</span>WorkShares
+</code></pre></div></div>
+<p>Nos conectará al grupo de trabajo en el que veremos dos directorios</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">ls</code> Mostrará los directorios del grupo de trabajo</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">cd James.J\</code> Nos moverá al directorio <code class="language-plaintext highlighter-rouge">James.J\</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">ls</code> Mostrará el contenido del directorio</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">get flag.txt</code> Nos descargará el archivo flag.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">exit</code> Salir del cliente de smb</p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">ls</code> Nos mostrará el contenido del home en nuestro equipo para comprobar que se ha descargado el archivo.</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Comando <code class="language-plaintext highlighter-rouge">cat flag.txt</code> Mostrará el contenido del archivo flag.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/dancing/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar el contenido del <code class="language-plaintext highlighter-rouge">flag.txt</code> y eliminar el archivo con el comando <code class="language-plaintext highlighter-rouge">rm flag.txt</code></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de Dancing.]]></summary></entry><entry><title type="html">Fawn</title><link href="http://localhost:4000/hackthebox/fawn/" rel="alternate" type="text/html" title="Fawn" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/fawn</id><content type="html" xml:base="http://localhost:4000/hackthebox/fawn/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the 3-letter acronym FTP stand for?</strong></p>
+
+<p>file transfer protocol</p>
+
+<p><strong>Which port does the FTP service listen on usually?</strong></p>
+
+<p>21</p>
+
+<p><strong>What acronym is used for the secure version of FTP?</strong></p>
+
+<p>sftp</p>
+
+<p><strong>What is the command we can use to send an ICMP echo request to test our connection to the target?</strong></p>
+
+<p>ping</p>
+
+<p><strong>From our scans, what version is FTP running on the target?</strong></p>
+
+<p>vsftpd 3.0.3</p>
+
+<p><strong>From your scans, what OS type is running on the target?</strong></p>
+
+<p>unix</p>
+
+<p><strong>What is the command we need to run in order to display the ‘ftp’ client help menu</strong></p>
+
+<p>ftp –h</p>
+
+<p><strong>What is username that is used over FTP when you want to log in without having an account?</strong></p>
+
+<p>anonymous</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Realizar nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> <span class="nt">-vvv</span> –O 10.129.32.252
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/htb/fawn/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar en el servidor ftp como anónimo con el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 10.129.32.252
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Listar el contenido del servidor con el comando  <code class="language-plaintext highlighter-rouge">ls</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo flag.txt al equipo con el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get flag.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo desde el directorio personal que es donde se encuentra</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/5.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de fawn.]]></summary></entry><entry><title type="html">LupinOne</title><link href="http://localhost:4000/vulnhub/lupinone/" rel="alternate" type="text/html" title="LupinOne" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/lupinone</id><content type="html" xml:base="http://localhost:4000/vulnhub/lupinone/"><![CDATA[<p>https://www.vulnhub.com/entry/empire-lupinone,750/</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
 </code></pre></div></div>
@@ -488,7 +809,67 @@ https://gtfobins.github.io/gtfobins/pip/</p>
 
 <p>Icex64= <code class="language-plaintext highlighter-rouge">3mp!r3{I_See_That_You_Manage_To_Get_My_Bunny}</code></p>
 
-<p>Root= <code class="language-plaintext highlighter-rouge">3mp!r3{congratulations_you_manage_to_pwn_the_lupin1_box}</code></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="medium" /><category term="writeup" /><summary type="html"><![CDATA[[Medium][Vulnhub] Writeup de LupinOne.]]></summary></entry><entry><title type="html">MrRobot</title><link href="http://localhost:4000/vulnhub/mrrobot/" rel="alternate" type="text/html" title="MrRobot" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/mrrobot</id><content type="html" xml:base="http://localhost:4000/vulnhub/mrrobot/"><![CDATA[<p>https://www.vulnhub.com/entry/mr-robot-1,151/</p>
+<p>Root= <code class="language-plaintext highlighter-rouge">3mp!r3{congratulations_you_manage_to_pwn_the_lupin1_box}</code></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="medium" /><category term="writeup" /><summary type="html"><![CDATA[[Medium][Vulnhub] Writeup de LupinOne.]]></summary></entry><entry><title type="html">Meow</title><link href="http://localhost:4000/hackthebox/meow/" rel="alternate" type="text/html" title="Meow" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/meow</id><content type="html" xml:base="http://localhost:4000/hackthebox/meow/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the acronym VM stand for?</strong></p>
+
+<p>virtual machine</p>
+
+<p><strong>What do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection? It’s also known as a console or shell</strong></p>
+
+<p>terminal</p>
+
+<p><strong>What service do we use to form our VPN connection into HTB labs?</strong></p>
+
+<p>openvpn</p>
+
+<p><strong>What is the abreviated name for a ‘tunnel interface’ in the output of your VPN boot-up sequence output?</strong></p>
+
+<p>tun</p>
+
+<p><strong>What tool do we use to test our connection to the target with te ICMP echo request?</strong></p>
+
+<p>ping</p>
+
+<p><strong>What is the name of the most common tool for finding open ports on a target?</strong></p>
+
+<p>nmap</p>
+
+<p><strong>What service do we identify on port 23/tcp during our scans?</strong></p>
+
+<p>telnet</p>
+
+<p><strong>What username is able to log into the target over telnet with a blank password?</strong></p>
+
+<p>root</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Realizar nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> <span class="nt">-vvv</span> –O 10.129.254.61
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/htb/meow/1.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar usando telnet</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet 10.129.254.61
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando <code class="language-plaintext highlighter-rouge">ls</code> para listar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando cat para leer el contenido de flag.txt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>flag.txt  
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/5.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de Meow.]]></summary></entry><entry><title type="html">MrRobot</title><link href="http://localhost:4000/vulnhub/mrrobot/" rel="alternate" type="text/html" title="MrRobot" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/mrrobot</id><content type="html" xml:base="http://localhost:4000/vulnhub/mrrobot/"><![CDATA[<p>https://www.vulnhub.com/entry/mr-robot-1,151/</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
 </code></pre></div></div>
@@ -664,4 +1045,70 @@ https://gtfobins.github.io/gtfobins/pip/</p>
 
 <h3 id="key3">Key3</h3>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de MrRobot.]]></summary></entry></feed>
+<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de MrRobot.]]></summary></entry><entry><title type="html">Redeemer</title><link href="http://localhost:4000/hackthebox/redeemer/" rel="alternate" type="text/html" title="Redeemer" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/redeemer</id><content type="html" xml:base="http://localhost:4000/hackthebox/redeemer/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>Which TCP port is open on the machine?</strong></p>
+
+<p>6379</p>
+
+<p><strong>Which service is running on the port that is open on the machine?</strong></p>
+
+<p>Redis</p>
+
+<p><strong>What type of database is Redis? Choose ftom the following options: (i) In-memory Database, (ii) Traditional Database</strong></p>
+
+<p>In-memory Database</p>
+
+<p><strong>Which command-line utility is used to interact with the Redis server? Enther the program name you would enter into the terminal without any arguments.</strong></p>
+
+<p>redis-cli</p>
+
+<p><strong>Which flag is used with the Redis command-line utility to specify the hostname?</strong></p>
+
+<p>-h</p>
+
+<p><strong>Once connected to a Redis server, which command is used to obtain the information and stadistics about the Redis server?</strong></p>
+
+<p>info</p>
+
+<p><strong>What is the version of the Redis server being used on the target machine?</strong></p>
+
+<p>5.0.7</p>
+
+<p><strong>Which command is used to select the desired database in Redis?</strong></p>
+
+<p>select</p>
+
+<p><strong>How many keys are present inside the database with index 0?</strong></p>
+
+<p>4</p>
+
+<p><strong>Which command is used to obtain all the keys in a database?</strong></p>
+
+<p>keys *</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Realizar nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> <span class="nt">-vvv</span> –O 10.129.254.61
+</code></pre></div></div>
+
+<p>Entrar en el servidor de Redis con el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>redis-cli <span class="nt">-h</span> 10.129.136.187  
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/redeemer/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver la informacion del servidor de Redis con el comando <code class="language-plaintext highlighter-rouge">info</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/redeemer/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Seleccionar todas las claves con el comando <code class="language-plaintext highlighter-rouge">keys *</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/redeemer/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Obtener la información de flag con el comando  <code class="language-plaintext highlighter-rouge">get flag</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/redeemer/4.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de redeemer.]]></summary></entry></feed>

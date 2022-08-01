@@ -1,8 +1,32 @@
 var store = [{
+        "title": "Appointment",
+        "excerpt":"Preguntas What does the acronym SQL stand for? Structured Query Language What is one of the most common type of SQL vulnerabilities? SQL injection What does PII stand for? Personally Identifiable Information What does the OWASP Top 10 list name the classification for this vulnerability? A03:2021-Injection What service and version...","categories": ["hackthebox"],
+        "tags": ["hackthebox","StartingPoint","writeup"],
+        "url": "/hackthebox/appointment/",
+        "teaser": ""
+      },{
         "title": "Breakout",
         "excerpt":"https://www.vulnhub.com/series/empire,507/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá la máquina breakout Entrar al servidor web con la dirección 192.168.1.146, saldrá la web por defecto de Apache Dar click derecho e inspeccionar elemento y saldrá un mensaje encriptado Usar el identificador de cifrado de la web decode.fr, dirá que es...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/breakout/",
+        "teaser": ""
+      },{
+        "title": "Crocodile",
+        "excerpt":"Preguntas What nmap scanning switch employs the use of default scripts during a scan? -sC What service version is found to be running on port 21? Vsftpd 3.0.3 What FTP code is returned to us for the “Anonymous FTP login allowed” message? 230 What command can we use to download...","categories": ["hackthebox"],
+        "tags": ["hackthebox","StartingPoint","writeup"],
+        "url": "/hackthebox/crocodile/",
+        "teaser": ""
+      },{
+        "title": "Dancing",
+        "excerpt":"Preguntas What does the 3-letter acronym SMB for? server message block What port does SMB use to operate at? 445 What network communication model does SMB use, architecturally speaking? client_server model What is the service name for port 445 that came up in our nmap scan? microsoft-ds What is the...","categories": ["hackthebox"],
+        "tags": ["hackthebox","StartingPoint","writeup"],
+        "url": "/hackthebox/dancing/",
+        "teaser": ""
+      },{
+        "title": "Fawn",
+        "excerpt":"Preguntas What does the 3-letter acronym FTP stand for? file transfer protocol Which port does the FTP service listen on usually? 21 What acronym is used for the secure version of FTP? sftp What is the command we can use to send an ICMP echo request to test our connection...","categories": ["hackthebox"],
+        "tags": ["hackthebox","StartingPoint","writeup"],
+        "url": "/hackthebox/fawn/",
         "teaser": ""
       },{
         "title": "LupinOne",
@@ -11,10 +35,22 @@ var store = [{
         "url": "/vulnhub/lupinone/",
         "teaser": ""
       },{
+        "title": "Meow",
+        "excerpt":"Preguntas What does the acronym VM stand for? virtual machine What do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection? It’s also known as a console or shell terminal What service do...","categories": ["hackthebox"],
+        "tags": ["hackthebox","StartingPoint","writeup"],
+        "url": "/hackthebox/meow/",
+        "teaser": ""
+      },{
         "title": "MrRobot",
         "excerpt":"https://www.vulnhub.com/entry/mr-robot-1,151/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá una IP con el puerto 80 abierto Abrir navegador e ir a la IP, en este caso 192.168.1.132 Realizar un gobuster para ver los directorios ocultos en la web Saldrán varios directorios, entre ellos uno llamado /robots Ir a 192.168.122.132/robots Saldrán...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/mrrobot/",
+        "teaser": ""
+      },{
+        "title": "Redeemer",
+        "excerpt":"Preguntas Which TCP port is open on the machine? 6379 Which service is running on the port that is open on the machine? Redis What type of database is Redis? Choose ftom the following options: (i) In-memory Database, (ii) Traditional Database In-memory Database Which command-line utility is used to interact...","categories": ["hackthebox"],
+        "tags": ["hackthebox","StartingPoint","writeup"],
+        "url": "/hackthebox/redeemer/",
         "teaser": ""
       },{
         "title": "Dobby hogwarts",
@@ -36,7 +72,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                         ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                                                                         ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"
@@ -97,6 +133,9 @@ var store = [{
   },{
     "title": "Posts by Year",
     "excerpt":"","url": "http://localhost:4000/year-archive/"
+  },{
+    "title": null,
+    "excerpt":"","url": "http://localhost:4000/page2/"
   },{
     "title": null,
     "excerpt":"{% if page.xsl %} {% endif %} {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %} {{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }} {% if doc.last_modified_at or doc.date...","url": "http://localhost:4000/sitemap.xml"
