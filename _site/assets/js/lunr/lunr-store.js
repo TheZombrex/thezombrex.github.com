@@ -1,14 +1,14 @@
 var store = [{
+        "title": "Breakout",
+        "excerpt":"https://www.vulnhub.com/series/empire,507/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá la máquina breakout Entrar al servidor web con la dirección 192.168.1.146, saldrá la web por defecto de Apache Dar click derecho e inspeccionar elemento y saldrá un mensaje encriptado Usar el identificador de cifrado de la web decode.fr, dirá que es...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/breakout/",
+        "teaser": ""
+      },{
         "title": "MrRobot",
         "excerpt":"https://www.vulnhub.com/entry/mr-robot-1,151/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá una IP con el puerto 80 abierto Abrir navegador e ir a la IP, en este caso 192.168.1.132 Realizar un gobuster para ver los directorios ocultos en la web Saldrán varios directorios, entre ellos uno llamado /robots Ir a 192.168.122.132/robots Saldrán...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/mrrobot/",
-        "teaser": ""
-      },{
-        "title": "Breakout",
-        "excerpt":"https://www.vulnhub.com/series/empire,507/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá la máquina breakout Entrar al servidor web con la dirección 192.168.1.146, saldrá la web por defecto de Apache Dar click derecho e inspeccionar elemento y saldrá un mensaje encriptado Usar el identificador de cifrado de la web decode.fr, dirá que es...","categories": ["vulnhub"],
-        "tags": ["vulnhub","easy","writeup"],
-        "url": "/vulnhub/breakout-writeup/",
         "teaser": ""
       },{
         "title": "Dobby hogwarts",
