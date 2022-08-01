@@ -1,0 +1,63 @@
+<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the acronym SQL stand for?</strong></p>
+
+<p>Structured Query Language</p>
+
+<p><strong>What is one of the most common type of SQL vulnerabilities?</strong></p>
+
+<p>SQL injection</p>
+
+<p><strong>What does PII stand for?</strong></p>
+
+<p>Personally Identifiable Information</p>
+
+<p><strong>What does the OWASP Top 10 list name the classification for this vulnerability?</strong></p>
+
+<p>A03:2021-Injection</p>
+
+<p><strong>What service and version are running on port 80 of the target?</strong></p>
+
+<p>Apache httpd 2.4.38 ((Debian))</p>
+
+<p><strong>What is the standard port used for the HTTPS protocol?</strong></p>
+
+<p>443</p>
+
+<p><strong>What is one luck-based method of exploiting login pages?</strong></p>
+
+<p>brute-forcing</p>
+
+<p><strong>What is a folder called in web-application terminology?</strong></p>
+
+<p>directory</p>
+
+<p><strong>What response code is given for “Not Found” errors?</strong></p>
+
+<p>404</p>
+
+<p><strong>What switch do we use with Gobuster to specify we’re looking to discover directories, and not subdomains?</strong></p>
+
+<p>dir</p>
+
+<p><strong>What symbol do we use to comment out parts of the code?</strong></p>
+
+<p>#</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Entrar al sitio web desde el navegador poniendo la ip, aparecerá un login</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de entrar mediante inyección de SQL del siguiente modo</p>
+
+<p>Usuario= admin</p>
+
+<p>Contraseña= wrongpassword’ OR ‘1’=’1</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Dará acceso mostrando un mensaje con el flag</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/appointment/3.png" alt="image-center" class="align-center" /></p>

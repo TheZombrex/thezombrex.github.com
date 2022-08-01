@@ -1,0 +1,86 @@
+<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What nmap scanning switch employs the use of default scripts during a scan?</strong></p>
+
+<p>-sC</p>
+
+<p><strong>What service version is found to be running on port 21?</strong></p>
+
+<p>Vsftpd 3.0.3</p>
+
+<p><strong>What FTP code is returned to us for the “Anonymous FTP login allowed” message?</strong></p>
+
+<p>230</p>
+
+<p><strong>What command can we use to download the files we find on the FTP server?</strong></p>
+
+<p>get</p>
+
+<p><strong>What is one of the higher-privilege sounding usernames in the list we retrieved?</strong></p>
+
+<p>admin</p>
+
+<p><strong>What version of Apache HTTP Server is running on the target host?</strong></p>
+
+<p>2.4.41</p>
+
+<p><strong>What is the name of a handy web site analysis plug-in we can install in our browser?</strong></p>
+
+<p>Wappalyzer</p>
+
+<p><strong>What switch we can use with gobuster to specify we are looking for specific filetypes?</strong></p>
+
+<p>-x</p>
+
+<p><strong>What file have we found that can provide us a foothold on the target?</strong></p>
+
+<p>login.php</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Entrar al sitio web desde el navegador poniendo la ip</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Analizar todos los directorios de la web utilizando el diccionario de palabras comunes de dirb y usando el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster <span class="nb">dir</span> –u 10.129.142.57 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt <span class="nt">-x</span> .php  
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una web de login</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al login de la web</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ftp al sitio de forma anónima usando el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 10.129.142.57  
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Listar el contenido con el comando <code class="language-plaintext highlighter-rouge">ls</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar ambos archivos usando el comando</p>
+
+<p><code class="language-plaintext highlighter-rouge">get allowed.userlist</code>  y  <code class="language-plaintext highlighter-rouge">get allowed.userlist.passwd</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer ambos archivos desde el directorio personal</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Utilizar el usuario admin y la contraseña <code class="language-plaintext highlighter-rouge">rKXM59ESxesUFHAd</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá la flag</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/crocodile/10.png" alt="image-center" class="align-center" /></p>

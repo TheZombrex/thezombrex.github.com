@@ -1,0 +1,169 @@
+<p>https://www.vulnhub.com/entry/hogwarts-dobby,597/</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una IP con el puerto 80 abierto</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Abrir navegador e ir a la IP, en este caso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.82
+</code></pre></div></div>
+
+<p>Se abrirá una web por defecto de apache</p>
+
+<p>Hacemos click derecho e inspeccionar elemento</p>
+
+<p>Abajo del todo veremos una pista que nos dice que miremos en /alohomora así que ponemos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/alohomora
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Nos dirá que la clave de Draco es su casa (slytherin)</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Ahora hacemos un gobuster para ver qué más directorios existen</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster  <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.23 <span class="nt">-P</span> 80 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p>Nos saldrán más directorios, entre ellos uno llamado log</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Accedemos a el así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/log
+</code></pre></div></div>
+
+<p>Nos dará una contraseña y nos dirá que miremos en /DiagonAlley</p>
+
+<p>La contraseña está cifrada en base64, la desciframos y saldrá algo así</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/6.png" alt="image-center" class="align-center" /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>::ilikesocks
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Vamos a DiagonAlley así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/DiagonAlley
+</code></pre></div></div>
+
+<p>Veremos una web con dos artículos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/8.png" alt="image-center" class="align-center" /></p>
+
+<p>El primer artículo tendrá un código cifrado, lo podemos descifrar en decode.fr/cipher-identifier</p>
+
+<p>Ahora hacemos de nuevo un gobuster pero bajo ese directorio</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster  <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.23/DiagonAlley
+</code></pre></div></div>
+
+<p>Nos mostrará que hay varios directorios y archivos de wordpress, entre ellos uno llamado wp-admin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Accedemos a él así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/DiagonAlley/wp-admin
+</code></pre></div></div>
+
+<p>Nos saldrá una página de inicio de sesión</p>
+
+<p>Colocamos de nombre Draco y de contraseña slytherin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar php-reverse-shell.php de /usr/share/webshells/php a Documentos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar el propietario del archivo con chown para poder editarlo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Editarlo con nano para que lo IP sea la de nuestro equipo y el puerto que queramos poner como escucha</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar todo el código e ir a la web de wordpress con el usuario de Draco</p>
+
+<p>Ir a Apariencia -&gt; editor de temas</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Seleccionar de la lista el de error 404</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Pegar el código y aplicar cambios</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando nc para escuchar desde ese puerto</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 4444
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Ingresar un enlace inválido en wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Se abrirá el acceso a la Shell del equipo que tiene wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Ejecutar el comando</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-exec</span> /bin/bash <span class="nt">-p</span> <span class="se">\;</span> <span class="nt">-quit</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Nos dará acceso al bash en lugar de sh y con el usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiamos al usuario dobby con la contraseña que encontramos antes (ilikesocks)</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Vamos al directorio /home/dobby y usamos el comando base32 al archivo flag1.txt para poder leer archivos dado que cat no funciona</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Usamos la web dcode.fr/identification-chiffrement para saber que cifrado está utilizando y nos saldrá que es base32</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Lo pasamos por un descifrador de base32</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Y saldrá otra flag nueva, repetimos el proceso de detectar que cifrado usa</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Y nos dirá ques cifrado md5, lo desciframos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Nos saldrá un mensaje que dice goodjob</p>
+
+<p>Esto, no sirve para nada realmente</p>
+
+<p>Ahora miramos el directorio del usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Y leemos el archivo llamado proof.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/29.png" alt="image-center" class="align-center" /></p>

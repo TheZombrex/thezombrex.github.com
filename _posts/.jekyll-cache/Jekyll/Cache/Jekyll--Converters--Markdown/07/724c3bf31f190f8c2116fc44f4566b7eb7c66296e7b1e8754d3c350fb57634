@@ -1,0 +1,64 @@
+I"�	<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the 3-letter acronym FTP stand for?</strong></p>
+
+<p>file transfer protocol</p>
+
+<p><strong>Which port does the FTP service listen on usually?</strong></p>
+
+<p>21</p>
+
+<p><strong>What acronym is used for the secure version of FTP?</strong></p>
+
+<p>sftp</p>
+
+<p><strong>What is the command we can use to send an ICMP echo request to test our connection to the target?</strong></p>
+
+<p>ping</p>
+
+<p><strong>From our scans, what version is FTP running on the target?</strong></p>
+
+<p>vsftpd 3.0.3</p>
+
+<p><strong>From your scans, what OS type is running on the target?</strong></p>
+
+<p>unix</p>
+
+<p><strong>What is the command we need to run in order to display the ‘ftp’ client help menu</strong></p>
+
+<p>ftp –h</p>
+
+<p><strong>What is username that is used over FTP when you want to log in without having an account?</strong></p>
+
+<p>anonymous</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Realizar nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> <span class="nt">-vvv</span> –O 10.129.32.252
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/htb/fawn/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar en el servidor ftp como anónimo con el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 10.129.32.252
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Listar el contenido del servidor con el comando  <code class="language-plaintext highlighter-rouge">ls</code></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo flag.txt al equipo con el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get flag.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo desde el directorio personal que es donde se encuentra</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/fawn/5.png" alt="image-center" class="align-center" /></p>
+:ET

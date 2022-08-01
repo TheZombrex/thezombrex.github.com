@@ -1,0 +1,61 @@
+<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the acronym VM stand for?</strong></p>
+
+<p>virtual machine</p>
+
+<p><strong>What do we use to interact with the operating system in order to issue commands via the command line, such as the one to start our VPN connection? It’s also known as a console or shell</strong></p>
+
+<p>terminal</p>
+
+<p><strong>What service do we use to form our VPN connection into HTB labs?</strong></p>
+
+<p>openvpn</p>
+
+<p><strong>What is the abreviated name for a ‘tunnel interface’ in the output of your VPN boot-up sequence output?</strong></p>
+
+<p>tun</p>
+
+<p><strong>What tool do we use to test our connection to the target with te ICMP echo request?</strong></p>
+
+<p>ping</p>
+
+<p><strong>What is the name of the most common tool for finding open ports on a target?</strong></p>
+
+<p>nmap</p>
+
+<p><strong>What service do we identify on port 23/tcp during our scans?</strong></p>
+
+<p>telnet</p>
+
+<p><strong>What username is able to log into the target over telnet with a blank password?</strong></p>
+
+<p>root</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Realizar nmap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> <span class="nt">-vvv</span> –O 10.129.254.61
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/htb/meow/1.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar usando telnet</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet 10.129.254.61
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando <code class="language-plaintext highlighter-rouge">ls</code> para listar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando cat para leer el contenido de flag.txt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>flag.txt  
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/htb/meow/5.png" alt="image-center" class="align-center" /></p>

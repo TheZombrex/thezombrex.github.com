@@ -60,9 +60,15 @@ var store = [{
         "teaser": ""
       },{
         "title": "KBVuln 1",
-        "excerpt":"https://www.vulnhub.com/entry/kb-vuln-1,540/ sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puestos abiertos Entrar al servidor web desde el navegador, aparecerá una web normal Analizar directorios ocultos con gobuster gobuster dir –u 192.168.122.4 -w /usr/share/dirb/wordlists/common.txt No aparece nada fuera de lo normal. Tratar de entrar en el servidor...","categories": ["vulnhub"],
+        "excerpt":"https://www.vulnhub.com/entry/kb-vuln-1,540/ sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Entrar al servidor web desde el navegador, aparecerá una web normal Analizar directorios ocultos con gobuster gobuster dir –u 192.168.122.4 -w /usr/share/dirb/wordlists/common.txt No aparece nada fuera de lo normal. Tratar de entrar en el servidor...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/kbvuln1/",
+        "teaser": ""
+      },{
+        "title": "KBVuln 2",
+        "excerpt":"https://www.youtube.com/watch?v=WhLngRlmMrA https://github.com/wetw0rk/malicious-wordpress-plugin sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress sudo gobuster dir...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/kbvuln2/",
         "teaser": ""
       },{
     "title": "Page Not Found",
@@ -78,7 +84,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                                                                                 ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                                                                                         ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"

