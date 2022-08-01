@@ -59,6 +59,12 @@ var store = [{
         "url": "/vulnhub/dobby-hogwarts/",
         "teaser": ""
       },{
+        "title": "Deathnote",
+        "excerpt":"https://www.vulnhub.com/entry/deathnote-1,739/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá una IP con los puertos 80 y 22 abiertos Al intentar entrar a la web saldrá un mensaje que dice Please wait y se redireccionará a una web de wordpress. Realizar un escaneo de todos los directorios del sitio con gobuster...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/deathnote/",
+        "teaser": ""
+      },{
         "title": "KBVuln 1",
         "excerpt":"https://www.vulnhub.com/entry/kb-vuln-1,540/ sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Entrar al servidor web desde el navegador, aparecerá una web normal Analizar directorios ocultos con gobuster gobuster dir –u 192.168.122.4 -w /usr/share/dirb/wordlists/common.txt No aparece nada fuera de lo normal. Tratar de entrar en el servidor...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
@@ -84,7 +90,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                                                                                         ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                                                                                                 ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"
