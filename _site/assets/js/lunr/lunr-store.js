@@ -59,10 +59,22 @@ var store = [{
         "url": "/vulnhub/dobby-hogwarts/",
         "teaser": ""
       },{
+        "title": "Basic Pentesting",
+        "excerpt":"Preguntas What does the acronym VM stand for? virtual machine What is the name of the hidden directory on the web server(enter name without /)? Development What is the username? Jan What is the password? armando What service do you use to access the server(answer in abbreviation in all caps)?...","categories": ["tryhackme"],
+        "tags": ["tryhackme","writeup"],
+        "url": "/tryhackme/basic-pentesting/",
+        "teaser": ""
+      },{
         "title": "Deathnote",
         "excerpt":"https://www.vulnhub.com/entry/deathnote-1,739/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá una IP con los puertos 80 y 22 abiertos Al intentar entrar a la web saldrá un mensaje que dice Please wait y se redireccionará a una web de wordpress. Realizar un escaneo de todos los directorios del sitio con gobuster...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/deathnote/",
+        "teaser": ""
+      },{
+        "title": "Evilbox",
+        "excerpt":"https://www.vulnhub.com/entry/odin-1,619// sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Saldrá una IP con los puertos 80 y 22 abiertos Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente Escanear todos los directorios ocultos sudo gobuster dir –u 192.168.122.14...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/evilbox/",
         "teaser": ""
       },{
         "title": "KBVuln 1",
@@ -75,6 +87,12 @@ var store = [{
         "excerpt":"https://www.vulnhub.com/entry/kb-vuln-2,562/ https://github.com/wetw0rk/malicious-wordpress-plugin sudo nmap -vvv -sS -sV -O 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress sudo gobuster dir...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
         "url": "/vulnhub/kbvuln2/",
+        "teaser": ""
+      },{
+        "title": "Odin 1",
+        "excerpt":"https://www.vulnhub.com/entry/odin-1,619// sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Aparecerá una máquina con el puerto 80 abierto Aparecerá una máquina con el puerto 80 abierto Editar el archivo /etc/host y añadir la ip de la máquina con su respectivo DNS Hacer click en el primer artículo y pasarlo por dcode.fr...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/odin1/",
         "teaser": ""
       },{
     "title": "Page Not Found",
@@ -90,7 +108,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                                                                                                 ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                                                                                                                         ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"
@@ -157,6 +175,9 @@ var store = [{
   },{
     "title": null,
     "excerpt":"","url": "http://localhost:4000/page3/"
+  },{
+    "title": null,
+    "excerpt":"","url": "http://localhost:4000/page4/"
   },{
     "title": null,
     "excerpt":"{% if page.xsl %} {% endif %} {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %} {{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }} {% if doc.last_modified_at or doc.date...","url": "http://localhost:4000/sitemap.xml"

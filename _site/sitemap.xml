@@ -41,7 +41,15 @@
 <lastmod>2022-07-31T00:00:00+02:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/tryhackme/basic-pentesting/</loc>
+<lastmod>2022-08-01T00:00:00+02:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/vulnhub/deathnote/</loc>
+<lastmod>2022-08-01T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/vulnhub/evilbox/</loc>
 <lastmod>2022-08-01T00:00:00+02:00</lastmod>
 </url>
 <url>
@@ -50,6 +58,10 @@
 </url>
 <url>
 <loc>http://localhost:4000/vulnhub/kbvuln2/</loc>
+<lastmod>2022-08-01T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/vulnhub/odin1/</loc>
 <lastmod>2022-08-01T00:00:00+02:00</lastmod>
 </url>
 <url>
@@ -121,5 +133,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page4/</loc>
 </url>
 </urlset>
