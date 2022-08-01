@@ -5,6 +5,12 @@ var store = [{
         "url": "/vulnhub/breakout/",
         "teaser": ""
       },{
+        "title": "LupinOne",
+        "excerpt":"https://www.vulnhub.com/entry/empire-lupinone,750/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá la máquina LupinOne Entrar al servidor web con la dirección 192.168.1.146, saldrá una web con el logo de LupinOne. Al inspeccionar elemento no se encuentra nada Hacer un escaneo de todos los directorios del servidor Ir a /robots.txt Usar ffuf para...","categories": ["vulnhub"],
+        "tags": ["vulnhub","medium","writeup"],
+        "url": "/vulnhub/lupinone/",
+        "teaser": ""
+      },{
         "title": "MrRobot",
         "excerpt":"https://www.vulnhub.com/entry/mr-robot-1,151/ sudo nmap -vvv -sS -sV -O 192.168.1.0/24 Saldrá una IP con el puerto 80 abierto Abrir navegador e ir a la IP, en este caso 192.168.1.132 Realizar un gobuster para ver los directorios ocultos en la web Saldrán varios directorios, entre ellos uno llamado /robots Ir a 192.168.122.132/robots Saldrán...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup"],
@@ -30,7 +36,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                 ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                         ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"

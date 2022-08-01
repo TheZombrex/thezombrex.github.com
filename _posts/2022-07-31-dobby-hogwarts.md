@@ -1,6 +1,6 @@
 ---
 title: "Dobby hogwarts"
-excerpt: "Writeup de Dobby hogwarts."
+excerpt: "[Easy][Vulnhub] Writeup de Dobby hogwarts."
 header:
   teaser: ""
 tags:
