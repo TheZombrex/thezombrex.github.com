@@ -73,7 +73,7 @@ var store = [{
       },{
         "title": "Evilbox",
         "excerpt":"https://www.vulnhub.com/entry/odin-1,619// sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Saldrá una IP con los puertos 80 y 22 abiertos Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente Escanear todos los directorios ocultos sudo gobuster dir –u 192.168.122.14...","categories": ["vulnhub"],
-        "tags": ["vulnhub","easy","writeup"],
+        "tags": ["vulnhub","easy","writeup","video"],
         "url": "/vulnhub/evilbox/",
         "teaser": ""
       },{
@@ -91,7 +91,7 @@ var store = [{
       },{
         "title": "Odin 1",
         "excerpt":"https://www.vulnhub.com/entry/odin-1,619// sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Aparecerá una máquina con el puerto 80 abierto Aparecerá una máquina con el puerto 80 abierto Editar el archivo /etc/host y añadir la ip de la máquina con su respectivo DNS Hacer click en el primer artículo y pasarlo por dcode.fr...","categories": ["vulnhub"],
-        "tags": ["vulnhub","easy","writeup"],
+        "tags": ["vulnhub","easy","writeup","video"],
         "url": "/vulnhub/odin1/",
         "teaser": ""
       },{

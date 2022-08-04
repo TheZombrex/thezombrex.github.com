@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-01T21:47:48+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Basic Pentesting</title><link href="http://localhost:4000/tryhackme/basic-pentesting/" rel="alternate" type="text/html" title="Basic Pentesting" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/tryhackme/basic-pentesting</id><content type="html" xml:base="http://localhost:4000/tryhackme/basic-pentesting/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-04T03:41:50+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Basic Pentesting</title><link href="http://localhost:4000/tryhackme/basic-pentesting/" rel="alternate" type="text/html" title="Basic Pentesting" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/tryhackme/basic-pentesting</id><content type="html" xml:base="http://localhost:4000/tryhackme/basic-pentesting/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
 
 <p><strong>What does the acronym VM stand for?</strong></p>
 
@@ -386,55 +386,55 @@ Contraseña: death4me</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>john id_rsa_hash.txt
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/21.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/20.png" alt="image-center" class="align-center" /></p>
 
 <p>Mostrará la contraseña como resultado</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/22.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/21.png" alt="image-center" class="align-center" /></p>
 
 <p>Entrar por ssh con el usuario mowree y la contraseña encontrada</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh mowree@192.168.122.14 <span class="nt">-i</span> id_rsa
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/23.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/22.png" alt="image-center" class="align-center" /></p>
 
 <p>Mostrar el contenido del directorio home del usuario mowree y leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/24.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/23.png" alt="image-center" class="align-center" /></p>
 
 <p>Al mostrar los permisos de <code class="language-plaintext highlighter-rouge">/etc/passwd</code> podrá verse que tiene permiso de escritura para todos los usuarios</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/25.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/24.png" alt="image-center" class="align-center" /></p>
 
 <p>Crear una nuevo usuario con una clave creada en  formato sha-512 desde la maquina atacante</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkpasswd <span class="nt">-m</span> sha-512
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/26.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/25.png" alt="image-center" class="align-center" /></p>
 
 <p>Guardarla en un archivo y crear una linea como si de un usuario se tratase, dando permisos de root</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/27.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/26.png" alt="image-center" class="align-center" /></p>
 
 <p>Copiar este nuevo usuario y ponerlo en el <code class="language-plaintext highlighter-rouge">/etc/passwd</code> de la máquina victima</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/28.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/27.png" alt="image-center" class="align-center" /></p>
 
 <p>Cambiar al usuario nuevo</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/29.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/28.png" alt="image-center" class="align-center" /></p>
 
 <p>Ir a <code class="language-plaintext highlighter-rouge">/root</code> y mostrar el contenido de root.txt</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/30.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/29.png" alt="image-center" class="align-center" /></p>
 
 <h2 id="flags">Flags</h2>
 
 <p>User: 56Rbp0soobpzWSVzKh9YOvzGLgtPZQ</p>
 
-<p>Root: 36QtXfdJWvdC0VavlPIApUbDlqTsBM</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Evilbox.]]></summary></entry><entry><title type="html">KBVuln 1</title><link href="http://localhost:4000/vulnhub/kbvuln1/" rel="alternate" type="text/html" title="KBVuln 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln1</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln1/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/kb-vuln-1,540/">https://www.vulnhub.com/entry/kb-vuln-1,540/</a></p>
+<p>Root: 36QtXfdJWvdC0VavlPIApUbDlqTsBM</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><category term="video" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Evilbox.]]></summary></entry><entry><title type="html">KBVuln 1</title><link href="http://localhost:4000/vulnhub/kbvuln1/" rel="alternate" type="text/html" title="KBVuln 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln1</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln1/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/kb-vuln-1,540/">https://www.vulnhub.com/entry/kb-vuln-1,540/</a></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
 </code></pre></div></div>
@@ -901,7 +901,7 @@ Copiar el contenido de <code class="language-plaintext highlighter-rouge">/usr/s
 
 <p><img src="http://localhost:4000/assets/images/vulnhub/odin1/39.png" alt="image-center" class="align-center" /></p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/40.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Odin 1.]]></summary></entry><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/hogwarts-dobby,597/">https://www.vulnhub.com/entry/hogwarts-dobby,597/</a></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/40.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><category term="video" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Odin 1.]]></summary></entry><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/hogwarts-dobby,597/">https://www.vulnhub.com/entry/hogwarts-dobby,597/</a></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
 </code></pre></div></div>

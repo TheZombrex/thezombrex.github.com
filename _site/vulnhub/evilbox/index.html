@@ -151,6 +151,23 @@
 
     <div class="initial-content">
       
+  
+
+
+
+
+
+
+
+<!-- Courtesy of embedresponsively.com -->
+
+  <div class="responsive-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/DthHviQmpS4" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+
+
+
+
 
 
 
@@ -428,49 +445,49 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>john id_rsa_hash.txt
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/21.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/20.png" alt="image-center" class="align-center" /></p>
 
 <p>Mostrará la contraseña como resultado</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/22.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/21.png" alt="image-center" class="align-center" /></p>
 
 <p>Entrar por ssh con el usuario mowree y la contraseña encontrada</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh mowree@192.168.122.14 <span class="nt">-i</span> id_rsa
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/23.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/22.png" alt="image-center" class="align-center" /></p>
 
 <p>Mostrar el contenido del directorio home del usuario mowree y leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/24.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/23.png" alt="image-center" class="align-center" /></p>
 
 <p>Al mostrar los permisos de <code class="language-plaintext highlighter-rouge">/etc/passwd</code> podrá verse que tiene permiso de escritura para todos los usuarios</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/25.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/24.png" alt="image-center" class="align-center" /></p>
 
 <p>Crear una nuevo usuario con una clave creada en  formato sha-512 desde la maquina atacante</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkpasswd <span class="nt">-m</span> sha-512
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/26.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/25.png" alt="image-center" class="align-center" /></p>
 
 <p>Guardarla en un archivo y crear una linea como si de un usuario se tratase, dando permisos de root</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/27.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/26.png" alt="image-center" class="align-center" /></p>
 
 <p>Copiar este nuevo usuario y ponerlo en el <code class="language-plaintext highlighter-rouge">/etc/passwd</code> de la máquina victima</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/28.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/27.png" alt="image-center" class="align-center" /></p>
 
 <p>Cambiar al usuario nuevo</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/29.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/28.png" alt="image-center" class="align-center" /></p>
 
 <p>Ir a <code class="language-plaintext highlighter-rouge">/root</code> y mostrar el contenido de root.txt</p>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/30.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/29.png" alt="image-center" class="align-center" /></p>
 
 <h2 id="flags">Flags</h2>
 
@@ -494,6 +511,8 @@
     <span itemprop="keywords">
     
       <a href="/tags/#easy" class="page__taxonomy-item p-category" rel="tag">easy</a><span class="sep">, </span>
+    
+      <a href="/tags/#video" class="page__taxonomy-item p-category" rel="tag">video</a><span class="sep">, </span>
     
       <a href="/tags/#vulnhub" class="page__taxonomy-item p-category" rel="tag">vulnhub</a><span class="sep">, </span>
     
