@@ -215,7 +215,7 @@ Ejecutar de nuevo el archivo `reset_root`
 /usr/bin/reset_root
 ```
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/31.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/32.png){: .align-center}
 
 Ahora habrá cambiado la contraseña de `root` a `Earth`
 
@@ -224,14 +224,14 @@ Cambiar al usuario `root` con la contraseña `Earth`
 su
 ```
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/32.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/33.png){: .align-center}
 
 Comprobar que el usuario es root
 ```bash
 whoami
 ```
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/33.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/34.png){: .align-center}
 
 Ir al directorio de root y mostrar el contenido
 ```bash
@@ -239,14 +239,14 @@ cd /root
 ls –la
 ```
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/34.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/35.png){: .align-center}
 
 Leer el archivo `root_flag.txt`
 ```bash
 cat root_flag.txt
 ```
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/35.png){: .align-center}
+![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/36.png){: .align-center}
 
 ## Flags
 

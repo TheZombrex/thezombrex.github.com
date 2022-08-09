@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-09T13:08:23+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">The Planets: Earth</title><link href="http://localhost:4000/vulnhub/the_planets_earth/" rel="alternate" type="text/html" title="The Planets: Earth" /><published>2022-08-09T00:00:00+02:00</published><updated>2022-08-09T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/the_planets_earth</id><content type="html" xml:base="http://localhost:4000/vulnhub/the_planets_earth/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-09T13:52:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">The Planets: Earth</title><link href="http://localhost:4000/vulnhub/the_planets_earth/" rel="alternate" type="text/html" title="The Planets: Earth" /><published>2022-08-09T00:00:00+02:00</published><updated>2022-08-09T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/the_planets_earth</id><content type="html" xml:base="http://localhost:4000/vulnhub/the_planets_earth/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
 
 <p>Realizar un escaneo nmap a la red para buscar el equipo</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
@@ -182,7 +182,7 @@ Flag: <span class="o">[</span>user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/reset_root
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/earth/31.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/32.png" alt="image-center" class="align-center" /></p>
 
 <p>Ahora habrá cambiado la contraseña de <code class="language-plaintext highlighter-rouge">root</code> a <code class="language-plaintext highlighter-rouge">Earth</code></p>
 
@@ -190,26 +190,26 @@ Flag: <span class="o">[</span>user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/earth/32.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/33.png" alt="image-center" class="align-center" /></p>
 
 <p>Comprobar que el usuario es root</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">whoami</span>
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/earth/33.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/34.png" alt="image-center" class="align-center" /></p>
 
 <p>Ir al directorio de root y mostrar el contenido</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /root
 <span class="nb">ls</span> –la
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/earth/34.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/35.png" alt="image-center" class="align-center" /></p>
 
 <p>Leer el archivo <code class="language-plaintext highlighter-rouge">root_flag.txt</code></p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>root_flag.txt
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000/assets/images/vulnhub/earth/35.png" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/36.png" alt="image-center" class="align-center" /></p>
 
 <h2 id="flags">Flags</h2>
 
