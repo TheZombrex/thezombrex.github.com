@@ -1,0 +1,89 @@
+I"<h1 id="preguntas">Preguntas</h1>
+
+<p><strong>What does the acronym VM stand for?</strong></p>
+
+<p>virtual machine</p>
+
+<p><strong>What is the name of the hidden directory on the web server(enter name without /)?</strong></p>
+
+<p>Development</p>
+
+<p><strong>What is the username?</strong></p>
+
+<p>Jan</p>
+
+<p><strong>What is the password?</strong></p>
+
+<p>armando</p>
+
+<p><strong>What service do you use to access the server(answer in abbreviation in all caps)?</strong></p>
+
+<p>SSH</p>
+
+<p><strong>What is the name of the other user you found(all lower case)?</strong></p>
+
+<p>Kay</p>
+
+<p><strong>What is the final password you obtain?</strong></p>
+
+<p>heresareallystrongpasswordthatfollowsthepasswordpolicy$$</p>
+
+<h1 id="proceso">Proceso</h1>
+
+<p>Listar todos los directorios ocultos de la web</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 10.10.35.80 <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt <span class="nt">-x</span> html,php,txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Listar los usuarios del sistema</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/2.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Listar los recursos compartidos por SMB</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al recurso compartido de Anonymous y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar <code class="language-plaintext highlighter-rouge">hydra</code> para encontrar la contraseña de jay</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ssh con el usuario jay y la contraseña descubierta</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio home, luego al directorio personal de kay y al directorio <code class="language-plaintext highlighter-rouge">.ssh</code>, dentro se encontrará la clave privada del usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo de la clave privada <code class="language-plaintext highlighter-rouge">id_rsa</code> y copiar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Guardar el contenido en un archivo del equipo atacante</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Convertirlo a hash con la herramienta <code class="language-plaintext highlighter-rouge">ssh2john.py</code> y guardarlo en otro archivo nuevo</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Crackear la contraseña con <code class="language-plaintext highlighter-rouge">john</code>, servirán tanto rockyou como dark0de</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ssh usando la clave privada e introduciendo la contraseña crackeada</p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio personal de Kay y leer el archivo <code class="language-plaintext highlighter-rouge">pass.bak</code></p>
+
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/14.png" alt="image-center" class="align-center" /></p>
+:ET

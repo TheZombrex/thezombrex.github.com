@@ -1,0 +1,166 @@
+I"�<p><a href="https://www.vulnhub.com/entry/odin-1,619/">https://www.vulnhub.com/entry/odin-1,619//</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá una máquina con el puerto 80 abierto</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá una máquina con el puerto 80 abierto</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Editar el archivo <code class="language-plaintext highlighter-rouge">/etc/host</code> y añadir la ip de la máquina con su respectivo DNS</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Hacer click en el primer artículo y pasarlo por dcode.fr</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá que está cifrado en Base32</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el descifrador de Base32, pondrá un enlace que lleva al repositorio de SecLists, específicamente al wordlist de rockyou</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar el mismo proceso con el siguiente texto</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá que es Base64, descifrarlo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/9.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Y por último con el comentario del artículo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá que es brainfuck</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/12.png" alt="image-center" class="align-center" /></p>
+
+<p>No mostrará nada relevante</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al login de la web y probar un usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará que el usuario no existe</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Probar con admin, mostrará que el usuario existe pero la contraseña es incorrecta</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar wpcan para encontrar la contraseña del usuario admin utilizando el wordlist de rockyou</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan <span class="nt">--192</span>.168.122.6 <span class="nt">--usernames</span> admin <span class="nt">-P</span> /usr/share/wordlists/rockyou.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Encontrará una contraseña para el usuario admin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/18.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/odin1/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al panel de control de wordpress con el usuario admin y la contraseña que ha mostrado wpscan</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Dará acceso al panel de control de la web</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de temas y probar si puede modificarse el tema del error 404
+Copiar el contenido de <code class="language-plaintext highlighter-rouge">/usr/share/webshells/php/php-reverse-shell.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/21.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Pegarlo en el tema del error 404</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver la IP del equipo atacante</p>
+
+<p>ifconfig</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar el puerto y la ip en el script</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Y aplicar los cambios</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Poner el equipo con el puerto de escucha</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar a una direccion inválida en la web de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Abrirá una shell inversa</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al home de los usuarios y mostrar contenido, no mostrará nada relevante</p>
+
+<p>Ir a /var/www/html/ y mostrar contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido de <code class="language-plaintext highlighter-rouge">wp-config.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará una contraseña cifrada para el usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar la contraseña cifrada y guardarla en un archivo del equipo atacante</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar <code class="language-plaintext highlighter-rouge">john</code> para descifrar la contraseña del usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará una contraseña para el usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/35.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar de usuario a root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/36.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/37.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido de <code class="language-plaintext highlighter-rouge">bjorn</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/38.png" alt="image-center" class="align-center" /></p>
+
+<p>Al desencriptar el mensaje llevará a un vídeo de youtube</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/39.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/40.png" alt="image-center" class="align-center" /></p>
+:ET
