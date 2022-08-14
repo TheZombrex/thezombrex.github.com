@@ -1,0 +1,178 @@
+I"(<p><a href="https://www.vulnhub.com/entry/empire-lupinone,750/">https://www.vulnhub.com/entry/empire-lupinone,750/</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá la máquina LupinOne</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al servidor web con la dirección <code class="language-plaintext highlighter-rouge">192.168.1.146</code>, saldrá una web con el logo de LupinOne.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Al inspeccionar elemento no se encuentra nada</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Hacer un escaneo de todos los directorios del servidor</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/robots.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar ffuf para encontrar los archivos ocultos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffuf –u <span class="s1">'http://192.168.1.78/~FUZZ'</span> <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt <span class="nt">-e</span> .php,.txt,.html
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá uno llamado secret, ir a <code class="language-plaintext highlighter-rouge">/~secret</code>
+Mostrará el usuario que es icex64</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar de nuevo ffuf bajo <code class="language-plaintext highlighter-rouge">/~secret</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá un archivo llamado <code class="language-plaintext highlighter-rouge">mysecret.txt</code>, ir a <code class="language-plaintext highlighter-rouge">/~secret/.mysecret.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/10.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Descubrir el tipo de encriptado en dcode.fr</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el decodificador de Base 58</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/tmp</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar <code class="language-plaintext highlighter-rouge">cat</code> para introducir todo el hash en un nuevo archivo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de john y ejecutar el script <code class="language-plaintext highlighter-rouge">ssh2john.py</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar que el archivo hash se ha creado correctamente</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Crackear la contraseña con <code class="language-plaintext highlighter-rouge">john</code>, saldrá la contraseña P@55w0rd!</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Dar permisos al archivo key</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar mediante <code class="language-plaintext highlighter-rouge">ssh</code> con esa contraseña y el usuario icex64, al ejecutar el comando pedirá la contraseña crackeada P@55w0rd!</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver el usuario y directorio</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar contenido del directorio</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar contenido de <code class="language-plaintext highlighter-rouge">user.txt</code>, mostrará la flag del usuario</p>
+
+<p><code class="language-plaintext highlighter-rouge">3mp!r3{I_See_That_You_Manage_To_Get_My_Bunny}</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar información del sistema</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Dirá que el usuario icex64 puede ejecutar un commando en LupinOne, este se encuentra en el directorio personal de otro llamado arsene</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio personal de arsene y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">note.txt</code>, dirá que sabe que el script puede comprometer su cuenta.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Ejecutar el script</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar archivos que puedan ser ejecutados por todos los usuarios</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/29.png" alt="image-center" class="align-center" /></p>
+
+<p>Introducir un comando en el script usando <code class="language-plaintext highlighter-rouge">cat</code> para poder cambiar al usuario arsene cuando se ejecute</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/30.png" alt="image-center" class="align-center" /></p>
+
+<p>Ejecutar el script</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/31.png" alt="image-center" class="align-center" /></p>
+
+<p>Se cambiará al usuario arsene</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/32.png" alt="image-center" class="align-center" /></p>
+
+<p>Comprobar los permisos del usuario arsene</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/33.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver qué tipo de archivo es <code class="language-plaintext highlighter-rouge">pip</code> en <code class="language-plaintext highlighter-rouge">/usr/bin/pip</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/34.png" alt="image-center" class="align-center" /></p>
+
+<p>Revisar la documentación de <code class="language-plaintext highlighter-rouge">pip</code>
+https://gtfobins.github.io/gtfobins/pip/</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/35.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar estos comandos a excepción del último que cambiará un poco, el resultado sería:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TF</span><span class="o">=</span><span class="si">$(</span><span class="nb">mktemp</span> <span class="nt">-d</span><span class="si">)</span>
+
+<span class="nb">echo</span> <span class="s2">"import os; os.execl('/bin/sh', 'sh', '-c', 'sh &lt;</span><span class="si">$(</span><span class="nb">tty</span><span class="si">)</span><span class="s2"> &gt;</span><span class="si">$(</span><span class="nb">tty</span><span class="si">)</span><span class="s2"> 2&gt;</span><span class="si">$(</span><span class="nb">tty</span><span class="si">)</span><span class="s2">')"</span> <span class="o">&gt;</span> <span class="nv">$TF</span>/setup.py
+
+<span class="nb">sudo</span> <span class="nt">-u</span> root /usr/bin/pip <span class="nb">install</span> <span class="nv">$TF</span>
+
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/36.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/37.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">/root</code> y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/38.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">root.txt</code>, dará la flag de root</p>
+
+<p><code class="language-plaintext highlighter-rouge">3mp!r3{congratulations_you_manage_to_pwn_the_lupin1_box}</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/lupinone/39.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Icex64= <code class="language-plaintext highlighter-rouge">3mp!r3{I_See_That_You_Manage_To_Get_My_Bunny}</code></p>
+
+<p>Root= <code class="language-plaintext highlighter-rouge">3mp!r3{congratulations_you_manage_to_pwn_the_lupin1_box}</code></p>
+:ET

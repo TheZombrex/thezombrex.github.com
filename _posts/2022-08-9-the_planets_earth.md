@@ -50,7 +50,7 @@ Entrar a la web como `earth.local`
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/7.png){: .align-center}
 
-Realizar un escaneo nmap a ambas DNS como https
+Realizar un escaneo con gobuster a ambas DNS como https
 ```bash
 sudo gobuster dir -u https://earth.local -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
 ```
@@ -189,7 +189,7 @@ Dar permisos de ejecución al archivo `reset_root`
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/29.png){: .align-center}
 
-Asegurar que se tiene instalado `strace`, sino instalarlo
+Asegurar que se tiene instalado `strace`, si no instalarlo
 ```bash
 sudo apt install –y strace
 ```
