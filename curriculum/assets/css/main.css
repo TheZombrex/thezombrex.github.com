@@ -123,7 +123,7 @@ span.ds-department{ color: #373737; font-weight: 500; font-size: 18px; padding-b
 
 
 /*-------------------------------------------------------------------------------
- Responsive XS Style @media (max-width: 767px) 
+ Responsive XS Style @media (max-width: 767px)
 -------------------------------------------------------------------------------*/
 @media (max-width: 768px) {
 	.ds-header,.ds-header.ds-fixed-header{ padding: 15px 0; }
