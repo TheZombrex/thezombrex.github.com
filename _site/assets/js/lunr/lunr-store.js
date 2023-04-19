@@ -72,7 +72,7 @@ var store = [{
         "teaser": ""
       },{
         "title": "Evilbox",
-        "excerpt":"https://www.vulnhub.com/entry/odin-1,619// sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Saldrá una IP con los puertos 80 y 22 abiertos Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente Escanear todos los directorios ocultos sudo gobuster dir –u 192.168.122.14...","categories": ["vulnhub"],
+        "excerpt":"https://www.vulnhub.com/entry/evilbox-one,736/ sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24 Saldrá una IP con los puertos 80 y 22 abiertos Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente Escanear todos los directorios ocultos sudo gobuster dir –u 192.168.122.14...","categories": ["vulnhub"],
         "tags": ["vulnhub","easy","writeup","video"],
         "url": "/vulnhub/evilbox/",
         "teaser": ""
@@ -183,15 +183,6 @@ var store = [{
     "excerpt":"","url": "http://localhost:4000/year-archive/"
   },{
     "title": null,
-    "excerpt":"","url": "http://localhost:4000/page2/"
-  },{
-    "title": null,
-    "excerpt":"","url": "http://localhost:4000/page3/"
-  },{
-    "title": null,
-    "excerpt":"","url": "http://localhost:4000/page4/"
-  },{
-    "title": null,
     "excerpt":"{% if page.xsl %} {% endif %} {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %} {{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }} {% if doc.last_modified_at or doc.date...","url": "http://localhost:4000/sitemap.xml"
   },{
     "title": null,
@@ -199,4 +190,13 @@ var store = [{
   },{
     "title": null,
     "excerpt":"{% if page.xsl %}{% endif %}Jekyll{{ site.time | date_to_xmlschema }}{{ page.url | absolute_url | xml_escape }}{% assign title = site.title | default: site.name %}{% if page.collection != \"posts\" %}{% assign collection = page.collection | capitalize %}{% assign title = title | append: \" | \" | append: collection %}{% endif...","url": "http://localhost:4000/feed.xml"
+  },{
+    "title": null,
+    "excerpt":"","url": "http://localhost:4000/page2/"
+  },{
+    "title": null,
+    "excerpt":"","url": "http://localhost:4000/page3/"
+  },{
+    "title": null,
+    "excerpt":"","url": "http://localhost:4000/page4/"
   }]
