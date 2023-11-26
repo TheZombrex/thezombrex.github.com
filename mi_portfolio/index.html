@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -8,22 +8,42 @@
     <title>Pruebas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://use.fontawesome.com/releases/v6.2.1/css/all.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/scrollreveal.js"></script>
 </head>
 
 <body>
-    <div id="cursor"></div>
-    <div class="aboutMe__parallax" id="parallax"></div>
-    <div class="aboutMe transition_section" id="parallax">
+    <div id="cursor" class=""></div>
+    <header class="nav">
+        <div class="nav__col-1">
+          <div class="nav__col-1__logo"></div>
+        </div>
+        <div class="nav__col-2">
+        <a href="" id="nav__col-2__phone_menu_icon" class="nav__col-2__phone_menu_icon"><span class="mdi mdi-menu"></span></a>
+        <a href="" id="nav__col-2__theme_menu_icon" class="nav__col-2__theme_menu_icon"><span class="mdi mdi-weather-night"></span></a>
+        <nav class="nav__col-2__menu">
+         
+          <ul>
+            <li><a class="a" href="#about_me">Inicio</a><div class="menu_line"></div></li>
+            <li><a class="a" href="#projects">Proyectos</a><div class="menu_line"></div></li>
+            <li><a class="a" href="#studies">Servicio Técnico</a><div class="menu_line"></div></li>
+            <li><a class="a" href="#contact">Contacto</a><div class="menu_line"></div></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+      </header>
+    <div class="aboutMe__background" id="background"></div>
+    <div class="aboutMe transition_section" id="about_me">
         <div class="aboutMe__column1">
             <div class="aboutMe__column1__img"></div>
 
         </div>
         <div class="aboutMe__column2">
             <h1 class="aboutMe__column2__h1">David Fernandez</h1>
-            <h2 class="aboutMe__column2__h2"><span class="aboutMe__column2__h2__span"> &lt </span> Web Developer <span class="aboutMe__column2__h2__span"> /> </span></h2>
+            <h2 class="aboutMe__column2__h2"><span class="aboutMe__column2__h2__span"> &lth2> </span> Web Developer <span class="aboutMe__column2__h2__span"> /h2> </span></h2>
             <div class="aboutMe__column2__buttons">
                 <a href="https://linkedin.com/in/david-fernandez-perez/" target="_blank" rel="noopener noreferrer" class="aboutMe__column2__buttons__button--linkedin__a a">
                     <p class="aboutMe__column2__button--linkedin__a__button__text">Mira mi Linked<span class="aboutMe__column2__buttons__button--linkedin__a__icon">in</span></p>
@@ -43,11 +63,20 @@
             </div>
         </div>
     </div>
-    <div class="pojects transition_section">
+    <div class="pojects transition_section" id="projects">
         <h2 class="projects__h2">PROYECTOS</h2>
         <h3 class="projects__h3">Aquí puedes ver algunos de mis proyectos</h3>
         <div class="projects__container">
             <article class="projects__container__article delay_transition1">
+                <div class="projects__container__article__img" alt="Imagen del proyecto"></div>
+                <h2 class="projects__container__article__title">Titulo del Proyecto</h2>
+                <p class="projects__container__article__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus illum doloribus voluptatum quod quis nostrum aliquid rem aperiam enim tempora pariatur sint quibusdam, accusamus qui dolorem at minus nisi?</p>
+                <div class="projects__container__article__buttons">
+                    <a class="projects__container__article__buttons__a--web a">Ver web</a>
+                    <a class="projects__container__article__buttons__a--code a">Ver Código</a>
+                </div>
+            </article>
+            <article class="projects__container__article">
                 <img src="images/projectPlaceholder.jpg" alt="Imagen del proyecto" class="projects__container__article__img">
                 <h2 class="projects__container__article__title">Titulo del Proyecto</h2>
                 <p class="projects__container__article__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus illum doloribus voluptatum quod quis nostrum aliquid rem aperiam enim tempora pariatur sint quibusdam, accusamus qui dolorem at minus nisi?</p>
@@ -56,7 +85,7 @@
                     <a class="projects__container__article__buttons__a--code a">Ver Código</a>
                 </div>
             </article>
-            <article class="projects__container__article delay_transition2">
+            <article class="projects__container__article">
                 <img src="images/projectPlaceholder.jpg" alt="Imagen del proyecto" class="projects__container__article__img">
                 <h2 class="projects__container__article__title">Titulo del Proyecto</h2>
                 <p class="projects__container__article__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus illum doloribus voluptatum quod quis nostrum aliquid rem aperiam enim tempora pariatur sint quibusdam, accusamus qui dolorem at minus nisi?</p>
@@ -65,16 +94,7 @@
                     <a class="projects__container__article__buttons__a--code a">Ver Código</a>
                 </div>
             </article>
-            <article class="projects__container__article delay_transition3">
-                <img src="images/projectPlaceholder.jpg" alt="Imagen del proyecto" class="projects__container__article__img">
-                <h2 class="projects__container__article__title">Titulo del Proyecto</h2>
-                <p class="projects__container__article__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus illum doloribus voluptatum quod quis nostrum aliquid rem aperiam enim tempora pariatur sint quibusdam, accusamus qui dolorem at minus nisi?</p>
-                <div class="projects__container__article__buttons">
-                    <a class="projects__container__article__buttons__a--web a">Ver web</a>
-                    <a class="projects__container__article__buttons__a--code a">Ver Código</a>
-                </div>
-            </article>
-            <article class="projects__container__article delay_transition4">
+            <article class="projects__container__article">
                 <img src="images/projectPlaceholder.jpg" alt="Imagen del proyecto" class="projects__container__article__img">
                 <h2 class="projects__container__article__title">Titulo del Proyecto</h2>
                 <p class="projects__container__article__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus illum doloribus voluptatum quod quis nostrum aliquid rem aperiam enim tempora pariatur sint quibusdam, accusamus qui dolorem at minus nisi?</p>
@@ -85,7 +105,7 @@
             </article>
         </div>
     </div>
-    <div class="studies transition_section">
+    <div class="studies transition_section" id="studies">
         <h2 class="studies__h2">ESTUDIOS</h2>
         <h3 class="studies__h3">Aqui puedes ver mis estudios</h3>
         <div class="studies__container">
@@ -113,7 +133,7 @@
             </div>
         </div>
     </div>
-    <div class="contact">
+    <div class="contact" id="contact">
         <h2 class="contact__h2">CONTACTO</h2>
         <h3 class="contact__h3">Aqui puedes contactar conmigo mediante email</h3>
         <div class="contact__container">
@@ -136,7 +156,7 @@
                         <textarea name="mensaje" rows="5" required="" class="contact__container__column2__form__message__textarea input"></textarea>
                     </fieldset>
                     <fieldset class="contact__container__column2__form__send">
-                        <button type="submit" class="contact__container__column2__form__send__button input">Send</button>
+                        <button type="submit" class="contact__container__column2__form__send__button input">Enviar</button>
                     </fieldset>
                 </form>
             </div>
@@ -154,7 +174,6 @@
         <p class="footer__copyright">© DAVID FERNÁNDEZ. All Rights Reserved.</p>
     </div>
     <script>
-        'use stict'
         $(document).ready(function() {
             $('body').on({'mousemove' : function( e ){
                 let clientX = e.originalEvent.clientX
@@ -181,8 +200,46 @@
                     $('#cursor').removeClass('mini')
                 },
             })
+            $("#nav__col-2__phone_menu_icon").on("click", function () {
+                event.preventDefault();
+                $(".nav__col-2__menu").slideToggle()
+              });
+              $(window).resize(function () {
+                if (window.innerWidth >= 800) {
+                  $(".nav__col-2__menu").show()
+                }
+                else {
+                  $(".nav__col-2__menu").hide()
+                }
+              });
+              $("#nav__col-2__theme_menu_icon").on("click", function() {
+                event.preventDefault();
+                var $mdiElement = $(this).find(".mdi");
+                if ($mdiElement.hasClass("mdi-weather-sunny")) {
+                  $mdiElement.removeClass("mdi-weather-sunny").addClass("mdi-weather-night");
+                  document.documentElement.style.setProperty('--bg-color1-opaque', '#1f1f1f');
+                  document.documentElement.style.setProperty('--bg-color1', '#1f1f1fdc');
+                  document.documentElement.style.setProperty('--bg-color2', '#1c1c1cdd');
+                  document.documentElement.style.setProperty('--light-red', '#bc3e3e');
+                  document.documentElement.style.setProperty('--orange', '#fd7014');
+                  document.documentElement.style.setProperty('--dark-blue', '#222831');
+                  document.documentElement.style.setProperty('--text-color-white', '#fff');
+                  document.documentElement.style.setProperty('--text-color-light-gray', 'rgb(199, 199, 199)');
+                } else {
+                  $mdiElement.removeClass("mdi-weather-night").addClass("mdi-weather-sunny");
+                  document.documentElement.style.setProperty('--bg-color1-opaque', '#ebebeb');
+                  document.documentElement.style.setProperty('--bg-color1', '#fff');
+                  document.documentElement.style.setProperty('--bg-color2', '#ffffffdd');
+                  document.documentElement.style.setProperty('--light-red', '#bc3e3e');
+                  document.documentElement.style.setProperty('--orange', '#fd7014');
+                  document.documentElement.style.setProperty('--dark-blue', '#c2c2c2');
+                  document.documentElement.style.setProperty('--text-color-white', '#000');
+                  document.documentElement.style.setProperty('--text-color-light-gray', '#202020');
+                }
+              });
         })
     </script>
+
     <script src="js/index.js"></script>
     <script>
         ScrollReveal({ reset: true });
