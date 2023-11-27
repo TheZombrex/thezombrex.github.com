@@ -178,11 +178,6 @@ body {
   src: url(../fonts/HATTEN.TTF);
   font-display: swap;
 }
-@font-face {
-  font-family: Poppins;
-  src: url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
-  font-display: swap;
-}
 * {
   font-family: "Poppins";
 }
