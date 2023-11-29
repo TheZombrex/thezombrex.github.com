@@ -20,7 +20,7 @@ tags:
   - featured image
   - FTW
   - Fun
-  - gallery
+  - blog/gallery
   - html
   - image
   - Jekyll

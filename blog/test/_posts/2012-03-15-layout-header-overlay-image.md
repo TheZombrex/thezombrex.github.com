@@ -1,7 +1,7 @@
 ---
 title: "Layout: Header Image Overlay"
 header:
-  overlay_image: /assets/images/unsplash-image-1.jpg
+  overlay_image: /blog/assets/images/unsplash-image-1.jpg
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
   actions:
     - label: "Call to action 1"
@@ -28,12 +28,12 @@ This post tests overlay header images.
 
 You can use it by specifying the opacity (between 0 and 1) of a black overlay like so:
 
-![transparent black overlay]({{ '/assets/images/mm-header-overlay-black-filter.jpg' | relative_url }})
+![transparent black overlay]({{ '/blog/assets/images/mm-header-overlay-black-filter.jpg' | relative_url }})
 
 ```yaml
 excerpt: "This post should [...]"
 header:
-  overlay_image: /assets/images/unsplash-image-1.jpg
+  overlay_image: /blog/assets/images/unsplash-image-1.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
   actions:
@@ -43,12 +43,12 @@ header:
 
 Or if you want to do more fancy things, go full rgba:
 
-![transparent red overlay]({{ '/assets/images/mm-header-overlay-red-filter.jpg' | relative_url }})
+![transparent red overlay]({{ '/blog/assets/images/mm-header-overlay-red-filter.jpg' | relative_url }})
 
 ```yaml
 excerpt: "This post should [...]"
 header:
-  overlay_image: /assets/images/unsplash-image-1.jpg
+  overlay_image: /blog/assets/images/unsplash-image-1.jpg
   overlay_filter: rgba(255, 0, 0, 0.5)
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
   actions:
