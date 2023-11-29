@@ -7,24 +7,29 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Pruebas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://use.fontawesome.com/releases/v6.2.1/css/all.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/scrollreveal.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div class="change__theme__bg__hide" id="theme_bg">
+        <div class="change__theme__bg__container">
+            <span id="dark" class="mdi mdi-weather-night"></span>
+            <span id="light" class="mdi mdi-weather-sunny"></span>
+        </div>
+    </div>
     <div id="cursor" class=""></div>
     <header class="nav">
         <div class="nav__col-1">
           <div class="nav__col-1__logo"></div>
         </div>
         <div class="nav__col-2">
-        <a href="" id="nav__col-2__phone_menu_icon" class="nav__col-2__phone_menu_icon"><span class="mdi mdi-menu"></span></a>
-        <a href="" id="nav__col-2__theme_menu_icon" class="nav__col-2__theme_menu_icon"><span class="mdi mdi-weather-night"></span></a>
+        <a href="" id="nav__col-2__phone_menu_icon" class="nav__col-2__phone_menu_icon a"><span class="mdi mdi-menu"></span></a>
+        <a href="" id="nav__col-2__theme_menu_icon" class="nav__col-2__theme_menu_icon a"><span class="mdi mdi-weather-night"></span></a>
         <nav class="nav__col-2__menu">
          
           <ul>
@@ -44,8 +49,10 @@
 
         </div>
         <div class="aboutMe__column2">
-            <h1 class="aboutMe__column2__h1">David Fernandez</h1>
-            <h2 class="aboutMe__column2__h2"><span class="aboutMe__column2__h2__span"> &lth2> </span> Web Developer <span class="aboutMe__column2__h2__span"> /h2> </span></h2>
+            <h1 class="aboutMe__column2__h1">David Fernandez <br>
+                <h2 class="aboutMe__column2__h1__h2"><span class="aboutMe__column2__h1__h2__span"> &lth2> </span> Web Developer <span class="aboutMe__column2__h1__h2__span"> /h2> </span></h2>
+            </h1>
+            
             <div class="aboutMe__column2__buttons">
                 <a href="https://linkedin.com/in/david-fernandez-perez/" target="_blank" rel="noopener noreferrer" class="aboutMe__column2__buttons__button--linkedin__a a">
                     <p class="aboutMe__column2__button--linkedin__a__button__text">Mira mi Linked<span class="aboutMe__column2__buttons__button--linkedin__a__icon">in</span></p>
@@ -177,6 +184,7 @@
     </div>
     <script>
         $(document).ready(function() {
+            const themebg = $('#theme_bg');
             $('body').on({'mousemove' : function( e ){
                 let clientX = e.originalEvent.clientX
                 let clientY = e.originalEvent.clientY
@@ -216,7 +224,11 @@
               });
               $("#nav__col-2__theme_menu_icon").on("click", function() {
                 event.preventDefault();
-                var $mdiElement = $(this).find(".mdi");
+                toggleClasses()
+              });
+
+              function changeColors() {
+                var $mdiElement = $('#nav__col-2__theme_menu_icon').find(".mdi");
                 if ($mdiElement.hasClass("mdi-weather-sunny")) {
                   $mdiElement.removeClass("mdi-weather-sunny").addClass("mdi-weather-night");
                   document.documentElement.style.setProperty('--bg-color1-opaque', '#1f1f1f');
@@ -225,21 +237,59 @@
                   document.documentElement.style.setProperty('--light-red', '#e42222');
                   document.documentElement.style.setProperty('--orange', '#fd7014');
                   document.documentElement.style.setProperty('--dark-blue', '#222831');
+                  document.documentElement.style.setProperty('--input-bg', '#222831');
                   document.documentElement.style.setProperty('--text-color-white', '#fff');
                   document.documentElement.style.setProperty('--text-color-light-gray', 'rgb(199, 199, 199)');
-                } else {
+                  document.documentElement.style.setProperty('--cursor-color', 'rgba(255,255,255, .5)');
+                  document.documentElement.style.setProperty('--box-shadow-color', '#181818cd');
+                  document.documentElement.style.setProperty('--background-gradient', 'radial-gradient(circle, rgba(34,40,49,1) 37%, rgba(31,31,31,1) 81%)');
+                  const cursor = document.getElementById('cursor');
+                  cursor.style.mixBlendMode = 'overlay';
+                } 
+                else {
                   $mdiElement.removeClass("mdi-weather-night").addClass("mdi-weather-sunny");
                   document.documentElement.style.setProperty('--bg-color1-opaque', '#ebebeb');
                   document.documentElement.style.setProperty('--bg-color1', '#fff');
                   document.documentElement.style.setProperty('--bg-color2', '#ffffffdd');
                   document.documentElement.style.setProperty('--light-red', '#e42222');
                   document.documentElement.style.setProperty('--orange', '#fd7014');
-                  document.documentElement.style.setProperty('--dark-blue', '#c2c2c2');
+                  document.documentElement.style.setProperty('--dark-blue', '#e7e7e7');
+                  document.documentElement.style.setProperty('--input-bg', '#c3c3c3');
                   document.documentElement.style.setProperty('--text-color-white', '#000');
                   document.documentElement.style.setProperty('--text-color-light-gray', '#202020');
+                  document.documentElement.style.setProperty('--cursor-color', 'rgba(0, 0, 0, 0.5)');
+                  document.documentElement.style.setProperty('--box-shadow-color', '#676767cd');
+                  document.documentElement.style.setProperty('--background-gradient', 'radial-gradient(circle, rgba(255,255,255,1) 37%, rgba(223,223,223,1) 81%)');
+                  const cursor = document.getElementById('cursor');
+                  cursor.style.mixBlendMode = 'darken';
                 }
-              });
-        })
+              }
+
+              function toggleClasses() {
+                var $mdiElement = $('#nav__col-2__theme_menu_icon').find(".mdi");
+                themebg.addClass('change__theme__bg').removeClass('change__theme__bg__hide');
+
+                // Agregar clases para animación de iconos (asumiendo que estas clases tienen las propiedades de animación CSS)
+                
+
+        setTimeout(function() {
+            if ($mdiElement.hasClass("mdi-weather-sunny")) {
+                    $("#light").addClass("theme-icon-out");
+                    $("#dark").addClass("theme-icon-in");
+                } else {
+                    $("#light").addClass("theme-icon-in");
+                    $("#dark").addClass("theme-icon-out");
+                }
+        }, 500);
+
+        setTimeout(function() {
+            changeColors();
+            $("#light").removeClass("theme-icon-out").removeClass("theme-icon-in");
+            $("#dark").removeClass("theme-icon-in").removeClass("theme-icon-out");
+            themebg.removeClass('change__theme__bg').addClass('change__theme__bg__hide');
+        }, 1500);
+    }
+});
     </script>
 
     <script src="js/index.js"></script>
