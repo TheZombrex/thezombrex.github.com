@@ -534,6 +534,7 @@ a {
   display: block;
   margin: 1rem auto;
   font-size: 1.1rem;
+  text-wrap: balance;
 }
 .aboutMe__column2__socialMedia {
   display: flex;
@@ -633,6 +634,7 @@ a {
   margin: 0 0 0 1.5rem;
   color: var(--text-color-white);
   font-size: 0.8rem;
+  text-wrap: balance;
 }
 .projects__container__article__buttons {
   display: flex;
@@ -739,6 +741,7 @@ a {
   padding: 0.2rem;
   margin: 0;
   text-align: left;
+  text-wrap: balance;
 }
 .studies__container__column1 h6, .studies__container__column2 h6, .studies__container__column4 h6 {
   color: var(--text-color-light-gray);

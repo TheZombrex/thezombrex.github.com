@@ -407,6 +407,7 @@
                     display: block;
                     margin: 1rem auto;
                     font-size: 1.1rem;
+                    text-wrap: balance;
                 }
                 &__socialMedia {
                     display: flex;
@@ -493,6 +494,7 @@
                         margin: 0 0 0 1.5rem;
                         color: var(--text-color-white);
                         font-size: .8rem;
+                        text-wrap: balance;
                     }
                     &__buttons {
                         display: flex;
@@ -589,6 +591,7 @@
                     padding: .2rem;
                     margin: 0;
                     text-align: left;
+                    text-wrap: balance;
                     h6 {
                         color: var(--text-color-light-gray);
                         font-size: .7rem;
