@@ -1,0 +1,2 @@
+cd css/
+sass --watch ./:./
