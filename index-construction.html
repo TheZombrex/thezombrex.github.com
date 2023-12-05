@@ -9,6 +9,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://api.fonts.coollabs.io">
+    <link href="https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -189,7 +190,6 @@
         </div>
         <p class="footer__copyright">© DAVID FERNÁNDEZ. All Rights Reserved.</p>
     </div>
-    <link href="https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css">
     <script
     src="js/jquery-3.7.1.min.js"></script>
@@ -222,12 +222,18 @@
                     $('#cursor').removeClass('mini')
                 },
             })
-
-            if (window.innerWidth < 768) {
-              var script = document.createElement('script');
-              script.src = 'js/mobile-navigation.js';
-              document.head.appendChild(script);
-            }
+            $("#nav__col-2__phone_menu_icon").on("click", function () {
+                event.preventDefault();
+                $(".nav__col-2__menu").slideToggle()
+              });
+              $(window).resize(function () {
+                if (window.innerWidth >= 800) {
+                  $(".nav__col-2__menu").show()
+                }
+                else {
+                  $(".nav__col-2__menu").hide()
+                }
+              });
               $("#nav__col-2__theme_menu_icon").on("click", function() {
                 event.preventDefault();
                 toggleClasses()
@@ -294,7 +300,7 @@
             $("#dark").removeClass("theme-icon-in").removeClass("theme-icon-out");
             themebg.removeClass('change__theme__bg').addClass('change__theme__bg__hide');
         }, 1500);
-      }
+    }
 });
     </script>
 
