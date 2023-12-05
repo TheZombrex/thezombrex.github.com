@@ -60,6 +60,7 @@ body {
     right: 1em;
     margin: 0px;
     position: absolute;
+    z-index: 2;
 }
 
 .menu>ul {
@@ -180,6 +181,7 @@ body {
         width: 100vw;
         background-color: #000;
         box-shadow: 0px 0px 4px 4px #0000005f;
+        z-index: 2;
     }
 
     .nav-bar>.col-1 {
@@ -214,10 +216,11 @@ body {
         display: none;
         margin: 0px;
         padding: 0px;
-        top: 4em;
+        top: 5em;
         right: 0px;
         background-color: #000;
         height: 100vh;
+        z-index: 2;
     }
 
     .menu>ul>li {
