@@ -1,5 +1,7 @@
         @use '_reset';
-        //Definicion de colores
+        @import url(poppins.css);
+        @import url(materialdesignicons.min.css);
+        // Definicion de colores
          :root {
             --bg-color1-opaque: #1f1f1f;
             --bg-color1: #1f1f1fc7;
@@ -15,8 +17,18 @@
             --background-gradient: radial-gradient(circle, rgba(34,40,49,1) 37%,rgba(31,31,31,1) 81%);
             --background-orange-gradient: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
         }
-        //Definicion de mixins que se repetiran
-        //Mixin de los Títulos de las secciones como "PROYECTOS" y  "ESTUDIOS"
+
+        // Color al seleccionar texto en la web
+        ::-moz-selection { /* Para Firefox */
+            background: var(--orange);
+        }
+          
+        ::selection {
+            background: var(--orange);
+        }
+
+        // Definicion de mixins que se repetiran
+        // Mixin de los Títulos de las secciones como "PROYECTOS" y  "ESTUDIOS"
         @mixin title() {
             text-align: center;
             font-size: 2rem;
@@ -25,7 +37,7 @@
             margin-top: 1rem;
         }
         
-        //Mixin de los Subtítulos de las secciones como "PROYECTOS" y  "ESTUDIOS"
+        // Mixin de los Subtítulos de las secciones como "PROYECTOS" y  "ESTUDIOS"
         @mixin subtitle() {
             text-align: center;
             font-size: 1rem;
@@ -33,7 +45,7 @@
             margin-bottom: 3rem;
         }
 
-        //Mixin de los paneles que conforman las secciones
+        // Mixin de los paneles que conforman las secciones
         @mixin panel($color, $radius, $margin) {
             background: $color;
             box-shadow:  0px 0px 5px 5px var(--box-shadow-color);
@@ -42,6 +54,7 @@
             margin: $margin;
         }
 
+        // Mixin para botones naranjas
         @mixin button-orange() {
             border-radius: .5rem;
             border:none;
@@ -50,8 +63,7 @@
             color: #000;
         }
         
-        //Fuentes de letras
-        
+        // Fuentes de letras
         @font-face {
             font-family: Haettenschweiler;
             src: url(../fonts/HATTEN.TTF);
@@ -62,7 +74,7 @@
             font-family: "Poppins";
         }
 
-        //Definición de color de la web
+        // Definición de color de la web
         html {
             background-color: var(--bg-color1-opaque);
             width:100%;
@@ -125,6 +137,8 @@
             }
         }
 
+        /* Clases que reproducirán una animacion dependiendo de si
+        debe desaparecer o aparecer el icono */
         .theme-icon-out {
             animation: ThemeIconOut 1s forwards;
           }
@@ -132,6 +146,7 @@
             animation: ThemeIconIn 1s forwards;
         }
       
+        // Animación de desaparecer
         @keyframes ThemeIconOut {
             0% {
               top: 25%;
@@ -149,6 +164,7 @@
             }
         }
 
+        // Animación de aparecer
         @keyframes ThemeIconIn {
             0% {
               transform: rotate(-180deg);
@@ -160,6 +176,7 @@
             }
         }
 
+        // Cursor normal y en su version pequeña del hover
         #cursor{
             height:3rem;
             width:3rem;
@@ -180,6 +197,7 @@
             }
 
 
+        // Fondo con partículas
         #particles-js {
             width: 100vw;
             height: 100vh;
@@ -189,6 +207,8 @@
             z-index: 0;
             pointer-events: none;
         }
+
+        // Menú de navegación
         .nav {
             top: 0px;
             left: 0px;
@@ -272,8 +292,10 @@
 
 
         
-        //Vista para Ordenadores
-        //Seccion de About Me
+        /// Vista para Ordenadores ///
+
+
+        // Sección de About Me
         .aboutMe {
             width: 100%;
             min-height: 100vh;
@@ -430,13 +452,12 @@
                     &--github:hover {
                         transition: .5s all ease;
                         transform: scale(1.2);
-                        filter: drop-shadow(0px 0px 5px #fff);
                     }
                 }
             }
         }
         
-        //Seccion de About Proyectos
+        // Sección de Proyectos
         .projects {
             margin-top: 10em;
             &__h2 {
@@ -542,7 +563,7 @@
             }
         }
         
-        //STUDIES
+        // Sección de estudios
         .studies {
             margin-top: 10vh;
             &__h2 {
@@ -600,7 +621,7 @@
             }
         }
         
-        //Contacto
+        // Sección de contacto
         .contact{
             margin-top: 10rem;
             width:100%;
@@ -687,7 +708,7 @@
             }
         }
 
-        //Footer
+        // Footer
         .footer {
             display: flex;
             flex-direction: row;
@@ -741,7 +762,7 @@
           }
 
         
-        //Vista para Telefonos
+        // Vista para Tablets, ordenadores antiguos y móviles
         @media (max-width: 800px) {
             //Cursor
             // #cursor{
@@ -792,7 +813,7 @@
                 }
             }
               
-            //AboutMe
+            // Sección de Sobre Mí
             .aboutMe {
                 flex-direction: column;
                 justify-content: normal;
@@ -823,7 +844,7 @@
                     }
                 }
             }
-            //STUDIES
+            // Sección de estudios
             .studies {
                 &__h2 {
                     @include title();
@@ -856,7 +877,48 @@
                     }
                 }
             }
-            //Footer
+            // Sección de contacto
+            .contact {
+                width:100%;
+                &__h2 {
+                    @include title();
+                }
+                &__h3 {
+                    @include subtitle();
+                }
+                &__container{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    gap: 2.5rem;
+                    justify-content: center;
+                    align-items: normal;
+                    align-content: normal;
+                    width: 85%;
+                    background-color: var(--bg-color2);
+                    margin: 0 auto;
+                    border-radius: 1rem;
+                    &__column1, &__column2 {
+                        width:100%;
+                    }
+                    &__column1 {
+                        &__icon{
+                            width:40%;
+                        }
+                    }
+                    &__column2{
+                        &__form{
+                            width:90%;
+                            &__name, &__email, &__message, &__send{
+                            &__input, &__textarea{
+                                width:90%;
+                            }
+                        }
+                    }
+                }
+                }
+            }
+            // Footer
             .footer {
                 gap: 1rem;
                 &__social {
@@ -867,45 +929,4 @@
                     }
                 }
             }
-            //Contacto
-        .contact{
-            width:100%;
-            &__h2 {
-                @include title();
-            }
-            &__h3 {
-                @include subtitle();
-            }
-            &__container{
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                gap: 2.5rem;
-                justify-content: center;
-                align-items: normal;
-                align-content: normal;
-                width: 85%;
-                background-color: var(--bg-color2);
-                margin: 0 auto;
-                border-radius: 1rem;
-                &__column1, &__column2 {
-                    width:100%;
-                }
-                &__column1 {
-                    &__icon{
-                        width:40%;
-                    }
-                }
-                &__column2{
-                    &__form{
-                        width:90%;
-                        &__name, &__email, &__message, &__send{
-                        &__input, &__textarea{
-                            width:90%;
-                        }
-                    }
-                }
-            }
-            }
-        }
         }
