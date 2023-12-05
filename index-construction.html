@@ -222,18 +222,12 @@
                     $('#cursor').removeClass('mini')
                 },
             })
-            $("#nav__col-2__phone_menu_icon").on("click", function () {
-                event.preventDefault();
-                $(".nav__col-2__menu").slideToggle()
-              });
-              $(window).resize(function () {
-                if (window.innerWidth >= 800) {
-                  $(".nav__col-2__menu").show()
-                }
-                else {
-                  $(".nav__col-2__menu").hide()
-                }
-              });
+
+            if (window.innerWidth < 768) {
+              var script = document.createElement('script');
+              script.src = 'js/mobile-navigation.js';
+              document.head.appendChild(script);
+            }
               $("#nav__col-2__theme_menu_icon").on("click", function() {
                 event.preventDefault();
                 toggleClasses()
@@ -300,7 +294,7 @@
             $("#dark").removeClass("theme-icon-in").removeClass("theme-icon-out");
             themebg.removeClass('change__theme__bg').addClass('change__theme__bg__hide');
         }, 1500);
-    }
+      }
 });
     </script>
 
