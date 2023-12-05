@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    background: #0B0B0B;
+    /* background: radial-gradient(ellipse at 0% 0%, rgba(29, 44, 93, 1) 0%, rgba(29, 44, 93, 1) 19%, rgba(11, 11, 11, 1) 47%, rgba(11, 11, 11, 1) 100%); */
+    background-image: url(../imagenes/background.jpg);
+    background-size: cover;
+}
+
+.nav-bar {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 5em;
+    padding: 0.5em;
+    display: flex;
+    z-index: 1;
+}
+
+.col-1 {
+    width: 20%;
+}
+
+.col-2 {
+    width: 80%;
+}
+
+.logo {
+    background-image: url(../imagenes/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 6em;
+    height: 2em;
+    margin: 1em;
+    transition: all ease-in 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.5);
+    transition: all ease-in 0.2s;
+}
+
+.menu {
+    color: #000;
+    padding: 0.5em;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    top: 0px;
+    right: 1em;
+    margin: 0px;
+    position: absolute;
+}
+
+.menu>ul {
+    list-style: none;
+    margin: 0px
+}
+
+.menu>ul>li {
+    float: left;
+    padding: .5em;
+    margin-left: 0.2em;
+}
+
+.menu>ul>li>a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu>ul>li>a:hover {
+    color: rgb(234, 58, 58);
+}
+
+.menu {
+    color: #000;
+    padding: 0.5em;
+    display: block;
+}
+
+
+
+#phone_menu_icon {
+    display: none;
+}
+
+#phone_menu_icon:hover {
+    color: rgb(255, 67, 67);
+}
+
+.hero-container {
+    display: flex;
+    min-height: calc(100vh - 5em);
+    z-index: 1;
+}
+.video-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top:0px;
+    left:0px;
+    background-image: url(../imagenes/background-gif.gif);
+    background-size: cover;
+    filter: blur(5px);
+    opacity: .3;
+    z-index: 0;
+}
+
+
+.hero-container>.left-col {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    justify-content: center;
+    z-index: 1;
+}
+
+.hero-container>.left-col>.content>.hero-title {
+    font-size: 4em;
+    text-wrap: balance;
+}
+
+
+.hero-container>.left-col>.content>.hero-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2em;
+    color: #ffffff94;
+    max-width: 500px;
+}
+
+.hero-container>.left-col>.content>.hero-button {
+    background-color: #b32bd6;
+    border: none;
+    padding: 1em 2em;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 2em;
+    transition: all ease .3s;
+}
+
+.hero-container>.left-col>.content>.hero-button:hover {
+    background-color: #d347f6;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.hero-container>.left-col>.content>.hero-social>a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-container>.left-col>.content>.hero-social>a:hover {
+    color: #868686
+}
+
+.hero-container>.right-col {
+    width: 40%;
+    background-image: url(../imagenes/hero.webp);
+    background-size: cover;
+    box-shadow: 0 0 30px 20px rgb(0, 0, 0) inset;
+    z-index: 1;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .nav-bar {
+        flex-direction: column;
+        width: 100vw;
+        background-color: #000;
+        box-shadow: 0px 0px 4px 4px #0000005f;
+    }
+
+    .nav-bar>.col-1 {
+        float: none;
+        width: 100%;
+    }
+
+    .nav-bar>.col-1>.logo {
+        margin: 1em auto;
+    }
+
+    .nav-bar>.col-2 {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    #phone_menu_icon {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        font-size: 2em;
+        position: absolute;
+        right: 1em;
+        top: 0.2em;
+        z-index: 1;
+    }
+
+    .menu {
+        position: fixed;
+        width: 100vw;
+        display: none;
+        margin: 0px;
+        padding: 0px;
+        top: 4em;
+        right: 0px;
+        background-color: #000;
+        height: 100vh;
+    }
+
+    .menu>ul>li {
+        width: 100%;
+        font-size: 1.5em;
+        padding: 1em;
+    }
+
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-container>.left-col {
+        float: none;
+        width: 100%;
+    }
+
+    .hero-container>.right-col {
+        float: none;
+        width: 100%;
+        height: 100vh;
+    }
+}

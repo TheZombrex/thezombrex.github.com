@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css">
+    <script src="https://kit.fontawesome.com/342d1b9588.js" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="nav-bar">
+        <div class="col-1">
+          <div class="logo"></div>
+        </div>
+        <div class="col-2">
+        <a href="" id="phone_menu_icon"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">Demos</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Event</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Reservation</a></li>
+            <li><a href="#">News</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+      </header>
+      <div class="video-container"></div>
+    <div class="hero-container">
+        <div class="left-col">
+            <div class="content">
+                <span class="hero-subtitle">WELCOME TO THE PARTY</span>
+                <h1 class="hero-title">JOIN THE CLUB <span class="mdi mdi-web"></span></h1>
+                
+                <p class="hero-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos enim doloribus voluptatem consectetur veritatis illum in sapiente. Assumenda incidunt, sequi praesentium fugit officia beatae, tenetur expedita nobis deserunt laboriosam corporis?</p>
+                <button class="hero-button">Get in Touch</button>
+                <span class="hero-social"><a href="#"> FB </a> - <a href="#"> INST </a> - <a href="#"> TW </a></span>
+            </div>
+        </div>
+        <div class="right-col">
+          <div class="blurred-image"></div>
+        </div>
+    </div>
+    <script>
+          $(document).ready(function () {
+            $("#phone_menu_icon").on("click", function () {
+              event.preventDefault();
+              $(".menu").slideToggle();
+            });
+            $(window).resize(function () {
+              if (window.innerWidth >= 700) {
+                $(".menu").show()
+              }
+              else {
+                $(".menu").hide()
+              }
+            });
+          });
+      
+      </script>
+</body>
+</html>
