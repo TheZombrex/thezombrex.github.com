@@ -8,8 +8,8 @@
     <meta http-equiv="cache-control" content="max-age=3600">
     <title>Portfolio</title>
     <link rel="preconnect" href="https://api.fonts.coollabs.io">
-    <link href="https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" defer>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css" defer>
+    <!-- <link href="https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" defer> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css" defer> -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -193,6 +193,18 @@
     </div>
     <script src="js/jquery-3.7.1.min.js" defer></script>
     <script src="js/scrollreveal.js"></script>
+
+    <script>
+      const link1 = document.createElement('link');
+      link1.rel = 'stylesheet';
+      link1.href = 'https://api.fonts.coollabs.io/css2?family=Poppins:wght@400;500&display=swap';
+      document.head.appendChild(link1);
+    
+      const link2 = document.createElement('link');
+      link2.rel = 'stylesheet';
+      link2.href = 'https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css';
+      document.head.appendChild(link2);
+    </script>
     <script>
         $(document).ready(function() {
             const themebg = $('#theme_bg');
