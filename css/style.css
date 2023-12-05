@@ -434,7 +434,7 @@ debe desaparecer o aparecer el icono */
   height: 100%;
   min-height: 500px;
   margin: 0 auto;
-  background-image: url("../images/me.png");
+  background-image: url("../images/me.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -628,7 +628,7 @@ debe desaparecer o aparecer el icono */
   height: 150px;
   margin: 5% 5%;
   border-radius: 0.5rem;
-  background-image: url(../images/projectPlaceholder.jpg);
+  background-image: url(../images/projectPlaceholder.webp);
   background-size: cover;
   background-position: 0 0;
   background-repeat: no-repeat;
