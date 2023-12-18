@@ -625,6 +625,7 @@ debe desaparecer o aparecer el icono */
 }
 .projects__container__article__img {
   width: 90%;
+<<<<<<< HEAD
   height: 150px;
   margin: 5% 5%;
   border-radius: 0.5rem;
@@ -632,18 +633,47 @@ debe desaparecer o aparecer el icono */
   background-size: cover;
   background-position: 0 0;
   background-repeat: no-repeat;
+=======
+  height: 140px;
+  margin: 5% 5%;
+  border-radius: 0.5rem;
+}
+.projects__container__article__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+>>>>>>> e6ecf2e03fb03e41bfe6b12511c218d773ae9d38
 }
 .projects__container__article__title {
-  margin: 0 0 0.5rem 0;
+  margin: 1em 0.5em;
   color: var(--orange);
   font-size: 1.2rem;
   text-align: center;
+  font-weight: bold;
 }
 .projects__container__article__text {
   margin: 0 0 0 1.5rem;
+  width: 80%;
   color: var(--text-color-white);
   font-size: 0.8rem;
   text-wrap: balance;
+<<<<<<< HEAD
+=======
+}
+.projects__container__article__technologies {
+  display: flex;
+  justify-content: space-around;
+  margin: 1em auto;
+}
+.projects__container__article__technologies__container {
+  width: 3em;
+  height: 3em;
+}
+.projects__container__article__technologies__container__image {
+  width: 100%;
+  object-fit: contain;
+>>>>>>> e6ecf2e03fb03e41bfe6b12511c218d773ae9d38
 }
 .projects__container__article__buttons {
   display: flex;
