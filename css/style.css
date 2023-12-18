@@ -625,15 +625,6 @@ debe desaparecer o aparecer el icono */
 }
 .projects__container__article__img {
   width: 90%;
-<<<<<<< HEAD
-  height: 150px;
-  margin: 5% 5%;
-  border-radius: 0.5rem;
-  background-image: url(../images/projectPlaceholder.webp);
-  background-size: cover;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-=======
   height: 140px;
   margin: 5% 5%;
   border-radius: 0.5rem;
@@ -643,7 +634,6 @@ debe desaparecer o aparecer el icono */
   height: 100%;
   object-fit: cover;
   border-radius: 0.5rem;
->>>>>>> e6ecf2e03fb03e41bfe6b12511c218d773ae9d38
 }
 .projects__container__article__title {
   margin: 1em 0.5em;
@@ -658,8 +648,6 @@ debe desaparecer o aparecer el icono */
   color: var(--text-color-white);
   font-size: 0.8rem;
   text-wrap: balance;
-<<<<<<< HEAD
-=======
 }
 .projects__container__article__technologies {
   display: flex;
@@ -673,7 +661,6 @@ debe desaparecer o aparecer el icono */
 .projects__container__article__technologies__container__image {
   width: 100%;
   object-fit: contain;
->>>>>>> e6ecf2e03fb03e41bfe6b12511c218d773ae9d38
 }
 .projects__container__article__buttons {
   display: flex;
