@@ -1,3 +1,12 @@
+:root {
+    --bg-0: #0a0e1d;
+    --bg-1: #1f1f1f;
+    --bg-2: #181818;
+    --bg-3: #222831;
+    --background-orange-gradient: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    --orange: #fd7014;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,47 +21,198 @@ a {
 
 html,
 body {
-    background-color: #1f1f1f;
+    background-color: var(--bg-1);
+    height: 100vh;
 }
 
-.main-title {
+.bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url(../images/bg.png);
+    background-size: cover;
+    opacity: 1;
+    z-index: -1;
+}
+
+header {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     color: #fff;
-    text-align: center;
-    margin: 1em auto;
 }
 
-.cards-container {
-    max-width: 1000px;
-    margin: auto;
-    display: grid;
+header>h2 {
+    margin-top: .5em;
+}
+
+header>.go-back {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+}
+
+header>.go-back>a {
+    color: #fff;
+}
+
+header>.go-back>a:hover {
+    color: var(--orange);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     padding: 2em;
+    margin-top: 3em;
+}
+
+.container {
+    background-color: var(--bg-2);
+    max-width: 1000px;
+    width: 90%;
+    border-radius: .2em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.container>h2 {
+    color: #fff;
+    margin: .5em 0;
+}
+
+.container>.cards-container {
+    display: grid;
     gap: 1em;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.cards-container>.card {
+.container>.cards-container>.card {
     transition: all ease .3s;
+    overflow: hidden;
+    background-color: var(--bg-3);
+    border-bottom: .3em solid var(--orange);
+    border-radius: .5em;
+    padding: 1em;
+    position: relative;
 }
 
-.cards-container>.card:hover>div>img {
-    filter: brightness(1.5);
-    transition: all ease .3s;
+.container>.cards-container>.card>.border-top {
+    position: absolute;
+    width: 70%;
+    top: 0px;
+    left: 15%;
+    height: .5em;
+    border-radius: 0 0 .5em .5em;
+    background: var(--background-orange-gradient);
 }
 
-.cards-container>.card:hover>div>.title {
-    color: #fd7014;
-    transition: all ease .3s;
-}
-
-.cards-container>.card>div {
+.container>.cards-container>.card>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: .5em;
+    position: relative;
 }
 
-.cards-container>.card>div>img {
+.container>.cards-container>.card>div>.img-container {
+    height: 7em;
+    width: 90%;
+    position: relative;
+}
+
+.container>.cards-container>.card>div>.img-container>img {
     width: 100%;
-    border-radius: .5em;
+    height: 100%;
+    object-fit: contain;
+    border: 3px solid transparent;
+}
+
+.container>.cards-container>.card>div>.img-container>.see-website {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    color: var(--orange);
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    margin: 0px;
+    top: 30%;
+    transform: translateY(-300%);
+    opacity: 0;
+    transition: all ease .3s;
+}
+
+.container>.cards-container>.card>div>.title {
+    width: 100%;
+    text-align: center;
+    font-size: .7em;
+}
+
+.container>.cards-container>.card:hover>div>img {
+    filter: brightness(.5);
+    border: 3px solid var(--orange);
+    transition: all ease .3s;
+}
+
+.container>.cards-container>.card:hover>div>.title {
+    color: var(--orange);
+    transition: all ease .3s;
+}
+
+.container>.cards-container>.card:hover>div>.img-container>.see-website {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all ease .3s;
+}
+
+@media only screen and (max-width:400px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    header>.go-back {
+        position: relative !important;
+    }
+
+
+
+    main {
+        padding: 5px;
+    }
+
+    .container {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .container>.cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media only screen and (max-width:600px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    header>.go-back {
+        position: relative !important;
+    }
 }

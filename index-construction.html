@@ -73,7 +73,7 @@
     <div class="pojects transition_section" id="projects">
       <h2 class="projects__h2">&lt;proyectos&gt;</h2>
         <h3 class="projects__h3">Aquí puedes ver algunos de mis proyectos</h3>
-        <div class="projects__container">
+          <div class="projects__container">
             <article class="projects__container__article delay_transition1">
               <div class="projects__container__article__top"></div>
                 <div class="projects__container__article__img" alt="Imagen del proyecto">
@@ -139,8 +139,11 @@
                     <!--<a class="projects__container__article__buttons__a--code a">Ver Código</a>-->
                 </div>
             </article>
+          </div>  
         </div>
-    </div>
+        <div class="projects__button__container">
+              <a class="projects__button__container__button a" href="https://thezombrex.github.io/projects/">Ver Todos</a>
+        </div>
     <h2 class="projects__h2">&lt;/proyectos&gt;</h2>
     <div class="studies transition_section" id="studies">
         <h2 class="studies__h2">&lt;estudios&gt;</h2>
@@ -221,15 +224,12 @@
     <script src="js/scrollreveal.js" defer></script>
     <script>
         $(document).ready(function() {
-            const themebg = $('#theme_bg');
-            $('body').on({'mousemove' : function( e ){
-                let clientX = e.originalEvent.clientX
-                let clientY = e.originalEvent.clientY
-                $('#cursor').css({
-                    'left' : (clientX - 20 ) + 'px',
-                    'top' : (clientY - 20 ) + 'px'
-                })
-            }})
+  $(document).on('mousemove', function(e) {
+    $('#cursor').css({
+      left: e.pageX,
+      top: e.pageY
+    });
+  })
 
             $('.a').on({
                 'mouseover': function(){

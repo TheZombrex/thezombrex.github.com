@@ -59,6 +59,11 @@
             background-size: 200% auto;
             background-image: var(--background-orange-gradient);
             color: #000;
+            padding: .5rem 1rem;
+            font-weight: 600;
+            font-size: .8rem;
+            text-align: center;
+            vertical-align: middle;
         }
         
         // Fuentes de letras
@@ -464,6 +469,20 @@
             &__h3 {
                 @include subtitle();
             }
+            &__button__container{
+                
+                @include panel(var(--bg-color2), 1rem, auto);
+                width: 90%;
+                padding: 2em;
+                margin: 2em auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &__button {
+                    @include button-orange();
+                    width: 10em;
+                }
+            }
             &__container {
                 @include panel(var(--bg-color2), 1rem, auto);
                 width: 90%;
@@ -474,7 +493,7 @@
                 justify-content: center;
                 align-items: normal;
                 align-content: normal;
-                padding: 2rem 1rem;
+                 padding: 1rem;
                 &__article {
                     @include panel(var(--dark-blue), 1rem, auto);
                     width: 20%;
@@ -557,13 +576,8 @@
                         &__a--web{
                             @include button-orange();
                             padding: .2rem;
-                            font-weight: 600;
-                            padding: .5rem 1rem;
                             transition: .5s all ease;
                             width: 80%;
-                            font-size: .8rem;
-                            text-align: center;
-                            vertical-align: middle;
                         }
                         &__a--web:hover,
                         &__a--code:hover {

@@ -585,6 +585,32 @@ debe desaparecer o aparecer el icono */
   color: var(--text-color-white);
   margin-bottom: 3rem;
 }
+.projects__button__container {
+  background: var(--bg-color2);
+  box-shadow: 0px 0px 5px 5px var(--box-shadow-color);
+  border-radius: 1rem;
+  backdrop-filter: blur(5px);
+  margin: auto;
+  width: 90%;
+  padding: 2em;
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.projects__button__container__button {
+  border-radius: 0.5rem;
+  border: none;
+  background-size: 200% auto;
+  background-image: var(--background-orange-gradient);
+  color: #000;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+  vertical-align: middle;
+  width: 10em;
+}
 .projects__container {
   background: var(--bg-color2);
   box-shadow: 0px 0px 5px 5px var(--box-shadow-color);
@@ -599,7 +625,7 @@ debe desaparecer o aparecer el icono */
   justify-content: center;
   align-items: normal;
   align-content: normal;
-  padding: 2rem 1rem;
+  padding: 1rem;
 }
 .projects__container__article {
   background: var(--dark-blue);
@@ -691,14 +717,14 @@ debe desaparecer o aparecer el icono */
   background-size: 200% auto;
   background-image: var(--background-orange-gradient);
   color: #000;
-  padding: 0.2rem;
-  font-weight: 600;
   padding: 0.5rem 1rem;
-  transition: 0.5s all ease;
-  width: 80%;
+  font-weight: 600;
   font-size: 0.8rem;
   text-align: center;
   vertical-align: middle;
+  padding: 0.2rem;
+  transition: 0.5s all ease;
+  width: 80%;
 }
 .projects__container__article__buttons__a--web:hover, .projects__container__article__buttons__a--code:hover {
   filter: brightness(1.5);
@@ -866,6 +892,11 @@ debe desaparecer o aparecer el icono */
   background-size: 200% auto;
   background-image: var(--background-orange-gradient);
   color: #000;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+  vertical-align: middle;
   cursor: none;
   transition: all 0.5s ease;
 }
