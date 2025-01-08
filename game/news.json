@@ -1,14 +1,26 @@
 {
     "news": [
         {
-            "title": "This is a test news for the game",
+            "title": {
+                "en": "This is a test news for the game",
+                "es": "Esta es una noticia de prueba para el juego"
+            },
             "media": "https://thezombrex.github.io/game/media/placeholder.jpg",
-            "description": "This is a placeholder description for the news."
+            "description": {
+                "en": "This is a placeholder description for the news.",
+                "es": "Esta es una descripción de prueba para la noticia."
+            }
         },
         {
-            "title": "This is a second test news for the game",
+            "title": {
+                "en": "This is a second test news for the game",
+                "es": "Esta es una segunda noticia de prueba para el juego"
+            },
             "media": "https://thezombrex.github.io/game/media/test_image1.jpg",
-            "description": "This is a placeholder description for the news."
+            "description": {
+                "en": "This is a placeholder description for the news.",
+                "es": "Esta es una descripción de prueba para la noticia."
+            }
         }
     ]
 }
