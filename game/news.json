@@ -1,0 +1,9 @@
+{
+    "news": [
+        {
+            "title": "This is a test news for the game",
+            "media": "https://thezombrex.github.io/game/media/placeholder.jpg",
+            "description": "This is a placeholder description for the news."
+        }
+    ]
+}
