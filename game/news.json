@@ -8,7 +8,9 @@
             "media": "https://thezombrex.github.io/game/media/placeholder.jpg",
             "description": {
                 "en": "This is a placeholder description for the news.",
-                "es": "[p]Finalmente está implementado el nuevo sistema de noticias que se actualiza automáticamente con el contenido de la web.[/p] [p] \n Por el momento solo puede usarse una imagen, un título y una descripción, pero a futuro podría mejorar admitiendo más contenido.[/p]"
+                "es": "[p]Finalmente está implementado el nuevo sistema de noticias que se actualiza automáticamente con el contenido de la web.[/p] [p] \n 
+                Por el momento solo puede usarse una imagen, un título y una descripción, pero a futuro podría mejorar admitiendo más contenido.[/p
+                ]"
             }
         },
         {
@@ -20,6 +22,17 @@
             "description": {
                 "en": "This is a placeholder description for the news.",
                 "es": "Esta es una descripción de prueba para la noticia."
+            }
+        },
+        {
+            "title": {
+                "en": "This is a third test news for the game",
+                "es": "Esta es una tercera noticia de prueba para el juego"
+            },
+            "media": "https://thezombrex.github.io/game/media/test_image1.jpg",
+            "description": {
+                "en": "This is a placeholder description for the news.",
+                "es": "[p]Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut lobortis metus, sit amet pulvinar nulla. Praesent semper mi in ante tempor tristique. Aenean at ipsum quis ligula condimentum molestie. Nunc maximus semper odio, non facilisis leo eleifend volutpat. Aliquam volutpat, justo a volutpat ornare, diam magna porta eros, ut mattis nisl leo vitae libero. Quisque faucibus lorem in lectus vestibulum, imperdiet rhoncus dui ullamcorper. Nunc tincidunt purus eu dui imperdiet, ut pretium felis finibus. Sed vitae magna at arcu dapibus rhoncus.[/p]\n [p]Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc in tempus nibh. Phasellus eget iaculis leo. Proin molestie velit eget cursus pellentesque. Aenean gravida in ligula id viverra. Cras vitae quam molestie, efficitur dolor nec, lacinia mauris. Vestibulum ultricies, erat vulputate luctus faucibus, eros enim ullamcorper massa, vitae tristique tellus libero ut libero. Maecenas sit amet enim quam. Integer risus purus, hendrerit eget lacus eget, eleifend sollicitudin justo.[/p]\n [p]Quisque varius, ante sed pretium facilisis, magna ligula hendrerit nisl, in elementum risus erat et velit. Sed tincidunt vel neque a bibendum. Donec laoreet erat ut diam rhoncus lacinia. Integer dignissim, lectus ut vulputate mattis, risus felis sodales nisi, ac venenatis diam justo vitae massa. Cras bibendum, dolor sed tempus bibendum, libero diam consectetur augue, sit amet aliquet nisi enim at quam. Sed ornare porttitor ipsum, ac gravida ipsum aliquam vel. In euismod felis id nulla ornare, sed consectetur quam semper. Nulla at nulla vulputate, semper urna et, finibus est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent in nibh sit amet leo placerat sollicitudin. Vestibulum quis augue eros. Pellentesque vel elementum enim. Donec hendrerit mauris neque, ut convallis dui condimentum quis. Nam malesuada purus non condimentum bibendum.[/p]\n [p]Nunc quis fringilla nulla. Pellentesque tortor sapien, finibus in elit non, volutpat hendrerit ipsum. Maecenas a dui ac ligula tempus fringilla vehicula in orci. Praesent lectus orci, maximus nec sem non, condimentum gravida mi. Nulla molestie, ipsum quis viverra rhoncus, erat nisi congue leo, sit amet bibendum dolor elit vitae erat. Maecenas pulvinar vulputate ultrices. Nam eget magna in nisl eleifend convallis non nec nulla. Donec fringilla luctus auctor. Integer ultricies vulputate sodales.[/p]\n [p]Cras non convallis sapien, vitae euismod ante. Nam feugiat, libero id vulputate bibendum, dui mauris posuere orci, ac congue ante mi eu ante. Nulla facilisi. Fusce eu ligula sed nisl ornare eleifend non nec elit. Proin rhoncus erat vel eros aliquam ornare. Nam id mauris purus. Sed id congue neque.[/p]"
             }
         }
     ]
