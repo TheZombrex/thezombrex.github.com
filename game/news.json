@@ -8,9 +8,7 @@
             "media": "https://thezombrex.github.io/game/media/placeholder.jpg",
             "description": {
                 "en": "This is a placeholder description for the news.",
-                "es": "[p]Finalmente está implementado el nuevo sistema de noticias que se actualiza automáticamente con el contenido de la web.[/p] [p] \n 
-                Por el momento solo puede usarse una imagen, un título y una descripción, pero a futuro podría mejorar admitiendo más contenido.[/p
-                ]"
+                "es": "[p]Finalmente está implementado el nuevo sistema de noticias que se actualiza automáticamente con el contenido de la web.[/p] [p] \n Por el momento solo puede usarse una imagen, un título y una descripción, pero a futuro podría mejorar admitiendo más contenido.[/p]"
             }
         },
         {
